@@ -326,7 +326,9 @@ export function kitName(a: WizardAnswers): string {
 }
 
 export function kitConcept(a: WizardAnswers): string {
-  const purpose = a.purpose ? labelOf(PURPOSES, a.purpose).toLocaleLowerCase("tr-TR") : "kurumsal hediye";
-  const style = a.style ? labelOf(STYLES, a.style).toLocaleLowerCase("tr-TR") : "dengeli";
+  // Yalnızca ilk harf küçültülür; "VIP" gibi kısaltmalar korunur
+  const lcFirst = (t: string) => t.charAt(0).toLocaleLowerCase("tr-TR") + t.slice(1);
+  const purpose = a.purpose ? labelOf(PURPOSES, a.purpose) : "Kurumsal hediye";
+  const style = a.style ? lcFirst(labelOf(STYLES, a.style)) : "dengeli";
   return `${purpose} için ${style} bir çizgide, stokta bulunan ürünlerden oluşturulmuş seçki.`;
 }

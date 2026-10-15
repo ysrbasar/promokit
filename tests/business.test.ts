@@ -253,3 +253,11 @@ describe("içe aktarma", () => {
     expect(buildKit(products, { ...EMPTY_ANSWERS, quantity: 0 }, settings).items).toHaveLength(1);
   });
 });
+
+describe("kit metinleri", () => {
+  it("kısaltmaları bozmaz ve cümle büyük harfle başlar", async () => {
+    const { kitConcept } = await import("@/lib/kit/recommendation");
+    const t = kitConcept({ ...EMPTY_ANSWERS, purpose: "vip", style: "luxury" });
+    expect(t).toBe("Yönetici ve VIP hediyesi için premium ve lüks bir çizgide, stokta bulunan ürünlerden oluşturulmuş seçki.");
+  });
+});
