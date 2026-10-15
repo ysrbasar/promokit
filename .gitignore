@@ -1,0 +1,12 @@
+node_modules
+.next
+next-env.d.ts
+tsconfig.tsbuildinfo
+.env
+.env.*
+!.env.example
+# Veri toplama ara çıktıları (ham HTML önbelleği, PDF)
+data/import/raw/
+data/import/*.pdf
+# Çalışma zamanı kayıtları (teklifler, yüklenen dosyalar)
+data/runtime/

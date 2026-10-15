@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/*
+ * Tasarım tokenları — renk, tipografi, köşe, gölge ve hareket değerleri tek yerde.
+ * Kırık beyaz / taş yüzeyler, gece laciverti ana renk, kontrollü şampanya vurgusu.
+ */
+@theme {
+  --color-ivory: #f6f3ee;
+  --color-paper: #fbfaf7;
+  --color-stone: #ebe6dc;
+  --color-sand: #d9d0c1;
+  --color-ink: #0e1525;
+  --color-ink-2: #1a2133;
+  --color-ink-3: #2a3245;
+  --color-muted: #6b6862;
+  --color-subtle: #96918a;
+  --color-line: rgb(14 21 37 / 0.1);
+  --color-line-strong: rgb(14 21 37 / 0.18);
+  --color-champagne: #c4a46a;
+  --color-champagne-light: #e6d6b1;
+  --color-gold-deep: #8a6a2f;
+  --color-success: #2f6b4a;
+  --color-warning: #8a5a12;
+  --color-danger: #9b2c22;
+
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-manrope), "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 0.875rem;
+  --radius-soft: 0.5rem;
+
+  --shadow-card: 0 1px 2px rgb(14 21 37 / 0.04), 0 8px 24px -12px rgb(14 21 37 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(14 21 37 / 0.05), 0 24px 48px -20px rgb(14 21 37 / 0.28);
+  --shadow-gold: 0 0 0 1px rgb(196 164 106 / 0.5), 0 12px 32px -12px rgb(196 164 106 / 0.45);
+
+  --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-shimmer: shimmer 1.6s linear infinite;
+
+  @keyframes shimmer {
+    from { background-position: -200% 0; }
+    to { background-position: 200% 0; }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: var(--color-champagne-light);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-champagne);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-gold-deep);
+  }
+  .dark-surface .eyebrow {
+    color: var(--color-champagne);
+  }
+  .hairline {
+    background: linear-gradient(90deg, transparent, var(--color-champagne), transparent);
+    height: 1px;
+  }
+  .skeleton {
+    background: linear-gradient(90deg, var(--color-stone) 25%, var(--color-paper) 50%, var(--color-stone) 75%);
+    background-size: 200% 100%;
+    animation: var(--animate-shimmer);
+  }
+  .grain {
+    background-image: radial-gradient(rgb(14 21 37 / 0.035) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

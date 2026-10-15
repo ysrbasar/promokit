@@ -1,0 +1,505 @@
+{
+  "kits": [
+    {
+      "slug": "welcome-kit",
+      "name": "Welcome Kit",
+      "tagline": "İlk günün en güzel hatırası",
+      "description": "Yeni ekip arkadaşlarınızı masalarında karşılayan; günlük kullanımda markanızı taşıyan termos, defter ve kalemden oluşan dengeli bir başlangıç seti.",
+      "story": "İşe başlangıç günü, bir şirket kültürünün ilk temas noktasıdır. Welcome Kit, ilk kahveden ilk toplantı notuna kadar her gün kullanılacak parçalarla bu ilk izlenimi kalıcı kılar.",
+      "audience": "Yeni çalışanlar",
+      "purpose": "Onboarding ve işe başlangıç",
+      "recommendedQuantity": "25–250 kişi",
+      "personalization": [
+        "Logo baskısı",
+        "Lazer kazıma",
+        "Özel kutu",
+        "Hoş geldin kartı"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "welcome",
+        "audience": "employees",
+        "style": "minimal",
+        "budgetKey": "500-1000",
+        "categories": [
+          "termos-matara",
+          "defter-ajanda",
+          "kalem",
+          "kutu-ambalaj"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "DEMO-1001",
+          "qty": 1,
+          "role": "Günün ilk kahvesi için"
+        },
+        {
+          "productCode": "DEMO-1009",
+          "qty": 1,
+          "role": "Notlar ve fikirler"
+        },
+        {
+          "productCode": "DEMO-1014",
+          "qty": 1,
+          "role": "Her imzada marka"
+        },
+        {
+          "productCode": "DEMO-1048",
+          "qty": 1,
+          "role": "Sunum kutusu"
+        }
+      ],
+      "isFeatured": true
+    },
+    {
+      "slug": "premium-yonetici-kiti",
+      "name": "Premium Yönetici Kiti",
+      "tagline": "Masada sessiz bir prestij",
+      "description": "Deri ajanda, metal kalem seti ve masaüstü aksesuarlarıyla üst düzey yöneticiler için hazırlanmış rafine bir seçki.",
+      "story": "Yönetici masası, kararların ve ilişkilerin kurulduğu yerdir. Bu kit, her gün dokunulan nesnelerde ölçülü bir lüks sunar.",
+      "audience": "Üst düzey yöneticiler",
+      "purpose": "Yönetici ve VIP hediyesi",
+      "recommendedQuantity": "10–100 kişi",
+      "personalization": [
+        "Lazer kazıma",
+        "Kabartma",
+        "Kadife kutu"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "vip",
+        "audience": "executives",
+        "style": "luxury",
+        "budgetKey": "2000-5000",
+        "categories": [
+          "defter-ajanda",
+          "kalem",
+          "masaustu",
+          "termos-matara",
+          "kutu-ambalaj"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "DEMO-1008",
+          "qty": 1,
+          "role": "Yılın planı"
+        },
+        {
+          "productCode": "DEMO-1017",
+          "qty": 1,
+          "role": "İmza anları için"
+        },
+        {
+          "productCode": "DEMO-1040",
+          "qty": 1,
+          "role": "Masa düzeni"
+        },
+        {
+          "productCode": "DEMO-1007",
+          "qty": 1,
+          "role": "Toplantı arası"
+        },
+        {
+          "productCode": "DEMO-1050",
+          "qty": 1,
+          "role": "Sunum"
+        }
+      ],
+      "isFeatured": true
+    },
+    {
+      "slug": "etkinlik-kongre-kiti",
+      "name": "Etkinlik ve Kongre Kiti",
+      "tagline": "Kalabalıkta akılda kalan",
+      "description": "Konferans çantası, bloknot ve kalemle katılımcılara pratik, hafif ve markalı bir karşılama.",
+      "story": "Kayıt masasında verilen çanta, etkinlik boyunca markanızın yürüyen vitrinidir.",
+      "audience": "Etkinlik katılımcıları",
+      "purpose": "Etkinlik, kongre ve fuar",
+      "recommendedQuantity": "100–1.000 kişi",
+      "personalization": [
+        "Serigrafi",
+        "Tampon baskı"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "event",
+        "audience": "attendees",
+        "style": "dynamic",
+        "budgetKey": "economy",
+        "categories": [
+          "canta",
+          "defter-ajanda",
+          "kalem"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "DEMO-1031",
+          "qty": 1,
+          "role": "Taşıma"
+        },
+        {
+          "productCode": "DEMO-1012",
+          "qty": 1,
+          "role": "Oturum notları"
+        },
+        {
+          "productCode": "DEMO-1018",
+          "qty": 1,
+          "role": "Yazı"
+        }
+      ],
+      "isFeatured": true
+    },
+    {
+      "slug": "teknoloji-kiti",
+      "name": "Teknoloji Kiti",
+      "tagline": "Her zaman şarjlı, her zaman bağlantıda",
+      "description": "Powerbank, şarj kablosu ve kablosuz şarj standıyla modern çalışma hayatının teknolojik ihtiyaçları.",
+      "story": "Hibrit çalışma çağında en çok kullanılan hediye, cihazları hayatta tutan hediyedir.",
+      "audience": "Müşteriler ve ekipler",
+      "purpose": "Müşteri ve bayi hediyesi",
+      "recommendedQuantity": "25–500 kişi",
+      "personalization": [
+        "Lazer kazıma",
+        "UV baskı",
+        "Işıklı logo"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "client",
+        "audience": "clients",
+        "style": "tech",
+        "budgetKey": "1000-2000",
+        "categories": [
+          "teknoloji",
+          "kutu-ambalaj"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "DEMO-1020",
+          "qty": 1,
+          "role": "Yolda enerji"
+        },
+        {
+          "productCode": "DEMO-1024",
+          "qty": 1,
+          "role": "Her cihaza uyum"
+        },
+        {
+          "productCode": "DEMO-1025",
+          "qty": 1,
+          "role": "Masada şarj"
+        },
+        {
+          "productCode": "DEMO-1048",
+          "qty": 1,
+          "role": "Sunum kutusu"
+        }
+      ],
+      "isFeatured": true
+    },
+    {
+      "slug": "surdurulebilirlik-kiti",
+      "name": "Sürdürülebilirlik Kiti",
+      "tagline": "Doğaya saygılı bir marka imzası",
+      "description": "Bambu, mantar ve geri dönüştürülmüş malzemelerden oluşan, çevre bilincini öne çıkaran seçki.",
+      "story": "Sürdürülebilirlik bir kampanya değil, bir tutumdur. Bu kit, markanızın değerlerini malzemesiyle anlatır.",
+      "audience": "Çalışanlar ve katılımcılar",
+      "purpose": "Kurumsal sorumluluk",
+      "recommendedQuantity": "50–500 kişi",
+      "personalization": [
+        "Lazer kazıma",
+        "Serigrafi",
+        "Kraft kutu"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "welcome",
+        "audience": "general",
+        "style": "eco",
+        "budgetKey": "lt500",
+        "categories": [
+          "doga-dostu",
+          "kalem",
+          "canta",
+          "kutu-ambalaj"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "DEMO-1052",
+          "qty": 1,
+          "role": "Kayıt defteri"
+        },
+        {
+          "productCode": "DEMO-1015",
+          "qty": 1,
+          "role": "Yazı"
+        },
+        {
+          "productCode": "DEMO-1029",
+          "qty": 1,
+          "role": "Taşıma"
+        },
+        {
+          "productCode": "DEMO-1049",
+          "qty": 1,
+          "role": "Ambalaj"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "ogrenci-egitim-kiti",
+      "name": "Öğrenci ve Eğitim Kiti",
+      "tagline": "Kampüste her gün yanında",
+      "description": "Sırt çantası, matara, defter ve kalemle öğrencilere ve eğitim programı katılımcılarına pratik bir set.",
+      "story": "Öğrenim yolculuğu boyunca taşınan her nesne, kurumunuzla kurulan bağın bir parçası olur.",
+      "audience": "Öğrenciler",
+      "purpose": "Öğrenci ve eğitim",
+      "recommendedQuantity": "50–1.000 kişi",
+      "personalization": [
+        "Tampon baskı",
+        "Serigrafi"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "education",
+        "audience": "students",
+        "style": "dynamic",
+        "budgetKey": "500-1000",
+        "categories": [
+          "canta",
+          "termos-matara",
+          "defter-ajanda",
+          "kalem"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "DEMO-1027",
+          "qty": 1,
+          "role": "Kampüs çantası"
+        },
+        {
+          "productCode": "DEMO-1005",
+          "qty": 1,
+          "role": "Ders arası"
+        },
+        {
+          "productCode": "DEMO-1009",
+          "qty": 1,
+          "role": "Ders notları"
+        },
+        {
+          "productCode": "DEMO-1019",
+          "qty": 1,
+          "role": "Yazı"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "bayi-musteri-hediye-kiti",
+      "name": "Bayi ve Müşteri Hediye Kiti",
+      "tagline": "İş ortaklığına zarif bir teşekkür",
+      "description": "Termos, deri ajanda ve hoparlörle bayilerinize ve müşterilerinize değer verdiğinizi gösteren kombinasyon.",
+      "story": "Güçlü iş ortaklıkları küçük ama anlamlı jestlerle beslenir.",
+      "audience": "Bayiler ve müşteriler",
+      "purpose": "Bayi ve müşteri hediyesi",
+      "recommendedQuantity": "25–500 kişi",
+      "personalization": [
+        "Lazer kazıma",
+        "Kabartma",
+        "Özel kutu"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "dealer",
+        "audience": "partners",
+        "style": "classic",
+        "budgetKey": "1000-2000",
+        "categories": [
+          "termos-matara",
+          "defter-ajanda",
+          "teknoloji",
+          "kutu-ambalaj"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "DEMO-1004",
+          "qty": 1,
+          "role": "Günlük kullanım"
+        },
+        {
+          "productCode": "DEMO-1008",
+          "qty": 1,
+          "role": "Planlama"
+        },
+        {
+          "productCode": "DEMO-1022",
+          "qty": 1,
+          "role": "Keyif"
+        },
+        {
+          "productCode": "DEMO-1048",
+          "qty": 1,
+          "role": "Sunum kutusu"
+        }
+      ],
+      "isFeatured": true
+    },
+    {
+      "slug": "yilbasi-ozel-gun-kiti",
+      "name": "Yılbaşı ve Özel Gün Kiti",
+      "tagline": "Yeni yılı birlikte karşılayın",
+      "description": "Kupa, ajanda ve hediye kutusuyla yılbaşı ve özel günler için sıcak bir kutlama seti.",
+      "story": "Yılın son haftalarında gönderilen bir kutu, yeni yıla birlikte başlama niyetini taşır.",
+      "audience": "Çalışanlar ve müşteriler",
+      "purpose": "Yılbaşı ve özel gün",
+      "recommendedQuantity": "25–1.000 kişi",
+      "personalization": [
+        "Serigrafi",
+        "Kart ve mesaj",
+        "Özel kutu"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "seasonal",
+        "audience": "employees",
+        "style": "classic",
+        "budgetKey": "500-1000",
+        "categories": [
+          "kupa-bardak",
+          "defter-ajanda",
+          "termos-matara",
+          "kutu-ambalaj"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "DEMO-1036",
+          "qty": 1,
+          "role": "Sıcak bir yudum"
+        },
+        {
+          "productCode": "DEMO-1013",
+          "qty": 1,
+          "role": "Yeni yıl planı"
+        },
+        {
+          "productCode": "DEMO-1006",
+          "qty": 1,
+          "role": "Kış yolculukları"
+        },
+        {
+          "productCode": "DEMO-1050",
+          "qty": 1,
+          "role": "Sunum"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "ekonomik-toplu-dagitim-kiti",
+      "name": "Ekonomik Toplu Dağıtım Kiti",
+      "tagline": "Geniş kitlelere, akıllı bütçeyle",
+      "description": "Bez çanta, bloknot ve kalemle yüksek adetli dağıtımlar için düşük birim maliyetli set.",
+      "story": "Fuarlar, kampanyalar ve toplu dağıtımlarda markayı en çok kişiye ulaştırmanın yolu doğru temel üçlüdür.",
+      "audience": "Genel dağıtım",
+      "purpose": "Etkinlik ve kampanya",
+      "recommendedQuantity": "250–5.000 kişi",
+      "personalization": [
+        "Tampon baskı",
+        "Serigrafi"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "event",
+        "audience": "general",
+        "style": "dynamic",
+        "budgetKey": "economy",
+        "categories": [
+          "canta",
+          "defter-ajanda",
+          "kalem"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "DEMO-1028",
+          "qty": 1,
+          "role": "Taşıma"
+        },
+        {
+          "productCode": "DEMO-1012",
+          "qty": 1,
+          "role": "Not"
+        },
+        {
+          "productCode": "DEMO-1018",
+          "qty": 1,
+          "role": "Yazı"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "vip-kurumsal-hediye-kiti",
+      "name": "VIP Kurumsal Hediye Kiti",
+      "tagline": "En özel ilişkiler için",
+      "description": "Deri hediye seti, kahve deneyim seti ve premium termosla en değerli paydaşlarınıza özel bir seçki.",
+      "story": "Bazı hediyeler teşekkürden fazlasını söyler. VIP Kit, ilişkinin değerini malzeme ve işçilikle anlatır.",
+      "audience": "VIP müşteriler ve paydaşlar",
+      "purpose": "VIP hediye",
+      "recommendedQuantity": "10–50 kişi",
+      "personalization": [
+        "Lazer kazıma",
+        "Kabartma",
+        "Kadife kutu",
+        "Kişiye özel kart"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "vip",
+        "audience": "executives",
+        "style": "luxury",
+        "budgetKey": "5000+",
+        "categories": [
+          "hediye-set",
+          "termos-matara",
+          "masaustu",
+          "kutu-ambalaj"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "DEMO-1045",
+          "qty": 1,
+          "role": "Kişisel aksesuar"
+        },
+        {
+          "productCode": "DEMO-1046",
+          "qty": 1,
+          "role": "Deneyim"
+        },
+        {
+          "productCode": "DEMO-1007",
+          "qty": 1,
+          "role": "Günlük lüks"
+        },
+        {
+          "productCode": "DEMO-1050",
+          "qty": 1,
+          "role": "Sunum"
+        }
+      ],
+      "isFeatured": true
+    }
+  ]
+}

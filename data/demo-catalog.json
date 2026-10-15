@@ -1,0 +1,4799 @@
+{
+  "meta": {
+    "kind": "demo",
+    "generatedAt": "2026-10-15T09:00:00.000Z",
+    "note": "ÖRNEK VERİ — gerçek katalog içe aktarılmadı. npm run scrape && npm run catalog:build ile gerçek veri üretin."
+  },
+  "products": [
+    {
+      "id": "DEMO-1001",
+      "productCode": "DEMO-1001",
+      "name": "Vakum Yalıtımlı Çelik Termos 500 ml",
+      "slug": "vakum-yalitimli-celik-termos-500-ml-demo-1001",
+      "category": "termos-matara",
+      "subcategory": "Termos",
+      "description": "Vakum Yalıtımlı Çelik Termos 500 ml. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Paslanmaz çelik",
+        "Ölçü": "500 ml"
+      },
+      "dimensions": null,
+      "material": "Paslanmaz çelik",
+      "capacity": "500 ml",
+      "availableColors": [
+        "Siyah",
+        "Beyaz",
+        "Lacivert"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1001-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 0,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1001-02",
+          "color": "Beyaz",
+          "colorHex": "#f5f5f2",
+          "stockQuantity": 420,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1001-03",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 2400,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 2820,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 285,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma",
+        "UV baskı"
+      ],
+      "tags": [
+        "Termos"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": true,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "dealer",
+        "vip",
+        "seasonal",
+        "education",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "partners",
+        "executives",
+        "general"
+      ],
+      "styles": [
+        "luxury"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1002",
+      "productCode": "DEMO-1002",
+      "name": "Çift Cidarlı Matara 750 ml",
+      "slug": "cift-cidarli-matara-750-ml-demo-1002",
+      "category": "termos-matara",
+      "subcategory": "Matara",
+      "description": "Çift Cidarlı Matara 750 ml. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Paslanmaz çelik",
+        "Ölçü": "750 ml"
+      },
+      "dimensions": null,
+      "material": "Paslanmaz çelik",
+      "capacity": "750 ml",
+      "availableColors": [
+        "Antrasit",
+        "Yeşil",
+        "Beyaz"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1002-01",
+          "color": "Antrasit",
+          "colorHex": "#3a3d42",
+          "stockQuantity": 140,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1002-02",
+          "color": "Yeşil",
+          "colorHex": "#2f7d4f",
+          "stockQuantity": 650,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1002-03",
+          "color": "Beyaz",
+          "colorHex": "#f5f5f2",
+          "stockQuantity": 5200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 5990,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 245,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma",
+        "Tampon baskı"
+      ],
+      "tags": [
+        "Matara"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "dealer",
+        "vip",
+        "seasonal",
+        "education",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "partners",
+        "executives",
+        "general"
+      ],
+      "styles": [
+        "luxury",
+        "minimal"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1003",
+      "productCode": "DEMO-1003",
+      "name": "Bambu Kapaklı Termos 420 ml",
+      "slug": "bambu-kapakli-termos-420-ml-demo-1003",
+      "category": "termos-matara",
+      "subcategory": "Termos",
+      "description": "Bambu Kapaklı Termos 420 ml. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Paslanmaz çelik, bambu",
+        "Ölçü": "420 ml"
+      },
+      "dimensions": null,
+      "material": "Paslanmaz çelik, bambu",
+      "capacity": "420 ml",
+      "availableColors": [
+        "Krem",
+        "Siyah"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1003-01",
+          "color": "Krem",
+          "colorHex": "#efe6d2",
+          "stockQuantity": 260,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1003-02",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 1200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 1460,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 310,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Termos"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "dealer",
+        "vip",
+        "seasonal",
+        "education",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "partners",
+        "executives",
+        "general"
+      ],
+      "styles": [
+        "eco",
+        "luxury"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1004",
+      "productCode": "DEMO-1004",
+      "name": "Dijital Isı Göstergeli Termos 500 ml",
+      "slug": "dijital-isi-gostergeli-termos-500-ml-demo-1004",
+      "category": "termos-matara",
+      "subcategory": "Termos",
+      "description": "Dijital Isı Göstergeli Termos 500 ml. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Paslanmaz çelik",
+        "Ölçü": "500 ml"
+      },
+      "dimensions": null,
+      "material": "Paslanmaz çelik",
+      "capacity": "500 ml",
+      "availableColors": [
+        "Siyah",
+        "Gümüş"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1004-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 420,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1004-02",
+          "color": "Gümüş",
+          "colorHex": "#c0c3c7",
+          "stockQuantity": null,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 420,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 395,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Termos"
+      ],
+      "budgetTier": "premium",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "dealer",
+        "vip",
+        "seasonal",
+        "education",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "partners",
+        "executives",
+        "general"
+      ],
+      "styles": [
+        "luxury",
+        "tech"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1005",
+      "productCode": "DEMO-1005",
+      "name": "Tritan Spor Matara 600 ml",
+      "slug": "tritan-spor-matara-600-ml-demo-1005",
+      "category": "termos-matara",
+      "subcategory": "Matara",
+      "description": "Tritan Spor Matara 600 ml. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Tritan",
+        "Ölçü": "600 ml"
+      },
+      "dimensions": null,
+      "material": "Tritan",
+      "capacity": "600 ml",
+      "availableColors": [
+        "Şeffaf",
+        "Mavi",
+        "Turuncu"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1005-01",
+          "color": "Şeffaf",
+          "colorHex": "#e8eef2",
+          "stockQuantity": 12,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1005-02",
+          "color": "Mavi",
+          "colorHex": "#2f62c4",
+          "stockQuantity": 5200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1005-03",
+          "color": "Turuncu",
+          "colorHex": "#e07a1f",
+          "stockQuantity": 260,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 5472,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 95,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Tampon baskı"
+      ],
+      "tags": [
+        "Matara"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "dealer",
+        "vip",
+        "seasonal",
+        "education",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "partners",
+        "executives",
+        "general"
+      ],
+      "styles": [
+        "minimal",
+        "dynamic"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1006",
+      "productCode": "DEMO-1006",
+      "name": "Seyahat Termos Bardak 380 ml",
+      "slug": "seyahat-termos-bardak-380-ml-demo-1006",
+      "category": "termos-matara",
+      "subcategory": "Termos bardak",
+      "description": "Seyahat Termos Bardak 380 ml. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Paslanmaz çelik",
+        "Ölçü": "380 ml"
+      },
+      "dimensions": null,
+      "material": "Paslanmaz çelik",
+      "capacity": "380 ml",
+      "availableColors": [
+        "Beyaz",
+        "Bordo",
+        "Lacivert"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1006-01",
+          "color": "Beyaz",
+          "colorHex": "#f5f5f2",
+          "stockQuantity": 1200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1006-02",
+          "color": "Bordo",
+          "colorHex": "#6d1a2a",
+          "stockQuantity": 80,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1006-03",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 420,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 1700,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 215,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma",
+        "UV baskı"
+      ],
+      "tags": [
+        "Termos bardak"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "dealer",
+        "vip",
+        "seasonal",
+        "education",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "partners",
+        "executives",
+        "general"
+      ],
+      "styles": [
+        "luxury"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1007",
+      "productCode": "DEMO-1007",
+      "name": "Mat Siyah Premium Termos 1 L",
+      "slug": "mat-siyah-premium-termos-1-l-demo-1007",
+      "category": "termos-matara",
+      "subcategory": "Termos",
+      "description": "Mat Siyah Premium Termos 1 L. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Paslanmaz çelik",
+        "Ölçü": "1000 ml"
+      },
+      "dimensions": null,
+      "material": "Paslanmaz çelik",
+      "capacity": "1000 ml",
+      "availableColors": [
+        "Siyah"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1007-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 2400,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 2400,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 520,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Termos"
+      ],
+      "budgetTier": "premium",
+      "isActive": true,
+      "isFeatured": true,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "dealer",
+        "vip",
+        "seasonal",
+        "education",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "partners",
+        "executives",
+        "general"
+      ],
+      "styles": [
+        "luxury",
+        "minimal"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1008",
+      "productCode": "DEMO-1008",
+      "name": "Deri Kapaklı Tarihsiz Ajanda A5",
+      "slug": "deri-kapakli-tarihsiz-ajanda-a5-demo-1008",
+      "category": "defter-ajanda",
+      "subcategory": "Ajanda",
+      "description": "Deri Kapaklı Tarihsiz Ajanda A5. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Suni deri",
+        "Ölçü": "A5"
+      },
+      "dimensions": "A5",
+      "material": "Suni deri",
+      "capacity": null,
+      "availableColors": [
+        "Lacivert",
+        "Taba",
+        "Siyah"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1008-01",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 5200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1008-02",
+          "color": "Taba",
+          "colorHex": "#a0632f",
+          "stockQuantity": 260,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1008-03",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 1200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 6660,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 265,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Kabartma",
+        "Serigrafi"
+      ],
+      "tags": [
+        "Ajanda"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "dealer",
+        "education",
+        "event",
+        "seasonal",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "students",
+        "attendees",
+        "executives"
+      ],
+      "styles": [
+        "luxury",
+        "classic"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1009",
+      "productCode": "DEMO-1009",
+      "name": "Lastikli Not Defteri A5",
+      "slug": "lastikli-not-defteri-a5-demo-1009",
+      "category": "defter-ajanda",
+      "subcategory": "Defter",
+      "description": "Lastikli Not Defteri A5. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Termo deri",
+        "Ölçü": "A5"
+      },
+      "dimensions": "A5",
+      "material": "Termo deri",
+      "capacity": null,
+      "availableColors": [
+        "Siyah",
+        "Gri",
+        "Bordo",
+        "Yeşil"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1009-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 80,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1009-02",
+          "color": "Gri",
+          "colorHex": "#8c8c8c",
+          "stockQuantity": 0,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1009-03",
+          "color": "Bordo",
+          "colorHex": "#6d1a2a",
+          "stockQuantity": 2400,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1009-04",
+          "color": "Yeşil",
+          "colorHex": "#2f7d4f",
+          "stockQuantity": 140,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 2620,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 135,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Kabartma",
+        "Serigrafi"
+      ],
+      "tags": [
+        "Defter"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "dealer",
+        "education",
+        "event",
+        "seasonal",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "students",
+        "attendees",
+        "executives"
+      ],
+      "styles": [
+        "luxury",
+        "classic"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1010",
+      "productCode": "DEMO-1010",
+      "name": "Kraft Kapaklı Defter ve Kalem Seti",
+      "slug": "kraft-kapakli-defter-ve-kalem-seti-demo-1010",
+      "category": "defter-ajanda",
+      "subcategory": "Defter",
+      "description": "Kraft Kapaklı Defter ve Kalem Seti. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Geri dönüşüm kağıt",
+        "Ölçü": "A5"
+      },
+      "dimensions": "A5",
+      "material": "Geri dönüşüm kağıt",
+      "capacity": null,
+      "availableColors": [
+        "Naturel"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1010-01",
+          "color": "Naturel",
+          "colorHex": "#d8c3a0",
+          "stockQuantity": 35,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 35,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 72,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Serigrafi"
+      ],
+      "tags": [
+        "Defter"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "dealer",
+        "education",
+        "event",
+        "seasonal",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "students",
+        "attendees",
+        "executives"
+      ],
+      "styles": [
+        "eco"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1011",
+      "productCode": "DEMO-1011",
+      "name": "Keten Kumaş Kaplı Defter B5",
+      "slug": "keten-kumas-kapli-defter-b5-demo-1011",
+      "category": "defter-ajanda",
+      "subcategory": "Defter",
+      "description": "Keten Kumaş Kaplı Defter B5. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Keten",
+        "Ölçü": "B5"
+      },
+      "dimensions": "B5",
+      "material": "Keten",
+      "capacity": null,
+      "availableColors": [
+        "Bej",
+        "Gri"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1011-01",
+          "color": "Bej",
+          "colorHex": "#d9c7a7",
+          "stockQuantity": 260,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1011-02",
+          "color": "Gri",
+          "colorHex": "#8c8c8c",
+          "stockQuantity": 1200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 1460,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 190,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Nakış",
+        "Kabartma"
+      ],
+      "tags": [
+        "Defter"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "dealer",
+        "education",
+        "event",
+        "seasonal",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "students",
+        "attendees",
+        "executives"
+      ],
+      "styles": [
+        "minimal",
+        "classic"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1012",
+      "productCode": "DEMO-1012",
+      "name": "Spiralli Bloknot A6",
+      "slug": "spiralli-bloknot-a6-demo-1012",
+      "category": "defter-ajanda",
+      "subcategory": "Bloknot",
+      "description": "Spiralli Bloknot A6. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Karton",
+        "Ölçü": "A6"
+      },
+      "dimensions": "A6",
+      "material": "Karton",
+      "capacity": null,
+      "availableColors": [
+        "Beyaz",
+        "Siyah"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1012-01",
+          "color": "Beyaz",
+          "colorHex": "#f5f5f2",
+          "stockQuantity": 420,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1012-02",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 2400,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 2820,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 38,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Dijital baskı"
+      ],
+      "tags": [
+        "Bloknot"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "dealer",
+        "education",
+        "event",
+        "seasonal",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "students",
+        "attendees",
+        "executives"
+      ],
+      "styles": [
+        "minimal",
+        "classic"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1013",
+      "productCode": "DEMO-1013",
+      "name": "2027 Haftalık Ajanda",
+      "slug": "2027-haftalik-ajanda-demo-1013",
+      "category": "defter-ajanda",
+      "subcategory": "Ajanda",
+      "description": "2027 Haftalık Ajanda. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Termo deri",
+        "Ölçü": "17x24 cm"
+      },
+      "dimensions": "17x24 cm",
+      "material": "Termo deri",
+      "capacity": null,
+      "availableColors": [
+        "Lacivert",
+        "Siyah"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1013-01",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 650,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1013-02",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 12,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 662,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 210,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Kabartma"
+      ],
+      "tags": [
+        "Ajanda"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": true,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "dealer",
+        "education",
+        "event",
+        "seasonal",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "students",
+        "attendees",
+        "executives"
+      ],
+      "styles": [
+        "luxury",
+        "classic"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1014",
+      "productCode": "DEMO-1014",
+      "name": "Metal Roller Kalem",
+      "slug": "metal-roller-kalem-demo-1014",
+      "category": "kalem",
+      "subcategory": "Roller",
+      "description": "Metal Roller Kalem. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Alüminyum"
+      },
+      "dimensions": null,
+      "material": "Alüminyum",
+      "capacity": null,
+      "availableColors": [
+        "Siyah",
+        "Gümüş",
+        "Lacivert"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1014-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 1200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1014-02",
+          "color": "Gümüş",
+          "colorHex": "#c0c3c7",
+          "stockQuantity": 80,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1014-03",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 420,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 1700,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 85,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Roller"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "event",
+        "education",
+        "vip",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "students",
+        "attendees",
+        "general",
+        "executives"
+      ],
+      "styles": [
+        "luxury"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1015",
+      "productCode": "DEMO-1015",
+      "name": "Bambu Tükenmez Kalem",
+      "slug": "bambu-tukenmez-kalem-demo-1015",
+      "category": "kalem",
+      "subcategory": "Tükenmez",
+      "description": "Bambu Tükenmez Kalem. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Bambu"
+      },
+      "dimensions": null,
+      "material": "Bambu",
+      "capacity": null,
+      "availableColors": [
+        "Naturel"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1015-01",
+          "color": "Naturel",
+          "colorHex": "#d8c3a0",
+          "stockQuantity": 2400,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 2400,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 18,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma",
+        "Tampon baskı"
+      ],
+      "tags": [
+        "Tükenmez"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "event",
+        "education",
+        "vip",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "students",
+        "attendees",
+        "general",
+        "executives"
+      ],
+      "styles": [
+        "eco"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1016",
+      "productCode": "DEMO-1016",
+      "name": "Dokunmatik Uçlu Metal Kalem",
+      "slug": "dokunmatik-uclu-metal-kalem-demo-1016",
+      "category": "kalem",
+      "subcategory": "Tükenmez",
+      "description": "Dokunmatik Uçlu Metal Kalem. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Pirinç"
+      },
+      "dimensions": null,
+      "material": "Pirinç",
+      "capacity": null,
+      "availableColors": [
+        "Siyah",
+        "Gümüş",
+        "Rose gold"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1016-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 5200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1016-02",
+          "color": "Gümüş",
+          "colorHex": "#c0c3c7",
+          "stockQuantity": 260,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1016-03",
+          "color": "Rose gold",
+          "colorHex": "#c99a8a",
+          "stockQuantity": 1200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 6660,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 64,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Tükenmez"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "event",
+        "education",
+        "vip",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "students",
+        "attendees",
+        "general",
+        "executives"
+      ],
+      "styles": [
+        "luxury"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1017",
+      "productCode": "DEMO-1017",
+      "name": "Kutulu Dolma ve Roller Kalem Seti",
+      "slug": "kutulu-dolma-ve-roller-kalem-seti-demo-1017",
+      "category": "kalem",
+      "subcategory": "Set",
+      "description": "Kutulu Dolma ve Roller Kalem Seti. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Metal"
+      },
+      "dimensions": null,
+      "material": "Metal",
+      "capacity": null,
+      "availableColors": [
+        "Siyah"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1017-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 80,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 80,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 420,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Set"
+      ],
+      "budgetTier": "premium",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "event",
+        "education",
+        "vip",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "students",
+        "attendees",
+        "general",
+        "executives"
+      ],
+      "styles": [
+        "luxury",
+        "classic"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1018",
+      "productCode": "DEMO-1018",
+      "name": "Plastik Promosyon Kalem",
+      "slug": "plastik-promosyon-kalem-demo-1018",
+      "category": "kalem",
+      "subcategory": "Tükenmez",
+      "description": "Plastik Promosyon Kalem. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "ABS"
+      },
+      "dimensions": null,
+      "material": "ABS",
+      "capacity": null,
+      "availableColors": [
+        "Mavi",
+        "Kırmızı",
+        "Beyaz",
+        "Yeşil"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1018-01",
+          "color": "Mavi",
+          "colorHex": "#2f62c4",
+          "stockQuantity": 140,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1018-02",
+          "color": "Kırmızı",
+          "colorHex": "#b3261e",
+          "stockQuantity": 35,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1018-03",
+          "color": "Beyaz",
+          "colorHex": "#f5f5f2",
+          "stockQuantity": 5200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1018-04",
+          "color": "Yeşil",
+          "colorHex": "#2f7d4f",
+          "stockQuantity": 260,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 5635,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 6,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Tampon baskı"
+      ],
+      "tags": [
+        "Tükenmez"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "event",
+        "education",
+        "vip",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "students",
+        "attendees",
+        "general",
+        "executives"
+      ],
+      "styles": [
+        "minimal",
+        "classic"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1019",
+      "productCode": "DEMO-1019",
+      "name": "Mat Yüzeyli Twist Kalem",
+      "slug": "mat-yuzeyli-twist-kalem-demo-1019",
+      "category": "kalem",
+      "subcategory": "Tükenmez",
+      "description": "Mat Yüzeyli Twist Kalem. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Alüminyum"
+      },
+      "dimensions": null,
+      "material": "Alüminyum",
+      "capacity": null,
+      "availableColors": [
+        "Antrasit",
+        "Beyaz"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1019-01",
+          "color": "Antrasit",
+          "colorHex": "#3a3d42",
+          "stockQuantity": null,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1019-02",
+          "color": "Beyaz",
+          "colorHex": "#f5f5f2",
+          "stockQuantity": 1200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 1200,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 42,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma",
+        "UV baskı"
+      ],
+      "tags": [
+        "Tükenmez"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": true,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "event",
+        "education",
+        "vip",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "students",
+        "attendees",
+        "general",
+        "executives"
+      ],
+      "styles": [
+        "minimal"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1020",
+      "productCode": "DEMO-1020",
+      "name": "Kablosuz Şarj Özellikli Powerbank 10.000 mAh",
+      "slug": "kablosuz-sarj-ozellikli-powerbank-10-000-mah-demo-1020",
+      "category": "teknoloji",
+      "subcategory": "Powerbank",
+      "description": "Kablosuz Şarj Özellikli Powerbank 10.000 mAh. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Alüminyum",
+        "Ölçü": "10000 mAh"
+      },
+      "dimensions": null,
+      "material": "Alüminyum",
+      "capacity": "10000 mAh",
+      "availableColors": [
+        "Siyah",
+        "Gri"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1020-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 420,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1020-02",
+          "color": "Gri",
+          "colorHex": "#8c8c8c",
+          "stockQuantity": 2400,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 2820,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 640,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma",
+        "UV baskı"
+      ],
+      "tags": [
+        "Powerbank"
+      ],
+      "budgetTier": "premium",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "client",
+        "dealer",
+        "vip",
+        "welcome",
+        "other"
+      ],
+      "targetAudience": [
+        "clients",
+        "partners",
+        "executives",
+        "employees"
+      ],
+      "styles": [
+        "tech"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1021",
+      "productCode": "DEMO-1021",
+      "name": "Işıklı Logolu Powerbank 5.000 mAh",
+      "slug": "isikli-logolu-powerbank-5-000-mah-demo-1021",
+      "category": "teknoloji",
+      "subcategory": "Powerbank",
+      "description": "Işıklı Logolu Powerbank 5.000 mAh. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "ABS",
+        "Ölçü": "5000 mAh"
+      },
+      "dimensions": null,
+      "material": "ABS",
+      "capacity": "5000 mAh",
+      "availableColors": [
+        "Beyaz",
+        "Siyah"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1021-01",
+          "color": "Beyaz",
+          "colorHex": "#f5f5f2",
+          "stockQuantity": 650,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1021-02",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 5200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 5850,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 380,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Powerbank"
+      ],
+      "budgetTier": "premium",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "client",
+        "dealer",
+        "vip",
+        "welcome",
+        "other"
+      ],
+      "targetAudience": [
+        "clients",
+        "partners",
+        "executives",
+        "employees"
+      ],
+      "styles": [
+        "tech"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1022",
+      "productCode": "DEMO-1022",
+      "name": "Bluetooth Mini Hoparlör",
+      "slug": "bluetooth-mini-hoparlor-demo-1022",
+      "category": "teknoloji",
+      "subcategory": "Ses",
+      "description": "Bluetooth Mini Hoparlör. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Kumaş, ABS"
+      },
+      "dimensions": null,
+      "material": "Kumaş, ABS",
+      "capacity": null,
+      "availableColors": [
+        "Siyah",
+        "Gri",
+        "Lacivert"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1022-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 1200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1022-02",
+          "color": "Gri",
+          "colorHex": "#8c8c8c",
+          "stockQuantity": 80,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1022-03",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 420,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 1700,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 450,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Tampon baskı"
+      ],
+      "tags": [
+        "Ses"
+      ],
+      "budgetTier": "premium",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "client",
+        "dealer",
+        "vip",
+        "welcome",
+        "other"
+      ],
+      "targetAudience": [
+        "clients",
+        "partners",
+        "executives",
+        "employees"
+      ],
+      "styles": [
+        "tech"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1023",
+      "productCode": "DEMO-1023",
+      "name": "Kablosuz Kulaklık",
+      "slug": "kablosuz-kulaklik-demo-1023",
+      "category": "teknoloji",
+      "subcategory": "Ses",
+      "description": "Kablosuz Kulaklık. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "ABS"
+      },
+      "dimensions": null,
+      "material": "ABS",
+      "capacity": null,
+      "availableColors": [
+        "Beyaz",
+        "Siyah"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1023-01",
+          "color": "Beyaz",
+          "colorHex": "#f5f5f2",
+          "stockQuantity": 2400,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1023-02",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 140,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 2540,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 720,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Tampon baskı"
+      ],
+      "tags": [
+        "Ses"
+      ],
+      "budgetTier": "premium",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "client",
+        "dealer",
+        "vip",
+        "welcome",
+        "other"
+      ],
+      "targetAudience": [
+        "clients",
+        "partners",
+        "executives",
+        "employees"
+      ],
+      "styles": [
+        "tech"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1024",
+      "productCode": "DEMO-1024",
+      "name": "3'ü 1 Arada Şarj Kablosu",
+      "slug": "3-u-1-arada-sarj-kablosu-demo-1024",
+      "category": "teknoloji",
+      "subcategory": "Kablo",
+      "description": "3'ü 1 Arada Şarj Kablosu. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Örgü kablo",
+        "Ölçü": "120 cm"
+      },
+      "dimensions": "120 cm",
+      "material": "Örgü kablo",
+      "capacity": null,
+      "availableColors": [
+        "Siyah",
+        "Gri"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1024-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 0,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1024-02",
+          "color": "Gri",
+          "colorHex": "#8c8c8c",
+          "stockQuantity": 260,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 260,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 95,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Tampon baskı"
+      ],
+      "tags": [
+        "Kablo"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "client",
+        "dealer",
+        "vip",
+        "welcome",
+        "other"
+      ],
+      "targetAudience": [
+        "clients",
+        "partners",
+        "executives",
+        "employees"
+      ],
+      "styles": [
+        "tech"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1025",
+      "productCode": "DEMO-1025",
+      "name": "Masaüstü Kablosuz Şarj Standı",
+      "slug": "masaustu-kablosuz-sarj-standi-demo-1025",
+      "category": "teknoloji",
+      "subcategory": "Şarj",
+      "description": "Masaüstü Kablosuz Şarj Standı. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Bambu"
+      },
+      "dimensions": null,
+      "material": "Bambu",
+      "capacity": null,
+      "availableColors": [
+        "Naturel"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1025-01",
+          "color": "Naturel",
+          "colorHex": "#d8c3a0",
+          "stockQuantity": 80,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 80,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 390,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Şarj"
+      ],
+      "budgetTier": "premium",
+      "isActive": true,
+      "isFeatured": true,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "client",
+        "dealer",
+        "vip",
+        "welcome",
+        "other"
+      ],
+      "targetAudience": [
+        "clients",
+        "partners",
+        "executives",
+        "employees"
+      ],
+      "styles": [
+        "eco",
+        "tech"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1026",
+      "productCode": "DEMO-1026",
+      "name": "USB Bellek 32 GB Metal",
+      "slug": "usb-bellek-32-gb-metal-demo-1026",
+      "category": "teknoloji",
+      "subcategory": "Bellek",
+      "description": "USB Bellek 32 GB Metal. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Metal",
+        "Ölçü": "32 GB"
+      },
+      "dimensions": null,
+      "material": "Metal",
+      "capacity": "32 GB",
+      "availableColors": [
+        "Gümüş",
+        "Siyah"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1026-01",
+          "color": "Gümüş",
+          "colorHex": "#c0c3c7",
+          "stockQuantity": 140,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1026-02",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 650,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 790,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 160,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Bellek"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "client",
+        "dealer",
+        "vip",
+        "welcome",
+        "other"
+      ],
+      "targetAudience": [
+        "clients",
+        "partners",
+        "executives",
+        "employees"
+      ],
+      "styles": [
+        "luxury",
+        "tech"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1027",
+      "productCode": "DEMO-1027",
+      "name": "Su İtici Laptop Sırt Çantası",
+      "slug": "su-itici-laptop-sirt-cantasi-demo-1027",
+      "category": "canta",
+      "subcategory": "Sırt çantası",
+      "description": "Su İtici Laptop Sırt Çantası. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Polyester",
+        "Ölçü": "15.6\""
+      },
+      "dimensions": "15.6\"",
+      "material": "Polyester",
+      "capacity": null,
+      "availableColors": [
+        "Siyah",
+        "Antrasit",
+        "Lacivert"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1027-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 260,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1027-02",
+          "color": "Antrasit",
+          "colorHex": "#3a3d42",
+          "stockQuantity": null,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1027-03",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 80,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 340,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 690,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Nakış",
+        "Transfer baskı"
+      ],
+      "tags": [
+        "Sırt çantası"
+      ],
+      "budgetTier": "premium",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "event",
+        "welcome",
+        "education",
+        "dealer",
+        "other"
+      ],
+      "targetAudience": [
+        "attendees",
+        "students",
+        "employees",
+        "general"
+      ],
+      "styles": [
+        "dynamic"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1028",
+      "productCode": "DEMO-1028",
+      "name": "Pamuklu Bez Çanta",
+      "slug": "pamuklu-bez-canta-demo-1028",
+      "category": "canta",
+      "subcategory": "Bez çanta",
+      "description": "Pamuklu Bez Çanta. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Pamuk",
+        "Ölçü": "38x42 cm"
+      },
+      "dimensions": "38x42 cm",
+      "material": "Pamuk",
+      "capacity": null,
+      "availableColors": [
+        "Naturel",
+        "Siyah",
+        "Lacivert"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1028-01",
+          "color": "Naturel",
+          "colorHex": "#d8c3a0",
+          "stockQuantity": 12,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1028-02",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 2400,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1028-03",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 140,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 2552,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 48,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Serigrafi",
+        "Dijital baskı"
+      ],
+      "tags": [
+        "Bez çanta"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "event",
+        "welcome",
+        "education",
+        "dealer",
+        "other"
+      ],
+      "targetAudience": [
+        "attendees",
+        "students",
+        "employees",
+        "general"
+      ],
+      "styles": [
+        "eco"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1029",
+      "productCode": "DEMO-1029",
+      "name": "Geri Dönüşüm rPET Alışveriş Çantası",
+      "slug": "geri-donusum-rpet-alisveris-cantasi-demo-1029",
+      "category": "canta",
+      "subcategory": "Bez çanta",
+      "description": "Geri Dönüşüm rPET Alışveriş Çantası. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "rPET",
+        "Ölçü": "40x45 cm"
+      },
+      "dimensions": "40x45 cm",
+      "material": "rPET",
+      "capacity": null,
+      "availableColors": [
+        "Gri",
+        "Yeşil"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1029-01",
+          "color": "Gri",
+          "colorHex": "#8c8c8c",
+          "stockQuantity": 650,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1029-02",
+          "color": "Yeşil",
+          "colorHex": "#2f7d4f",
+          "stockQuantity": 5200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 5850,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 55,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Serigrafi"
+      ],
+      "tags": [
+        "Bez çanta"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "event",
+        "welcome",
+        "education",
+        "dealer",
+        "other"
+      ],
+      "targetAudience": [
+        "attendees",
+        "students",
+        "employees",
+        "general"
+      ],
+      "styles": [
+        "eco"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1030",
+      "productCode": "DEMO-1030",
+      "name": "Deri Evrak Çantası",
+      "slug": "deri-evrak-cantasi-demo-1030",
+      "category": "canta",
+      "subcategory": "Evrak",
+      "description": "Deri Evrak Çantası. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Suni deri",
+        "Ölçü": "40x30 cm"
+      },
+      "dimensions": "40x30 cm",
+      "material": "Suni deri",
+      "capacity": null,
+      "availableColors": [
+        "Siyah",
+        "Taba"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1030-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 1200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1030-02",
+          "color": "Taba",
+          "colorHex": "#a0632f",
+          "stockQuantity": 80,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 1280,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 1450,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Kabartma"
+      ],
+      "tags": [
+        "Evrak"
+      ],
+      "budgetTier": "luxury",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "event",
+        "welcome",
+        "education",
+        "dealer",
+        "other"
+      ],
+      "targetAudience": [
+        "attendees",
+        "students",
+        "employees",
+        "general"
+      ],
+      "styles": [
+        "luxury",
+        "classic"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1031",
+      "productCode": "DEMO-1031",
+      "name": "Konferans Çantası",
+      "slug": "konferans-cantasi-demo-1031",
+      "category": "canta",
+      "subcategory": "Konferans",
+      "description": "Konferans Çantası. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Polyester",
+        "Ölçü": "38x29 cm"
+      },
+      "dimensions": "38x29 cm",
+      "material": "Polyester",
+      "capacity": null,
+      "availableColors": [
+        "Lacivert",
+        "Siyah"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1031-01",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 2400,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1031-02",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 140,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 2540,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 165,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Serigrafi"
+      ],
+      "tags": [
+        "Konferans"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": true,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "event",
+        "welcome",
+        "education",
+        "dealer",
+        "other"
+      ],
+      "targetAudience": [
+        "attendees",
+        "students",
+        "employees",
+        "general"
+      ],
+      "styles": [
+        "minimal",
+        "classic"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1032",
+      "productCode": "DEMO-1032",
+      "name": "Organik Pamuk Tişört",
+      "slug": "organik-pamuk-tisort-demo-1032",
+      "category": "tekstil",
+      "subcategory": "Tişört",
+      "description": "Organik Pamuk Tişört. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Organik pamuk",
+        "Ölçü": "S–XXL"
+      },
+      "dimensions": "S–XXL",
+      "material": "Organik pamuk",
+      "capacity": null,
+      "availableColors": [
+        "Beyaz",
+        "Siyah",
+        "Lacivert",
+        "Gri"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1032-01",
+          "color": "Beyaz",
+          "colorHex": "#f5f5f2",
+          "stockQuantity": 5200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1032-02",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 0,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1032-03",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 1200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1032-04",
+          "color": "Gri",
+          "colorHex": "#8c8c8c",
+          "stockQuantity": 80,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 6480,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 165,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Serigrafi",
+        "Dijital baskı",
+        "Nakış"
+      ],
+      "tags": [
+        "Tişört"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "event",
+        "education",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "attendees",
+        "students",
+        "general"
+      ],
+      "styles": [
+        "eco"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1033",
+      "productCode": "DEMO-1033",
+      "name": "Fermuarlı Polar",
+      "slug": "fermuarli-polar-demo-1033",
+      "category": "tekstil",
+      "subcategory": "Polar",
+      "description": "Fermuarlı Polar. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Polar",
+        "Ölçü": "S–XXL"
+      },
+      "dimensions": "S–XXL",
+      "material": "Polar",
+      "capacity": null,
+      "availableColors": [
+        "Lacivert",
+        "Siyah",
+        "Gri"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1033-01",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 35,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1033-02",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 420,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1033-03",
+          "color": "Gri",
+          "colorHex": "#8c8c8c",
+          "stockQuantity": 2400,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 2855,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 340,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Nakış"
+      ],
+      "tags": [
+        "Polar"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "event",
+        "education",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "attendees",
+        "students",
+        "general"
+      ],
+      "styles": [
+        "minimal",
+        "classic"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1034",
+      "productCode": "DEMO-1034",
+      "name": "Pamuk Beyzbol Şapka",
+      "slug": "pamuk-beyzbol-sapka-demo-1034",
+      "category": "tekstil",
+      "subcategory": "Şapka",
+      "description": "Pamuk Beyzbol Şapka. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Pamuk",
+        "Ölçü": "Standart"
+      },
+      "dimensions": "Standart",
+      "material": "Pamuk",
+      "capacity": null,
+      "availableColors": [
+        "Siyah",
+        "Beyaz",
+        "Lacivert",
+        "Bej"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1034-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 140,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1034-02",
+          "color": "Beyaz",
+          "colorHex": "#f5f5f2",
+          "stockQuantity": 650,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1034-03",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 5200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1034-04",
+          "color": "Bej",
+          "colorHex": "#d9c7a7",
+          "stockQuantity": 35,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 6025,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 78,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Nakış",
+        "Transfer baskı"
+      ],
+      "tags": [
+        "Şapka"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "event",
+        "education",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "attendees",
+        "students",
+        "general"
+      ],
+      "styles": [
+        "eco",
+        "dynamic"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1035",
+      "productCode": "DEMO-1035",
+      "name": "Kapüşonlu Sweatshirt",
+      "slug": "kapusonlu-sweatshirt-demo-1035",
+      "category": "tekstil",
+      "subcategory": "Sweat",
+      "description": "Kapüşonlu Sweatshirt. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Pamuk-polyester",
+        "Ölçü": "S–XXL"
+      },
+      "dimensions": "S–XXL",
+      "material": "Pamuk-polyester",
+      "capacity": null,
+      "availableColors": [
+        "Siyah",
+        "Gri",
+        "Bordo"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1035-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 260,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1035-02",
+          "color": "Gri",
+          "colorHex": "#8c8c8c",
+          "stockQuantity": 1200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1035-03",
+          "color": "Bordo",
+          "colorHex": "#6d1a2a",
+          "stockQuantity": null,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 1460,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 420,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Nakış",
+        "Serigrafi"
+      ],
+      "tags": [
+        "Sweat"
+      ],
+      "budgetTier": "premium",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "event",
+        "education",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "attendees",
+        "students",
+        "general"
+      ],
+      "styles": [
+        "eco",
+        "dynamic"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1036",
+      "productCode": "DEMO-1036",
+      "name": "Mat Seramik Kupa 350 ml",
+      "slug": "mat-seramik-kupa-350-ml-demo-1036",
+      "category": "kupa-bardak",
+      "subcategory": "Kupa",
+      "description": "Mat Seramik Kupa 350 ml. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Seramik",
+        "Ölçü": "350 ml"
+      },
+      "dimensions": null,
+      "material": "Seramik",
+      "capacity": "350 ml",
+      "availableColors": [
+        "Siyah",
+        "Beyaz",
+        "Lacivert",
+        "Yeşil"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1036-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 420,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1036-02",
+          "color": "Beyaz",
+          "colorHex": "#f5f5f2",
+          "stockQuantity": 12,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1036-03",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 140,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1036-04",
+          "color": "Yeşil",
+          "colorHex": "#2f7d4f",
+          "stockQuantity": 650,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 1222,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 68,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma",
+        "Serigrafi"
+      ],
+      "tags": [
+        "Kupa"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "seasonal",
+        "event",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "attendees",
+        "general"
+      ],
+      "styles": [
+        "minimal"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1037",
+      "productCode": "DEMO-1037",
+      "name": "Çift Cidarlı Cam Bardak 250 ml",
+      "slug": "cift-cidarli-cam-bardak-250-ml-demo-1037",
+      "category": "kupa-bardak",
+      "subcategory": "Bardak",
+      "description": "Çift Cidarlı Cam Bardak 250 ml. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Borosilikat cam",
+        "Ölçü": "250 ml"
+      },
+      "dimensions": null,
+      "material": "Borosilikat cam",
+      "capacity": "250 ml",
+      "availableColors": [
+        "Şeffaf"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1037-01",
+          "color": "Şeffaf",
+          "colorHex": "#e8eef2",
+          "stockQuantity": 650,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 650,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 120,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Serigrafi"
+      ],
+      "tags": [
+        "Bardak"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": true,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "seasonal",
+        "event",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "attendees",
+        "general"
+      ],
+      "styles": [
+        "luxury"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1038",
+      "productCode": "DEMO-1038",
+      "name": "Bambu Kapaklı Cam Bardak",
+      "slug": "bambu-kapakli-cam-bardak-demo-1038",
+      "category": "kupa-bardak",
+      "subcategory": "Bardak",
+      "description": "Bambu Kapaklı Cam Bardak. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Cam, bambu",
+        "Ölçü": "400 ml"
+      },
+      "dimensions": null,
+      "material": "Cam, bambu",
+      "capacity": "400 ml",
+      "availableColors": [
+        "Şeffaf"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1038-01",
+          "color": "Şeffaf",
+          "colorHex": "#e8eef2",
+          "stockQuantity": 1200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 1200,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 88,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Serigrafi",
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Bardak"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "seasonal",
+        "event",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "attendees",
+        "general"
+      ],
+      "styles": [
+        "eco",
+        "luxury"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1039",
+      "productCode": "DEMO-1039",
+      "name": "Emaye Kamp Kupası",
+      "slug": "emaye-kamp-kupasi-demo-1039",
+      "category": "kupa-bardak",
+      "subcategory": "Kupa",
+      "description": "Emaye Kamp Kupası. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Emaye çelik",
+        "Ölçü": "300 ml"
+      },
+      "dimensions": null,
+      "material": "Emaye çelik",
+      "capacity": "300 ml",
+      "availableColors": [
+        "Beyaz",
+        "Krem"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1039-01",
+          "color": "Beyaz",
+          "colorHex": "#f5f5f2",
+          "stockQuantity": 2400,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1039-02",
+          "color": "Krem",
+          "colorHex": "#efe6d2",
+          "stockQuantity": 140,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 2540,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 95,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Serigrafi"
+      ],
+      "tags": [
+        "Kupa"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "seasonal",
+        "event",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "attendees",
+        "general"
+      ],
+      "styles": [
+        "luxury"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1040",
+      "productCode": "DEMO-1040",
+      "name": "Ceviz Kartlık ve Kalemlik Seti",
+      "slug": "ceviz-kartlik-ve-kalemlik-seti-demo-1040",
+      "category": "masaustu",
+      "subcategory": "Set",
+      "description": "Ceviz Kartlık ve Kalemlik Seti. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Ceviz"
+      },
+      "dimensions": null,
+      "material": "Ceviz",
+      "capacity": null,
+      "availableColors": [
+        "Kahverengi"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1040-01",
+          "color": "Kahverengi",
+          "colorHex": "#6b4a2f",
+          "stockQuantity": 5200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 5200,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 360,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Set"
+      ],
+      "budgetTier": "premium",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "client",
+        "vip",
+        "dealer",
+        "welcome",
+        "other"
+      ],
+      "targetAudience": [
+        "executives",
+        "clients",
+        "partners"
+      ],
+      "styles": [
+        "luxury"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1041",
+      "productCode": "DEMO-1041",
+      "name": "Deri Mousepad",
+      "slug": "deri-mousepad-demo-1041",
+      "category": "masaustu",
+      "subcategory": "Mousepad",
+      "description": "Deri Mousepad. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Suni deri",
+        "Ölçü": "30x25 cm"
+      },
+      "dimensions": "30x25 cm",
+      "material": "Suni deri",
+      "capacity": null,
+      "availableColors": [
+        "Siyah",
+        "Taba",
+        "Lacivert"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1041-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 80,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1041-02",
+          "color": "Taba",
+          "colorHex": "#a0632f",
+          "stockQuantity": 35,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1041-03",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 2400,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 2515,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 145,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Kabartma",
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Mousepad"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "client",
+        "vip",
+        "dealer",
+        "welcome",
+        "other"
+      ],
+      "targetAudience": [
+        "executives",
+        "clients",
+        "partners"
+      ],
+      "styles": [
+        "luxury",
+        "classic"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1042",
+      "productCode": "DEMO-1042",
+      "name": "Ahşap Masa Saati",
+      "slug": "ahsap-masa-saati-demo-1042",
+      "category": "masaustu",
+      "subcategory": "Saat",
+      "description": "Ahşap Masa Saati. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Ahşap"
+      },
+      "dimensions": null,
+      "material": "Ahşap",
+      "capacity": null,
+      "availableColors": [
+        "Naturel",
+        "Kahverengi"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1042-01",
+          "color": "Naturel",
+          "colorHex": "#d8c3a0",
+          "stockQuantity": null,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1042-02",
+          "color": "Kahverengi",
+          "colorHex": "#6b4a2f",
+          "stockQuantity": 650,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 650,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 310,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Saat"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "client",
+        "vip",
+        "dealer",
+        "welcome",
+        "other"
+      ],
+      "targetAudience": [
+        "executives",
+        "clients",
+        "partners"
+      ],
+      "styles": [
+        "luxury",
+        "classic"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1043",
+      "productCode": "DEMO-1043",
+      "name": "Beton Kalemlik",
+      "slug": "beton-kalemlik-demo-1043",
+      "category": "masaustu",
+      "subcategory": "Kalemlik",
+      "description": "Beton Kalemlik. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Beton"
+      },
+      "dimensions": null,
+      "material": "Beton",
+      "capacity": null,
+      "availableColors": [
+        "Gri"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1043-01",
+          "color": "Gri",
+          "colorHex": "#8c8c8c",
+          "stockQuantity": 260,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 260,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 98,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Kalemlik"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": true,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "client",
+        "vip",
+        "dealer",
+        "welcome",
+        "other"
+      ],
+      "targetAudience": [
+        "executives",
+        "clients",
+        "partners"
+      ],
+      "styles": [
+        "minimal",
+        "classic"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1044",
+      "productCode": "DEMO-1044",
+      "name": "Termos, Defter ve Kalem Hediye Seti",
+      "slug": "termos-defter-ve-kalem-hediye-seti-demo-1044",
+      "category": "hediye-set",
+      "subcategory": "Set",
+      "description": "Termos, Defter ve Kalem Hediye Seti. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Karma"
+      },
+      "dimensions": null,
+      "material": "Karma",
+      "capacity": null,
+      "availableColors": [
+        "Siyah",
+        "Lacivert"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1044-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 420,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1044-02",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 2400,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 2820,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 590,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma",
+        "Kabartma"
+      ],
+      "tags": [
+        "Set"
+      ],
+      "budgetTier": "premium",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "vip",
+        "client",
+        "dealer",
+        "seasonal",
+        "other"
+      ],
+      "targetAudience": [
+        "executives",
+        "clients",
+        "partners"
+      ],
+      "styles": [
+        "minimal",
+        "classic"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1045",
+      "productCode": "DEMO-1045",
+      "name": "Deri Cüzdan ve Kartlık Seti",
+      "slug": "deri-cuzdan-ve-kartlik-seti-demo-1045",
+      "category": "hediye-set",
+      "subcategory": "Set",
+      "description": "Deri Cüzdan ve Kartlık Seti. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Gerçek deri"
+      },
+      "dimensions": null,
+      "material": "Gerçek deri",
+      "capacity": null,
+      "availableColors": [
+        "Siyah",
+        "Taba"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1045-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 650,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1045-02",
+          "color": "Taba",
+          "colorHex": "#a0632f",
+          "stockQuantity": 5200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 5850,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 980,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Kabartma"
+      ],
+      "tags": [
+        "Set"
+      ],
+      "budgetTier": "luxury",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "vip",
+        "client",
+        "dealer",
+        "seasonal",
+        "other"
+      ],
+      "targetAudience": [
+        "executives",
+        "clients",
+        "partners"
+      ],
+      "styles": [
+        "luxury",
+        "classic"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1046",
+      "productCode": "DEMO-1046",
+      "name": "Premium Kahve Deneyim Seti",
+      "slug": "premium-kahve-deneyim-seti-demo-1046",
+      "category": "hediye-set",
+      "subcategory": "Set",
+      "description": "Premium Kahve Deneyim Seti. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Karma"
+      },
+      "dimensions": null,
+      "material": "Karma",
+      "capacity": null,
+      "availableColors": [
+        "Siyah"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1046-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 1200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 1200,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 1150,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Set"
+      ],
+      "budgetTier": "luxury",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "vip",
+        "client",
+        "dealer",
+        "seasonal",
+        "other"
+      ],
+      "targetAudience": [
+        "executives",
+        "clients",
+        "partners"
+      ],
+      "styles": [
+        "luxury"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1047",
+      "productCode": "DEMO-1047",
+      "name": "Yönetici Masa Seti Dörtlü",
+      "slug": "yonetici-masa-seti-dortlu-demo-1047",
+      "category": "hediye-set",
+      "subcategory": "Set",
+      "description": "Yönetici Masa Seti Dörtlü. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Ceviz, deri"
+      },
+      "dimensions": null,
+      "material": "Ceviz, deri",
+      "capacity": null,
+      "availableColors": [
+        "Kahverengi"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1047-01",
+          "color": "Kahverengi",
+          "colorHex": "#6b4a2f",
+          "stockQuantity": 0,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 0,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 2400,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Set"
+      ],
+      "budgetTier": "luxury",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "vip",
+        "client",
+        "dealer",
+        "seasonal",
+        "other"
+      ],
+      "targetAudience": [
+        "executives",
+        "clients",
+        "partners"
+      ],
+      "styles": [
+        "luxury",
+        "classic"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1048",
+      "productCode": "DEMO-1048",
+      "name": "Mıknatıslı Kapaklı Hediye Kutusu",
+      "slug": "miknatisli-kapakli-hediye-kutusu-demo-1048",
+      "category": "kutu-ambalaj",
+      "subcategory": "Kutu",
+      "description": "Mıknatıslı Kapaklı Hediye Kutusu. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Sert karton",
+        "Ölçü": "30x22x10 cm"
+      },
+      "dimensions": "30x22x10 cm",
+      "material": "Sert karton",
+      "capacity": null,
+      "availableColors": [
+        "Siyah",
+        "Lacivert",
+        "Krem"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1048-01",
+          "color": "Siyah",
+          "colorHex": "#1a1a1a",
+          "stockQuantity": 5200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1048-02",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 260,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1048-03",
+          "color": "Krem",
+          "colorHex": "#efe6d2",
+          "stockQuantity": 1200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 6660,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 95,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Serigrafi",
+        "Kabartma"
+      ],
+      "tags": [
+        "Kutu"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "dealer",
+        "vip",
+        "seasonal",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "partners",
+        "executives"
+      ],
+      "styles": [
+        "minimal",
+        "classic"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1049",
+      "productCode": "DEMO-1049",
+      "name": "Kraft Hediye Kutusu",
+      "slug": "kraft-hediye-kutusu-demo-1049",
+      "category": "kutu-ambalaj",
+      "subcategory": "Kutu",
+      "description": "Kraft Hediye Kutusu. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Kraft karton",
+        "Ölçü": "25x20x8 cm"
+      },
+      "dimensions": "25x20x8 cm",
+      "material": "Kraft karton",
+      "capacity": null,
+      "availableColors": [
+        "Naturel"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1049-01",
+          "color": "Naturel",
+          "colorHex": "#d8c3a0",
+          "stockQuantity": 80,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 80,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 42,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Serigrafi"
+      ],
+      "tags": [
+        "Kutu"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": true,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "dealer",
+        "vip",
+        "seasonal",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "partners",
+        "executives"
+      ],
+      "styles": [
+        "eco"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1050",
+      "productCode": "DEMO-1050",
+      "name": "Kadife Kaplı Premium Kutu",
+      "slug": "kadife-kapli-premium-kutu-demo-1050",
+      "category": "kutu-ambalaj",
+      "subcategory": "Kutu",
+      "description": "Kadife Kaplı Premium Kutu. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Kadife, karton",
+        "Ölçü": "32x24x11 cm"
+      },
+      "dimensions": "32x24x11 cm",
+      "material": "Kadife, karton",
+      "capacity": null,
+      "availableColors": [
+        "Lacivert",
+        "Bordo"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1050-01",
+          "color": "Lacivert",
+          "colorHex": "#1d2b4f",
+          "stockQuantity": 140,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1050-02",
+          "color": "Bordo",
+          "colorHex": "#6d1a2a",
+          "stockQuantity": null,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 140,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 175,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Kabartma"
+      ],
+      "tags": [
+        "Kutu"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "welcome",
+        "client",
+        "dealer",
+        "vip",
+        "seasonal",
+        "other"
+      ],
+      "targetAudience": [
+        "employees",
+        "clients",
+        "partners",
+        "executives"
+      ],
+      "styles": [
+        "luxury"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1051",
+      "productCode": "DEMO-1051",
+      "name": "Buğday Lifli Yemek Kabı",
+      "slug": "bugday-lifli-yemek-kabi-demo-1051",
+      "category": "doga-dostu",
+      "subcategory": "Mutfak",
+      "description": "Buğday Lifli Yemek Kabı. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Buğday lifi",
+        "Ölçü": "750 ml"
+      },
+      "dimensions": null,
+      "material": "Buğday lifi",
+      "capacity": "750 ml",
+      "availableColors": [
+        "Bej",
+        "Yeşil"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1051-01",
+          "color": "Bej",
+          "colorHex": "#d9c7a7",
+          "stockQuantity": 12,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        },
+        {
+          "code": "DEMO-1051-02",
+          "color": "Yeşil",
+          "colorHex": "#2f7d4f",
+          "stockQuantity": 1200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 1212,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 82,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Tampon baskı"
+      ],
+      "tags": [
+        "Mutfak"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "event",
+        "education",
+        "welcome",
+        "other"
+      ],
+      "targetAudience": [
+        "attendees",
+        "students",
+        "general",
+        "employees"
+      ],
+      "styles": [
+        "eco"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1052",
+      "productCode": "DEMO-1052",
+      "name": "Mantar Kapaklı Defter",
+      "slug": "mantar-kapakli-defter-demo-1052",
+      "category": "doga-dostu",
+      "subcategory": "Defter",
+      "description": "Mantar Kapaklı Defter. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Mantar",
+        "Ölçü": "A5"
+      },
+      "dimensions": "A5",
+      "material": "Mantar",
+      "capacity": null,
+      "availableColors": [
+        "Naturel"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1052-01",
+          "color": "Naturel",
+          "colorHex": "#d8c3a0",
+          "stockQuantity": 420,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 420,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 145,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Defter"
+      ],
+      "budgetTier": "mid",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "event",
+        "education",
+        "welcome",
+        "other"
+      ],
+      "targetAudience": [
+        "attendees",
+        "students",
+        "general",
+        "employees"
+      ],
+      "styles": [
+        "eco"
+      ],
+      "dataCompleteness": 0.9
+    },
+    {
+      "id": "DEMO-1053",
+      "productCode": "DEMO-1053",
+      "name": "Tohumlu Kağıt Kalem Seti",
+      "slug": "tohumlu-kagit-kalem-seti-demo-1053",
+      "category": "doga-dostu",
+      "subcategory": "Kalem",
+      "description": "Tohumlu Kağıt Kalem Seti. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Geri dönüşüm kağıt"
+      },
+      "dimensions": null,
+      "material": "Geri dönüşüm kağıt",
+      "capacity": null,
+      "availableColors": [
+        "Naturel"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1053-01",
+          "color": "Naturel",
+          "colorHex": "#d8c3a0",
+          "stockQuantity": 650,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 650,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 24,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Tampon baskı"
+      ],
+      "tags": [
+        "Kalem"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "event",
+        "education",
+        "welcome",
+        "other"
+      ],
+      "targetAudience": [
+        "attendees",
+        "students",
+        "general",
+        "employees"
+      ],
+      "styles": [
+        "eco"
+      ],
+      "dataCompleteness": 0.8
+    },
+    {
+      "id": "DEMO-1054",
+      "productCode": "DEMO-1054",
+      "name": "Bambu Çatal Kaşık Seti",
+      "slug": "bambu-catal-kasik-seti-demo-1054",
+      "category": "doga-dostu",
+      "subcategory": "Mutfak",
+      "description": "Bambu Çatal Kaşık Seti. Örnek katalog kaydıdır; gerçek ürün bilgisi değildir.",
+      "technicalSpecifications": {
+        "Malzeme": "Bambu"
+      },
+      "dimensions": null,
+      "material": "Bambu",
+      "capacity": null,
+      "availableColors": [
+        "Naturel"
+      ],
+      "variants": [
+        {
+          "code": "DEMO-1054-01",
+          "color": "Naturel",
+          "colorHex": "#d8c3a0",
+          "stockQuantity": 1200,
+          "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+          "imageUrl": null
+        }
+      ],
+      "stockQuantity": 1200,
+      "stockStatus": "unknown",
+      "stockUpdatedAt": "2026-10-15T09:00:00.000Z",
+      "price": 58,
+      "priceCurrency": "TRY",
+      "priceType": "demo",
+      "sourcePage": null,
+      "sourceProductUrl": null,
+      "sourcePdfPage": null,
+      "imageOriginalUrl": null,
+      "localImagePath": null,
+      "gallery": [],
+      "printingMethods": [
+        "Lazer kazıma"
+      ],
+      "tags": [
+        "Mutfak"
+      ],
+      "budgetTier": "economy",
+      "isActive": true,
+      "isFeatured": false,
+      "lastVerifiedAt": "2026-10-15T09:00:00.000Z",
+      "sources": [
+        {
+          "field": "*",
+          "source": "demo",
+          "value": "örnek veri"
+        }
+      ],
+      "needsReview": [],
+      "isDemo": true,
+      "giftOccasions": [
+        "event",
+        "education",
+        "welcome",
+        "other"
+      ],
+      "targetAudience": [
+        "attendees",
+        "students",
+        "general",
+        "employees"
+      ],
+      "styles": [
+        "eco"
+      ],
+      "dataCompleteness": 0.8
+    }
+  ]
+}
