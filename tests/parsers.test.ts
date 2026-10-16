@@ -79,3 +79,15 @@ describe("site ayrıştırıcı", () => {
     expect(r.specs.Kapasite).toBe("500 ml");
   });
 });
+
+describe("prmstk gerçek sayfa (2027/3.html)", () => {
+  it("ürün blokları, varyantlar, stok ve renk görselleri", () => {
+    const html = new TextDecoder("windows-1254").decode(readFileSync(path.join(import.meta.dirname, "fixtures", "prmstk-real-3.html")));
+    const { records } = parsePrmstkPage(html, "https://www.prmstk.com/2027/3.html", 3);
+    const r = records.find((x) => x.code === "3557-GM")!;
+    expect(r).toMatchObject({ baseCode: "3557", color: "Gümüş", stock: 749, name: "Termos 3557" });
+    expect(r.imageUrl).toBe("https://www.prmstk.com/img/2027-jpg-termos_matara_kupa-termos-3557-3557_gumus_v2.jpg");
+    expect(r.specs.Hacim).toBe("1.000 ml");
+    expect(records.find((x) => x.code === "3915")).toMatchObject({ color: null, stock: 400 });
+  });
+});

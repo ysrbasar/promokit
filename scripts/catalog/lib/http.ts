@@ -5,7 +5,7 @@ import path from "node:path";
 export const ROOT = path.resolve(import.meta.dirname, "../../..");
 export const IMPORT_DIR = path.join(ROOT, "data/import");
 
-export const USER_AGENT = "PromoKitCatalogBot/1.0 (+katalog eşleştirme; düşük hızda tarama)";
+export const USER_AGENT = "PromoKitCatalogBot/1.0 (+katalog eslestirme; dusuk hizda tarama)";
 
 export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 

@@ -16,7 +16,7 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { inspectPage, parsePrmstkPage, type ParserConfig, type RawRecord } from "../../src/lib/import/prmstkParser";
-import { IMPORT_DIR, arg, decodeHtml, ensureDir, fetchWithRetry, flag, readJsonFile, robotsAllows, sha1, sleep, writeJsonFile } from "./lib/http";
+import { HttpError, IMPORT_DIR, arg, decodeHtml, ensureDir, fetchWithRetry, flag, readJsonFile, robotsAllows, sha1, sleep, writeJsonFile } from "./lib/http";
 
 const BASE = arg("base") ?? "https://www.prmstk.com/2027/";
 const FROM = Number(arg("from") ?? 2);
@@ -101,6 +101,11 @@ async function main() {
       else empty++;
       process.stdout.write(`\r${n}/${TO}  ok:${ok} boş:${empty} hata:${failed} atlanan:${skipped}   `);
     } catch (e) {
+      // Aralığın sonu: ilk 404'te dur (sayfa sayısı yıldan yıla değişebilir)
+      if (e instanceof HttpError && e.status === 404) {
+        console.log(`\nSayfa ${n} yok (404) — katalog sonu.`);
+        break;
+      }
       failed++;
       state.pages[key] = {
         status: "failed",

@@ -263,6 +263,53 @@ function selectorStrategy($: cheerio.CheerioAPI, page: number, pageUrl: string, 
   return out;
 }
 
+/**
+ * prmstk.com'un gerçek yapısı (2027, doğrulandı):
+ *   #urunbaslik "3935 - Termos" → #kabuk > #soldiv img (ana görsel)
+ *   #sagdiv li > a[id=ana kod][name=renk görseli] > .left "3935-B - Beyaz" + .right stok
+ *   .aciklama "* Hacim: 900 ml * Ebat: 9 x 22.3 cm"
+ */
+function nativeStrategy($: cheerio.CheerioAPI, page: number, pageUrl: string): RawRecord[] {
+  const out: RawRecord[] = [];
+  $('[id="urunbaslik"]').each((_, h) => {
+    const title = cleanText($(h).text()) ?? "";
+    const [, titleCode, titleType] = title.match(/^(.+?)\s+-\s+(.+)$/) ?? [null, title, null];
+    const shell = $(h).nextAll('[id="kabuk"]').first();
+    if (!shell.length) return;
+    const mainImg = absoluteUrl(shell.find('[id="soldiv"] img').attr("src"), pageUrl);
+    const specs: Record<string, string> = {};
+    for (const part of (cleanText(shell.find(".aciklama").text()) ?? "").split("*")) {
+      const m = part.match(/^\s*([^:]{2,30}):\s*(.+?)\s*$/);
+      if (m) specs[m[1].trim()] = m[2].trim();
+      else if (part.trim()) specs[part.trim()] = "Var";
+    }
+    shell.find('[id="sagdiv"] li a').each((_, a) => {
+      const left = cleanText($(a).find(".left").text()) ?? "";
+      const stockRaw = cleanText($(a).find(".right").text());
+      const [, code, colorRaw] = left.match(/^(.+?)\s+-\s+(.+)$/) ?? [null, left, null];
+      if (!code) return;
+      const base = ($(a).attr("id") ?? titleCode ?? code).trim();
+      const color = colorRaw && colorRaw !== titleType ? colorRaw : null;
+      out.push({
+        page,
+        sourceUrl: pageUrl,
+        code: code.trim().toUpperCase(),
+        baseCode: base.toUpperCase(),
+        name: titleType ? `${titleType} ${titleCode}` : title,
+        color,
+        stock: parseStock(stockRaw),
+        stockRaw,
+        price: null,
+        priceCurrency: null,
+        imageUrl: absoluteUrl(($(a).attr("name") ?? "").replace("//img/", "/img/"), pageUrl) ?? mainImg,
+        specs: { ...specs, ...(titleType ? { Tür: titleType } : {}) },
+        strategy: "selectors",
+      });
+    });
+  });
+  return out;
+}
+
 export function parsePrmstkPage(html: string, pageUrl: string, page: number, config: ParserConfig = {}) {
   const $ = cheerio.load(html);
   const cfg = {
@@ -271,7 +318,8 @@ export function parsePrmstkPage(html: string, pageUrl: string, page: number, con
     baseCodePattern: config.baseCodePattern ?? DEFAULT_BASE_PATTERN,
   };
   const warnings: string[] = [];
-  let records = selectorStrategy($, page, pageUrl, cfg);
+  let records = nativeStrategy($, page, pageUrl);
+  if (!records.length) records = selectorStrategy($, page, pageUrl, cfg);
   if (!records.length) records = tableStrategy($, page, pageUrl, cfg);
   if (!records.length) records = blockStrategy($, page, pageUrl, cfg);
   if (!records.length) warnings.push("parse-empty: sayfada tanınan ürün yapısı bulunamadı (scrape:inspect ile seçicileri ayarlayın)");
