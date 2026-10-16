@@ -17,6 +17,9 @@ export const CATEGORIES = [
   { key: "hediye-set", label: "Hediyelik Setler", hint: "Hazır kombinasyonlar" },
   { key: "kutu-ambalaj", label: "Kutular ve Ambalajlar", hint: "Sunum ve paket" },
   { key: "doga-dostu", label: "Doğa Dostu Ürünler", hint: "Bambu, geri dönüşüm" },
+  { key: "saat", label: "Duvar Saatleri", hint: "Ofis ve mekân" },
+  { key: "anahtarlik", label: "Anahtarlıklar", hint: "Toplu dağıtım" },
+  { key: "plaket-odul", label: "Plaket ve Madalyalar", hint: "Ödül ve teşekkür" },
   { key: "diger", label: "Diğer Ürünler", hint: "Sınıflandırılmamış" },
 ] as const satisfies readonly Option[];
 

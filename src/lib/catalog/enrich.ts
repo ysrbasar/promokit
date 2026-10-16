@@ -25,15 +25,18 @@ export function slugify(s: string): string {
 const norm = (s: string) => slugify(s).replace(/-/g, " ");
 
 const CATEGORY_RULES: [string, RegExp][] = [
+  ["saat", /\b(duvar saati|mekanizmali saat|saatli duvar)/],
+  ["anahtarlik", /\b(anahtarlik)/],
+  ["plaket-odul", /\b(plaket|madalya|kupa odul|odul)/],
   ["hediye-set", /\b(hediye set|set\b|kutulu set|ikili set|uclu set|dortlu set)/],
   ["termos-matara", /\b(termos|matara|suluk|vakum|bidon|shaker|tumbler)/],
   ["kupa-bardak", /\b(kupa|bardak|mug|fincan|kadeh)/],
-  ["defter-ajanda", /\b(defter|ajanda|bloknot|not defteri|planlayici|organizer|sekreterlik)/],
+  ["defter-ajanda", /\b(defter|ajanda|bloknot|notluk|not defteri|planlayici|organizer|sekreterlik)/],
   ["kalem", /\b(kalem|roller|tukenmez|dolma|kursun kalem|versatil)/],
-  ["teknoloji", /\b(powerbank|sarj|hoparlor|kulaklik|usb|bellek|kablosuz|bluetooth|adaptor|mouse|webcam|isikli)/],
+  ["teknoloji", /\b(powerbank|sarj|hoparlor|speaker|kulaklik|usb|bellek|kablosuz|bluetooth|adaptor|mouse|webcam|isikli)/],
   ["canta", /\b(canta|sirt|laptop|evrak|valiz|bez canta|kese|torba)/],
   ["tekstil", /\b(tisort|t shirt|polo|sweat|polar|sapka|bere|atki|yelek|mont|havlu|ceket|hirka)/],
-  ["masaustu", /\b(masaustu|masa ustu|kartlik|kalemlik|saat|takvim|mousepad|kup|stand|organizer)/],
+  ["masaustu", /\b(masaustu|masa ustu|kartlik|kartvizitlik|kalemlik|saat|takvim|mousepad|kup|stand|organizer)/],
   ["kutu-ambalaj", /\b(kutu|ambalaj|paket|hediye kutusu)/],
   ["doga-dostu", /\b(bambu|geri donusum|rpet|mantar|organik|bugday|kraft|eko)/],
 ];
@@ -45,6 +48,9 @@ export function classifyCategory(...texts: (string | null | undefined)[]): strin
 }
 
 const CATEGORY_OCCASIONS: Record<string, string[]> = {
+  saat: ["dealer", "client", "seasonal", "other"],
+  anahtarlik: ["event", "seasonal", "other"],
+  "plaket-odul": ["vip", "dealer", "other"],
   "termos-matara": ["welcome", "client", "dealer", "vip", "seasonal", "education", "other"],
   "kupa-bardak": ["welcome", "seasonal", "event", "other"],
   "defter-ajanda": ["welcome", "client", "dealer", "education", "event", "seasonal", "other"],
@@ -59,6 +65,9 @@ const CATEGORY_OCCASIONS: Record<string, string[]> = {
 };
 
 const CATEGORY_AUDIENCE: Record<string, string[]> = {
+  saat: ["partners", "clients", "general"],
+  anahtarlik: ["attendees", "general", "employees"],
+  "plaket-odul": ["executives", "partners", "employees"],
   "termos-matara": ["employees", "clients", "partners", "executives", "general"],
   "kupa-bardak": ["employees", "attendees", "general"],
   "defter-ajanda": ["employees", "clients", "students", "attendees", "executives"],
