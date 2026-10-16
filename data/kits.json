@@ -30,22 +30,22 @@
       },
       "items": [
         {
-          "productCode": "DEMO-1001",
+          "productCode": "CB-05",
           "qty": 1,
           "role": "Günün ilk kahvesi için"
         },
         {
-          "productCode": "DEMO-1009",
+          "productCode": "ATAŞEHIR",
           "qty": 1,
           "role": "Notlar ve fikirler"
         },
         {
-          "productCode": "DEMO-1014",
+          "productCode": "0510-410",
           "qty": 1,
           "role": "Her imzada marka"
         },
         {
-          "productCode": "DEMO-1048",
+          "productCode": "BEYKOZ",
           "qty": 1,
           "role": "Sunum kutusu"
         }
@@ -82,27 +82,27 @@
       },
       "items": [
         {
-          "productCode": "DEMO-1008",
+          "productCode": "D-3156",
           "qty": 1,
           "role": "Yılın planı"
         },
         {
-          "productCode": "DEMO-1017",
+          "productCode": "0505-465",
           "qty": 1,
           "role": "İmza anları için"
         },
         {
-          "productCode": "DEMO-1040",
+          "productCode": "0061",
           "qty": 1,
           "role": "Masa düzeni"
         },
         {
-          "productCode": "DEMO-1007",
+          "productCode": "3534",
           "qty": 1,
           "role": "Toplantı arası"
         },
         {
-          "productCode": "DEMO-1050",
+          "productCode": "4600",
           "qty": 1,
           "role": "Sunum"
         }
@@ -136,19 +136,19 @@
       },
       "items": [
         {
-          "productCode": "DEMO-1031",
+          "productCode": "BAYRAKLI",
           "qty": 1,
           "role": "Taşıma"
         },
         {
-          "productCode": "DEMO-1012",
+          "productCode": "0506",
           "qty": 1,
           "role": "Oturum notları"
         },
         {
-          "productCode": "DEMO-1018",
+          "productCode": "FATIH",
           "qty": 1,
-          "role": "Yazı"
+          "role": ""
         }
       ],
       "isFeatured": true
@@ -180,24 +180,29 @@
       },
       "items": [
         {
-          "productCode": "DEMO-1020",
+          "productCode": "KBL-03",
           "qty": 1,
           "role": "Yolda enerji"
         },
         {
-          "productCode": "DEMO-1024",
+          "productCode": "TT-80",
           "qty": 1,
           "role": "Her cihaza uyum"
         },
         {
-          "productCode": "DEMO-1025",
+          "productCode": "ADP-10",
           "qty": 1,
           "role": "Masada şarj"
         },
         {
-          "productCode": "DEMO-1048",
+          "productCode": "KBL-01",
           "qty": 1,
           "role": "Sunum kutusu"
+        },
+        {
+          "productCode": "8113",
+          "qty": 1,
+          "role": ""
         }
       ],
       "isFeatured": true
@@ -224,31 +229,25 @@
         "budgetKey": "lt500",
         "categories": [
           "doga-dostu",
-          "kalem",
           "canta",
           "kutu-ambalaj"
         ]
       },
       "items": [
         {
-          "productCode": "DEMO-1052",
+          "productCode": "GD-050",
           "qty": 1,
           "role": "Kayıt defteri"
         },
         {
-          "productCode": "DEMO-1015",
+          "productCode": "0522-130",
           "qty": 1,
           "role": "Yazı"
         },
         {
-          "productCode": "DEMO-1029",
+          "productCode": "0522-290",
           "qty": 1,
-          "role": "Taşıma"
-        },
-        {
-          "productCode": "DEMO-1049",
-          "qty": 1,
-          "role": "Ambalaj"
+          "role": ""
         }
       ],
       "isFeatured": false
@@ -281,24 +280,24 @@
       },
       "items": [
         {
-          "productCode": "DEMO-1027",
+          "productCode": "CB-05",
           "qty": 1,
           "role": "Kampüs çantası"
         },
         {
-          "productCode": "DEMO-1005",
+          "productCode": "ATAŞEHIR",
           "qty": 1,
           "role": "Ders arası"
         },
         {
-          "productCode": "DEMO-1009",
+          "productCode": "0510-410",
           "qty": 1,
           "role": "Ders notları"
         },
         {
-          "productCode": "DEMO-1019",
+          "productCode": "BEYKOZ",
           "qty": 1,
-          "role": "Yazı"
+          "role": ""
         }
       ],
       "isFeatured": false
@@ -332,24 +331,29 @@
       },
       "items": [
         {
-          "productCode": "DEMO-1004",
+          "productCode": "3720",
           "qty": 1,
           "role": "Günlük kullanım"
         },
         {
-          "productCode": "DEMO-1008",
+          "productCode": "BURGAZ",
           "qty": 1,
           "role": "Planlama"
         },
         {
-          "productCode": "DEMO-1022",
+          "productCode": "KBL-03",
           "qty": 1,
           "role": "Keyif"
         },
         {
-          "productCode": "DEMO-1048",
+          "productCode": "3527",
           "qty": 1,
           "role": "Sunum kutusu"
+        },
+        {
+          "productCode": "CB-05",
+          "qty": 1,
+          "role": ""
         }
       ],
       "isFeatured": true
@@ -383,22 +387,22 @@
       },
       "items": [
         {
-          "productCode": "DEMO-1036",
+          "productCode": "D-3825",
           "qty": 1,
           "role": "Sıcak bir yudum"
         },
         {
-          "productCode": "DEMO-1013",
+          "productCode": "ATAŞEHIR",
           "qty": 1,
           "role": "Yeni yıl planı"
         },
         {
-          "productCode": "DEMO-1006",
+          "productCode": "3527",
           "qty": 1,
           "role": "Kış yolculukları"
         },
         {
-          "productCode": "DEMO-1050",
+          "productCode": "BEYKOZ",
           "qty": 1,
           "role": "Sunum"
         }
@@ -432,19 +436,19 @@
       },
       "items": [
         {
-          "productCode": "DEMO-1028",
+          "productCode": "BAYRAKLI",
           "qty": 1,
           "role": "Taşıma"
         },
         {
-          "productCode": "DEMO-1012",
+          "productCode": "0506",
           "qty": 1,
           "role": "Not"
         },
         {
-          "productCode": "DEMO-1018",
+          "productCode": "0507",
           "qty": 1,
-          "role": "Yazı"
+          "role": ""
         }
       ],
       "isFeatured": false
@@ -479,24 +483,34 @@
       },
       "items": [
         {
-          "productCode": "DEMO-1045",
+          "productCode": "ALTINDAĞ",
           "qty": 1,
           "role": "Kişisel aksesuar"
         },
         {
-          "productCode": "DEMO-1046",
+          "productCode": "3534",
           "qty": 1,
           "role": "Deneyim"
         },
         {
-          "productCode": "DEMO-1007",
+          "productCode": "0036",
           "qty": 1,
           "role": "Günlük lüks"
         },
         {
-          "productCode": "DEMO-1050",
+          "productCode": "0061",
           "qty": 1,
           "role": "Sunum"
+        },
+        {
+          "productCode": "0063",
+          "qty": 1,
+          "role": ""
+        },
+        {
+          "productCode": "4600",
+          "qty": 1,
+          "role": ""
         }
       ],
       "isFeatured": true

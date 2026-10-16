@@ -120,7 +120,9 @@ export function mergeCatalog(input: MergeInput): { products: Product[]; review: 
     }
 
     // Kategori
+    const crumbs = site?.breadcrumbs.join(" ").toLocaleLowerCase("tr-TR") ?? "";
     const category =
+      (crumbs.includes("doğa dostu") ? "doga-dostu" : null) ??
       classifyCategory(name, recs[0].specs["Tür"], site?.description) ??
       classifyCategory(recs.map((r) => r.imageUrl?.split("/").pop()?.replace(/[-_]/g, " ")).join(" ")) ??
       classifyCategory(site?.breadcrumbs.slice(1).join(" ")) ??
@@ -141,7 +143,7 @@ export function mergeCatalog(input: MergeInput): { products: Product[]; review: 
     if (known.length === 0) review.push({ productCode, reason: "stock-unknown" });
 
     const pdfPages = input.pdf?.codes[key] ?? null;
-    const resolvedName = name ?? productCode;
+    const resolvedName = (name ?? productCode).replace(/\s*#\s*/g, " ").replace(/\s+/g, " ").trim();
     const base = {
       id: key,
       productCode,

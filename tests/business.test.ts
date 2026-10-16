@@ -261,3 +261,17 @@ describe("kit metinleri", () => {
     expect(t).toBe("Yönetici ve VIP hediyesi için premium ve lüks bir çizgide, stokta bulunan ürünlerden oluşturulmuş seçki.");
   });
 });
+
+describe("bütçe sonrası tamamlama", () => {
+  it("bütçeyi aşan ürün çıkarılınca kalan bütçeye sığan ürünle kit tamamlanır", () => {
+    const priced = (code: string, category: string, price: number) => product(code, { category, price, priceType: "source", priceCurrency: "TRY" });
+    const kit = buildKit(
+      [priced("T1", "termos-matara", 200), priced("C1", "canta", 900), priced("K1", "kalem", 20), priced("K2", "kalem", 30)],
+      { ...EMPTY_ANSWERS, quantity: 0, budgetKey: "lt500", categories: ["termos-matara", "canta", "kalem"] },
+      settings,
+    );
+    const codes = kit.items.map((i) => i.productCode);
+    expect(codes).not.toContain("C1");
+    expect(codes).toHaveLength(3);
+  });
+});

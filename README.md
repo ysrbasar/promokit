@@ -2,9 +2,11 @@
 
 Kullanıcıların sorularla ya da katalogdan seçerek kurumsal hediye kiti oluşturduğu, hazır kitleri incelediği ve teklif istediği Next.js uygulaması. "Maison Kit" bir çalışma adıdır; marka adı `src/components/layout/Logo.tsx` içinde değiştirilir.
 
-> **Önemli — veri durumu:** Geliştirme ortamının ağ politikası `prmstk.com`, `promosyonfirma.com` ve `promosyonkit.com` alan adlarına erişimi engelledi. Bu yüzden **gerçek katalog bu depoda içe aktarılmadı.** Uygulama şu an `data/demo-catalog.json` içindeki **örnek veriyle** çalışır. Örnek ürünlerin kodları `DEMO-` önekiyle başlar, fiyatları "örnek fiyat" olarak etiketlenir ve görselleri yoktur. Sitenin altında da kalıcı bir "Örnek veri" şeridi görünür. Veri toplama araçları hazırdır ve kaynaklara erişimi olan bir makinede aşağıdaki adımlarla çalıştırılmalıdır.
+> **Veri durumu (16.10.2026):** Gerçek katalog içe aktarıldı: prmstk.com 2027 stok sayfaları (262 sayfa, 1.154 ürün, 2.577 renk varyantı, renk bazında stok) ve promosyonfirma.com ürün sayfaları (1.134 sayfa; 998 üründe TL birim fiyat, galeri fotoğrafları, kategori yolu). 810 ürün stok eşiğini (50+) geçiyor. Hazır kitler gerçek ürün kodlarına bağlandı.
 
 ## Hızlı başlangıç
+
+En kolayı: Node.js 20+ kurulu bir bilgisayarda `kur.bat` (Windows) ya da `./kur.sh` (macOS/Linux) çalıştırın; site http://localhost:3000 adresinde açılır.
 
 ```bash
 cd promokit
@@ -21,7 +23,7 @@ npm run dev
 
 ## Gerçek kataloğu içe aktarma
 
-Kaynaklara erişimi olan bir makinede, sırasıyla:
+Kaynaklara erişimi olan bir makinede, sırasıyla (vekil sunucu arkasındaysanız önce `export NODE_USE_ENV_PROXY=1`):
 
 ```bash
 npm run scrape:inspect   # 1) 2.html ve birkaç sayfanın yapısını incele → data/import/prmstk-inspect.json

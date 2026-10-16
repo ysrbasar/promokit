@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 import { cn } from "../ui/primitives";
 
 /**
@@ -22,10 +25,12 @@ export function ProductImage({
   priority?: boolean;
   tone?: "light" | "dark";
 }) {
-  if (src) {
+  // Kaynak görsel bulunamazsa (404) kategori çizimine düşülür
+  const [failed, setFailed] = useState(false);
+  if (src && !failed) {
     return (
       <div className={cn("relative overflow-hidden bg-paper", className)}>
-        <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-contain p-[8%] transition-transform duration-[1200ms] ease-[var(--ease-lux)] group-hover:scale-[1.06]" />
+        <Image src={src} alt={alt} fill sizes={sizes} priority={priority} onError={() => setFailed(true)} className="object-contain p-[8%] transition-transform duration-[1200ms] ease-[var(--ease-lux)] group-hover:scale-[1.06]" />
       </div>
     );
   }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T09:53:53.496Z",
+  "generatedAt": "2026-10-16T10:35:20.508Z",
   "minStock": 50,
   "pages": {
     "expected": 263,
@@ -163,20 +163,19 @@
   "products": {
     "total": 1154,
     "passingStockFilter": 810,
-    "withImage": 1064,
-    "withoutImage": 90,
+    "withImage": 1154,
+    "withoutImage": 0,
     "stockUnknown": 44,
-    "withVerifiedPrice": 0,
-    "unmatchedToSite": 1154,
+    "withVerifiedPrice": 998,
+    "unmatchedToSite": 20,
     "unmatchedToPdf": 1154,
     "categoryUnknown": 60
   },
-  "reviewQueue": 285,
+  "reviewQueue": 195,
   "reviewByReason": {
     "stock-unknown": 44,
     "category-unknown": 60,
-    "image-shared": 91,
-    "missing-image": 90
+    "image-shared": 91
   },
   "lastSuccessfulFetch": "2026-10-16T09:53:10.363Z"
 }

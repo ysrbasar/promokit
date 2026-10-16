@@ -202,16 +202,12 @@ export function buildKit(products: Product[], answers: WizardAnswers, settings: 
     }
   }
 
-  // 2) Kalan yerleri farklı kategorilerden doldur (sürpriz veya kategori sayısı yetmediğinde)
-  const allowOtherCategories = !wanted.length || answers.categories.includes(SURPRISE) || picked.length < Math.min(count, 2);
-  if (allowOtherCategories) {
-    for (const r of ranked) {
-      if (picked.length >= count) break;
-      if (used.has(r.product.productCode)) continue;
-      if (picked.some((x) => x.product.category === r.product.category)) continue;
-      picked.push({ ...r, reasons: [...r.reasons, "Kiti tamamlayan öneri"] });
-      used.add(r.product.productCode);
-    }
+  // 2) İstenen kategoriler varsa önce onlardan ikinci ürünler (kitin odağı korunur)
+  for (const r of ranked) {
+    if (picked.length >= count || !wanted.length) break;
+    if (used.has(r.product.productCode) || !wanted.includes(r.product.category)) continue;
+    picked.push(r);
+    used.add(r.product.productCode);
   }
   // 3) Aynı kategoriyi tekrarlamadan önce, hariç tutulmadıysa bir sunum kutusu ekle
   if (picked.length < count && !answers.excludeCategories.includes("kutu-ambalaj") && !picked.some((x) => x.product.category === "kutu-ambalaj")) {
@@ -221,15 +217,17 @@ export function buildKit(products: Product[], answers: WizardAnswers, settings: 
       used.add(box.product.productCode);
     }
   }
-  // 4) Hâlâ eksikse istenen kategorilerden ikinci ürünler
-  for (const r of ranked) {
-    if (picked.length >= count) break;
-    if (used.has(r.product.productCode)) continue;
-    if (wanted.length && !wanted.includes(r.product.category) && !allowOtherCategories) continue;
-    picked.push(r);
-    used.add(r.product.productCode);
+  // 4) Kalan yerleri farklı kategorilerden doldur (sürpriz veya kategori sayısı yetmediğinde)
+  const allowOtherCategories = !wanted.length || answers.categories.includes(SURPRISE) || picked.length < count;
+  if (allowOtherCategories) {
+    for (const r of ranked) {
+      if (picked.length >= count) break;
+      if (used.has(r.product.productCode)) continue;
+      if (picked.some((x) => x.product.category === r.product.category)) continue;
+      picked.push({ ...r, reasons: [...r.reasons, "Kiti tamamlayan öneri"] });
+      used.add(r.product.productCode);
+    }
   }
-
   // Bütçe kontrolü: yalnızca tüm fiyatlar güvenilirse uygulanır; aşımda ürünler sessizce
   // pahalılaştırılmaz, daha uygun alternatifle değiştirilir veya kit küçültülür.
   if (tier?.max != null) {
@@ -260,6 +258,20 @@ export function buildKit(products: Product[], answers: WizardAnswers, settings: 
           break;
         }
       }
+    }
+  }
+
+  // Bütçe nedeniyle boşalan yerleri, kalan bütçeye sığan ürünlerle doldur (önce istenen kategoriler)
+  if (tier?.max != null && picked.length < count && picked.every((r) => isVerifiedPrice(r.product))) {
+    const pool = [...ranked.filter((r) => wanted.includes(r.product.category)), ...ranked.filter((r) => !wanted.includes(r.product.category))];
+    for (const r of pool) {
+      if (picked.length >= count) break;
+      if (used.has(r.product.productCode) || !isVerifiedPrice(r.product)) continue;
+      if (sum(picked) + (r.product.price as number) > tier.max) continue;
+      const cap = wanted.includes(r.product.category) ? 3 : 2;
+      if (picked.filter((x) => x.product.category === r.product.category).length >= cap) continue;
+      picked.push({ ...r, reasons: [...r.reasons, "Bütçenize sığan tamamlayıcı ürün"] });
+      used.add(r.product.productCode);
     }
   }
 

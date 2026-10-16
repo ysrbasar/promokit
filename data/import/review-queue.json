@@ -73,17 +73,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "3553",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "3555",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "3555",
-    "reason": "missing-image"
   },
   {
     "productCode": "4215",
@@ -141,17 +133,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "5200-13-L",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "5200-13-M",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "5200-13-M",
-    "reason": "missing-image"
   },
   {
     "productCode": "5200-13-S",
@@ -159,17 +143,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "5200-13-S",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "5200-13-XL",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "5200-13-XL",
-    "reason": "missing-image"
   },
   {
     "productCode": "5200-15-L",
@@ -177,17 +153,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "5200-15-L",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "5200-15-M",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "5200-15-M",
-    "reason": "missing-image"
   },
   {
     "productCode": "5200-15-S",
@@ -195,17 +163,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "5200-15-S",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "5200-15-XL",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "5200-15-XL",
-    "reason": "missing-image"
   },
   {
     "productCode": "6389",
@@ -223,17 +183,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "AP-01K-12X16",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "AP-01K-15X20",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "AP-01K-15X20",
-    "reason": "missing-image"
   },
   {
     "productCode": "AP-01K-15X20",
@@ -245,17 +197,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "AP-01L-12X16",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "AP-01L-15X20",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "AP-01L-15X20",
-    "reason": "missing-image"
   },
   {
     "productCode": "AY-25",
@@ -288,17 +232,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "BAĞCILAR-17X24",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "BAĞCILAR-20X28",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "BAĞCILAR-20X28",
-    "reason": "missing-image"
   },
   {
     "productCode": "BC-8200",
@@ -409,10 +345,6 @@
   },
   {
     "productCode": "DIK-100",
-    "reason": "missing-image"
-  },
-  {
-    "productCode": "DIK-100",
     "reason": "stock-unknown"
   },
   {
@@ -422,20 +354,12 @@
   },
   {
     "productCode": "DIK-110",
-    "reason": "missing-image"
-  },
-  {
-    "productCode": "DIK-110",
     "reason": "stock-unknown"
   },
   {
     "productCode": "DIK-60",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "DIK-60",
-    "reason": "missing-image"
   },
   {
     "productCode": "DIK-60",
@@ -445,10 +369,6 @@
     "productCode": "DIK-75",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "DIK-75",
-    "reason": "missing-image"
   },
   {
     "productCode": "DIK-75",
@@ -458,10 +378,6 @@
     "productCode": "EZINE",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "EZINE",
-    "reason": "missing-image"
   },
   {
     "productCode": "EZINE-CZ",
@@ -499,10 +415,6 @@
   },
   {
     "productCode": "KC-01",
-    "reason": "missing-image"
-  },
-  {
-    "productCode": "KC-01",
     "reason": "stock-unknown"
   },
   {
@@ -512,20 +424,12 @@
   },
   {
     "productCode": "KC-02",
-    "reason": "missing-image"
-  },
-  {
-    "productCode": "KC-02",
     "reason": "stock-unknown"
   },
   {
     "productCode": "KC-03",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "KC-03",
-    "reason": "missing-image"
   },
   {
     "productCode": "KC-03",
@@ -535,10 +439,6 @@
     "productCode": "KC-04",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "KC-04",
-    "reason": "missing-image"
   },
   {
     "productCode": "KC-04",
@@ -548,10 +448,6 @@
     "productCode": "KC-05",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "KC-05",
-    "reason": "missing-image"
   },
   {
     "productCode": "KC-05",
@@ -561,10 +457,6 @@
     "productCode": "KC-06",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "KC-06",
-    "reason": "missing-image"
   },
   {
     "productCode": "KC-06",
@@ -574,10 +466,6 @@
     "productCode": "KC-07",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "KC-07",
-    "reason": "missing-image"
   },
   {
     "productCode": "KC-07",
@@ -587,10 +475,6 @@
     "productCode": "KC-08",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "KC-08",
-    "reason": "missing-image"
   },
   {
     "productCode": "KC-08",
@@ -600,10 +484,6 @@
     "productCode": "KUP-250",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "KUP-250",
-    "reason": "missing-image"
   },
   {
     "productCode": "KUP-250",
@@ -613,10 +493,6 @@
     "productCode": "KUP-300",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "KUP-300",
-    "reason": "missing-image"
   },
   {
     "productCode": "KUP-300",
@@ -626,10 +502,6 @@
     "productCode": "KUP-375",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "KUP-375",
-    "reason": "missing-image"
   },
   {
     "productCode": "KUP-375",
@@ -639,10 +511,6 @@
     "productCode": "KUP-500",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "KUP-500",
-    "reason": "missing-image"
   },
   {
     "productCode": "KUP-500",
@@ -652,10 +520,6 @@
     "productCode": "KUP-625",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "KUP-625",
-    "reason": "missing-image"
   },
   {
     "productCode": "KUP-625",
@@ -665,10 +529,6 @@
     "productCode": "KUP-650",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "KUP-650",
-    "reason": "missing-image"
   },
   {
     "productCode": "KUP-650",
@@ -691,20 +551,12 @@
   },
   {
     "productCode": "MB-300",
-    "reason": "missing-image"
-  },
-  {
-    "productCode": "MB-300",
     "reason": "stock-unknown"
   },
   {
     "productCode": "MB-500",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "MB-500",
-    "reason": "missing-image"
   },
   {
     "productCode": "MB-500",
@@ -787,17 +639,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "TASLAMA-GS",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "TASLAMA-S",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "TASLAMA-S",
-    "reason": "missing-image"
   },
   {
     "productCode": "TES-100",
@@ -825,17 +669,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-333-CMV",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-333-FM",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-333-FM",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-333-FSY",
@@ -843,17 +679,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-333-FSY",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-333-G",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-333-G",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-333-HYSL",
@@ -861,17 +689,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-333-HYSL",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-333-K",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-333-K",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-333-KH",
@@ -879,17 +699,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-333-KH",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-333-L",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-333-L",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-333-MV",
@@ -897,17 +709,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-333-MV",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-333-MYSL",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-333-MYSL",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-333-PM",
@@ -915,17 +719,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-333-PM",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-333-S",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-333-S",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-333-SR",
@@ -933,17 +729,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-333-SR",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-333-T",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-333-T",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-334-CMV",
@@ -951,17 +739,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-334-CMV",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-334-FM",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-334-FM",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-334-FSY",
@@ -969,17 +749,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-334-FSY",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-334-G",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-334-G",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-334-HY",
@@ -987,17 +759,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-334-HY",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-334-K",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-334-K",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-334-KH",
@@ -1005,17 +769,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-334-KH",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-334-L",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-334-L",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-334-MV",
@@ -1023,17 +779,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-334-MV",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-334-MY",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-334-MY",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-334-PM",
@@ -1041,17 +789,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-334-PM",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-334-S",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-334-S",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-334-SR",
@@ -1059,17 +799,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-334-SR",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-334-T",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-334-T",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-630-A",
@@ -1077,17 +809,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-630-A",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-630-B",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-630-B",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-630-FM",
@@ -1095,17 +819,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-630-FM",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-630-GM",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-630-GM",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-630-HYSL",
@@ -1113,17 +829,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-630-HYSL",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-630-K",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-630-K",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-630-L",
@@ -1131,17 +839,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-630-L",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-630-S",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-630-S",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-630-SR",
@@ -1149,17 +849,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-630-SR",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-630-T",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-630-T",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-635-A",
@@ -1167,17 +859,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-635-A",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-635-B",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-635-B",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-635-FM",
@@ -1185,17 +869,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-635-FM",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-635-GM",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-635-GM",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-635-HYSL",
@@ -1203,17 +879,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-635-HYSL",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-635-K",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-635-K",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-635-L",
@@ -1221,17 +889,9 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-635-L",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-635-S",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "V30-635-S",
-    "reason": "missing-image"
   },
   {
     "productCode": "V30-635-SR",
@@ -1239,26 +899,14 @@
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-635-SR",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "V30-635-T",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
   },
   {
-    "productCode": "V30-635-T",
-    "reason": "missing-image"
-  },
-  {
     "productCode": "YB-125",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "YB-125",
-    "reason": "missing-image"
   },
   {
     "productCode": "YB-125",
@@ -1271,20 +919,12 @@
   },
   {
     "productCode": "YB-180",
-    "reason": "missing-image"
-  },
-  {
-    "productCode": "YB-180",
     "reason": "stock-unknown"
   },
   {
     "productCode": "YB-225",
     "reason": "image-shared",
     "detail": "aynı görsel birden fazla ürün koduna atanmış"
-  },
-  {
-    "productCode": "YB-225",
-    "reason": "missing-image"
   },
   {
     "productCode": "YB-225",
