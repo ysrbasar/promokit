@@ -89,6 +89,14 @@ export async function getOverrides() {
   return (await readJson<Record<string, ProductOverride>>(OVERRIDES_FILE)) ?? {};
 }
 
+/** Birden çok ürüne tek yazımda aynı değişikliği uygular (toplu kaldır / geri al) */
+export async function setOverrides(productCodes: string[], patch: ProductOverride) {
+  const all = await getOverrides();
+  const clean = ProductOverride.parse(patch);
+  for (const code of productCodes) all[code] = { ...all[code], ...clean };
+  await writeJson(OVERRIDES_FILE, all);
+}
+
 export async function setOverride(productCode: string, patch: ProductOverride) {
   const all = await getOverrides();
   all[productCode] = { ...all[productCode], ...ProductOverride.parse(patch) };
