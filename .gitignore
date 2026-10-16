@@ -10,3 +10,8 @@ data/import/raw/
 data/import/*.pdf
 # Çalışma zamanı kayıtları (teklifler, yüklenen dosyalar)
 data/runtime/
+# Tarama ara durumları (yeniden üretilebilir); yalnızca rapor ve inceleme kuyruğu depoya girer
+data/import/*
+!data/import/report.json
+!data/import/review-queue.json
+!data/import/prmstk.config.json
