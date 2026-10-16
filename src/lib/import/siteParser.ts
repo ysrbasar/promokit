@@ -38,8 +38,45 @@ const isType = (n: JsonLd, t: string) => {
 
 const str = (v: unknown): string | null => (typeof v === "string" ? cleanText(v) : typeof v === "number" ? String(v) : null);
 
+/** promosyonfirma.com ürün sayfası (2027 yapısı, doğrulandı) */
+function parseNative($: cheerio.CheerioAPI, url: string): SiteRecord | null {
+  const title = cleanText($(".product-single__title").first().text());
+  if (!title) return null;
+  const info: Record<string, string> = {};
+  $(".product-info .product-single__type").each((_, p) => {
+    const label = cleanText($(p).find("label").text());
+    const value = cleanText($(p).text().replace($(p).find("label").text(), "").replace(/^\s*:/, ""));
+    if (label && value) info[label] = value;
+  });
+  // Görünen fiyat (₺ simgesiyle); itemprop "content" alanı tutarsız olduğu için kullanılmaz
+  const priceText = cleanText($(".product-single__price-product-template .money").first().text());
+  const isTry = $(".product-single__price-product-template .fa-try").length > 0;
+  const price = priceText ? parsePrice(priceText) : null;
+  const specs: Record<string, string> = {};
+  $("#urunozellik li").each((_, li) => {
+    const m = (cleanText($(li).text()) ?? "").match(/^([^:]{2,30}):\s*(.+)$/);
+    if (m) specs[m[1].trim()] = m[2].trim();
+  });
+  const images = [...new Set($(".slider-nav [data-image], .fancybox[href]").toArray().map((e) => absoluteUrl($(e).attr("data-image") ?? $(e).attr("href"), url)).filter((x): x is string => !!x && /\.(jpe?g|png|webp)$/i.test(x)))];
+  const breadcrumbs = $("ol.breadcrumb li [itemprop=name]").toArray().map((e) => cleanText($(e).text())).filter((x): x is string => !!x);
+  return {
+    url,
+    code: info["Ürün Kodu"]?.toUpperCase() ?? null,
+    name: title,
+    description: null,
+    images,
+    price: price && isTry ? price.amount : null,
+    priceCurrency: price && isTry ? "TRY" : null,
+    breadcrumbs: ["Ana Sayfa", ...breadcrumbs.slice(0, -1)],
+    colors: info["Renk"] ? [info["Renk"]] : [],
+    specs: { ...specs, ...(info["Ebat"] ? { Ebat: info["Ebat"] } : {}) },
+  };
+}
+
 export function parseSitePage(html: string, url: string): SiteRecord | null {
   const $ = cheerio.load(html);
+  const native = parseNative($, url);
+  if (native) return native;
   const lds: JsonLd[] = [];
   $('script[type="application/ld+json"]').each((_, s) => {
     try {

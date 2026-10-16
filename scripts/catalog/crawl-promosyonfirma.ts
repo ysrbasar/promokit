@@ -9,12 +9,14 @@
  */
 import path from "node:path";
 import { parseSitemap, parseSitePage, type SiteRecord } from "../../src/lib/import/siteParser";
+import type { RawRecord } from "../../src/lib/import/prmstkParser";
+import { slugify } from "../../src/lib/catalog/enrich";
 import { IMPORT_DIR, arg, decodeHtml, fetchWithRetry, readJsonFile, robotsAllows, sleep, writeJsonFile } from "./lib/http";
 
 const ORIGIN = arg("origin") ?? "https://www.promosyonfirma.com";
 const PATTERN = arg("pattern") ? new RegExp(arg("pattern") as string) : null;
 const MAX = Number(arg("max") ?? 5000);
-const DELAY = Number(arg("delay") ?? 1500);
+const DELAY = Number(arg("delay") ?? 900);
 const STATE_FILE = path.join(IMPORT_DIR, "site-state.json");
 const OUT = path.join(IMPORT_DIR, "site-records.json");
 
@@ -40,7 +42,33 @@ async function collectUrls(): Promise<string[]> {
     }
     await sleep(500);
   }
-  return [...urls].filter((u) => (PATTERN ? PATTERN.test(u) : true));
+  // Sitemap eski biçimde (/urunNNN/slug.html); gerçek adres /promosyon-slug-NNN-urunu.html
+  const fixed = [...urls].map((u) => u.replace(/\/urun(\d+)\/([^/]+)\.html$/, "/promosyon-$2-$1-urunu.html"));
+  const filtered = fixed.filter((u) => (PATTERN ? PATTERN.test(u) : /-urunu\.html$/.test(u)));
+  return onePerProduct(filtered);
+}
+
+/** prmstk kayıtlarındaki her ana ürün için tek bir renk sayfası seçer (diğer renkler sayfadaki tabloda) */
+function onePerProduct(urls: string[]): string[] {
+  const records = readJsonFile<Record<string, RawRecord[]>>(path.join(IMPORT_DIR, "prmstk-records.json"), {});
+  const slugOf = (u: string) => u.match(/\/promosyon-(.+)-\d+-urunu\.html$/)?.[1] ?? "";
+  const bySlug = urls.map((u) => ({ u, s: slugOf(u) }));
+  const picked = new Set<string>();
+  const bases = new Map<string, string[]>();
+  for (const r of Object.values(records).flat()) bases.set(r.baseCode, [...(bases.get(r.baseCode) ?? []), r.code]);
+  if (!bases.size) return urls;
+  for (const codes of bases.values()) {
+    for (const code of codes) {
+      const prefix = slugify(code) + "-";
+      const hit = bySlug.find((x) => x.s.startsWith(prefix));
+      if (hit) {
+        picked.add(hit.u);
+        break;
+      }
+    }
+  }
+  console.log(`Ürün sayfası: ${urls.length} → ana ürün başına bir sayfa: ${picked.size} (${bases.size} ana ürün)`);
+  return [...picked];
 }
 
 async function main() {
@@ -54,12 +82,12 @@ async function main() {
       process.exit(2);
     }
   }
+  const robots = await robotsAllows(ORIGIN, "/");
   let processed = 0;
   for (const url of state.urls) {
     if (processed >= MAX) break;
     if (state.done[url] === "ok" || state.done[url] === "no-product") continue;
-    const u = new URL(url);
-    if (!(await robotsAllows(u.origin, u.pathname)).allowed) {
+    if (!robots.allowed) {
       state.done[url] = "disallowed";
       continue;
     }

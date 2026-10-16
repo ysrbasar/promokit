@@ -91,3 +91,13 @@ describe("prmstk gerçek sayfa (2027/3.html)", () => {
     expect(records.find((x) => x.code === "3915")).toMatchObject({ color: null, stock: 400 });
   });
 });
+
+describe("promosyonfirma gerçek ürün sayfası", () => {
+  it("kod, TL fiyat, kategori yolu, özellikler ve galeri", () => {
+    const r = parseSitePage(fx("promosyonfirma-3935-s.html"), "https://www.promosyonfirma.com/promosyon-3935-s-termos-44910-urunu.html")!;
+    expect(r).toMatchObject({ code: "3935-S", name: "3935-S Termos", price: 856, priceCurrency: "TRY" });
+    expect(r.breadcrumbs).toEqual(["Ana Sayfa", "Termoslar ve Bardaklar", "Termoslar"]);
+    expect(r.specs.Hacim).toBe("900 ml");
+    expect(r.images.some((u) => u.endsWith("3935_konsept.jpg"))).toBe(true);
+  });
+});

@@ -121,9 +121,9 @@ export function mergeCatalog(input: MergeInput): { products: Product[]; review: 
 
     // Kategori
     const category =
-      classifyCategory(site?.breadcrumbs.slice(1).join(" ")) ??
       classifyCategory(name, recs[0].specs["Tür"], site?.description) ??
       classifyCategory(recs.map((r) => r.imageUrl?.split("/").pop()?.replace(/[-_]/g, " ")).join(" ")) ??
+      classifyCategory(site?.breadcrumbs.slice(1).join(" ")) ??
       "diger";
     if (category === "diger") review.push({ productCode, reason: "category-unknown", detail: name ?? undefined });
 
