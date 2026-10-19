@@ -109,15 +109,76 @@ export async function setOverride(productCode: string, patch: ProductOverride) {
 /* ───────────────────────── Hazır kitler ───────────────────────── */
 
 const KITS_DEFAULT = path.join(DATA_DIR, "kits.json");
-const KITS_RUNTIME = path.join(RUNTIME_DIR, "kits.json");
+/** Eski biçim: yöneticinin kaydettiği tam liste (geriye dönük uyumluluk için okunur) */
+const KITS_RUNTIME_LEGACY = path.join(RUNTIME_DIR, "kits.json");
+/**
+ * Yönetici kit durumu. Tam liste yerine farklar saklanır; böylece XML güncellemesiyle gelen YENİ setler
+ * otomatik eklenir, yöneticinin KALDIRDIĞI kitler ise geri gelmez.
+ *  - hidden: kaldırılan otomatik/başlangıç kitlerinin adresleri (slug)
+ *  - kits:   yalnızca yöneticinin DEĞİŞTİRDİĞİ veya yeni eklediği kitler (slug ile eşleşir)
+ */
+const KIT_STATE_FILE = path.join(RUNTIME_DIR, "kit-state.json");
+const KitState = z.object({ hidden: z.array(z.string()).default([]), kits: ReadyKitsFile.shape.kits.default([]) });
+type KitState = z.infer<typeof KitState>;
 
-/** Yönetici düzenlemesi varsa onu, yoksa otomatik güncellemeyle gelen setleri, yoksa depodaki başlangıç kitlerini kullanır */
-export async function getReadyKits(): Promise<ReadyKit[]> {
-  const raw = (await readJson<unknown>(KITS_RUNTIME)) ?? (await readJson<unknown>(SYNCED_KITS_FILE)) ?? (await readJson<unknown>(KITS_DEFAULT));
-  return ReadyKitsFile.parse(raw ?? { kits: [] }).kits;
+async function baseKits(): Promise<ReadyKit[]> {
+  const raw = (await readJson<unknown>(SYNCED_KITS_FILE)) ?? (await readJson<unknown>(KITS_DEFAULT));
+  const parsed = ReadyKitsFile.safeParse(raw ?? { kits: [] });
+  return parsed.success ? parsed.data.kits : [];
 }
 
+async function getKitState(): Promise<KitState | null> {
+  const raw = await readJson<unknown>(KIT_STATE_FILE);
+  if (raw) {
+    const parsed = KitState.safeParse(raw);
+    if (parsed.success) return parsed.data;
+  }
+  // Eski tam liste varsa farklara dönüştür
+  const legacy = ReadyKitsFile.safeParse(await readJson<unknown>(KITS_RUNTIME_LEGACY));
+  if (legacy.success) return diffKits(await baseKits(), legacy.data.kits);
+  return null;
+}
+
+function diffKits(base: ReadyKit[], submitted: ReadyKit[]): KitState {
+  const keep = new Set(submitted.map((k) => k.slug));
+  const baseBySlug = new Map(base.map((k) => [k.slug, JSON.stringify(k)]));
+  return {
+    hidden: base.filter((k) => !keep.has(k.slug)).map((k) => k.slug),
+    kits: submitted.filter((k) => baseBySlug.get(k.slug) !== JSON.stringify(k)),
+  };
+}
+
+/** Sitede görünen hazır kitler: temel kitler (XML setleri veya başlangıç) − gizlenenler, yönetici düzenlemeleri uygulanmış */
+export async function getReadyKits(): Promise<ReadyKit[]> {
+  const [base, state] = await Promise.all([baseKits(), getKitState()]);
+  if (!state) return base;
+  const hidden = new Set(state.hidden);
+  const edits = new Map(state.kits.map((k) => [k.slug, k]));
+  const baseSlugs = new Set(base.map((k) => k.slug));
+  // Temel sıra korunur, düzenlenenler yerinde değişir; yöneticinin eklediği kitler sona eklenir
+  return [
+    ...base.filter((k) => !hidden.has(k.slug)).map((k) => edits.get(k.slug) ?? k),
+    ...state.kits.filter((k) => !baseSlugs.has(k.slug) && !hidden.has(k.slug)),
+  ];
+}
+
+/** Yönetici kaydı: listeden çıkarılan temel kitler gizlenir (sonraki XML güncellemelerinde de) */
 export async function saveReadyKits(kits: ReadyKit[]) {
-  await writeJson(KITS_RUNTIME, ReadyKitsFile.parse({ kits }));
+  const [base, prev] = await Promise.all([baseKits(), getKitState()]);
+  const next = diffKits(base, ReadyKitsFile.parse({ kits }).kits);
+  // Daha önce gizlenmiş ve bu sefer listede olmayan kitler gizli kalır
+  next.hidden = [...new Set([...(prev?.hidden ?? []).filter((s) => !kits.some((k) => k.slug === s)), ...next.hidden])];
+  await writeJson(KIT_STATE_FILE, next);
+}
+
+export async function getHiddenKits(): Promise<ReadyKit[]> {
+  const [base, state] = await Promise.all([baseKits(), getKitState()]);
+  const hidden = new Set(state?.hidden ?? []);
+  return base.filter((k) => hidden.has(k.slug));
+}
+
+export async function restoreKit(slug: string) {
+  const state = (await getKitState()) ?? { hidden: [], kits: [] };
+  await writeJson(KIT_STATE_FILE, { ...state, hidden: state.hidden.filter((s) => s !== slug) });
 }
 

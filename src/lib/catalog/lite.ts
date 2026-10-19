@@ -63,10 +63,10 @@ export function bestLiteVariant(p: Pick<LiteProduct, "variants">, minStock: numb
 }
 
 /** Kit kapak görselleri: tek ürünlü (kutulu set) kitlerde ürünün galerisi, aksi halde her üründen bir görsel */
-export function kitImages(products: Pick<LiteProduct, "productCode" | "name" | "category" | "image" | "gallery">[]) {
+export function kitImages(products: Pick<LiteProduct, "productCode" | "name" | "category" | "image" | "gallery" | "slug">[]) {
   if (products.length === 1 && products[0].gallery.length > 1) {
     const p = products[0];
-    return p.gallery.slice(0, 4).map((src, i) => ({ key: `${p.productCode}-${i}`, src, alt: `${p.name} görsel ${i + 1}`, category: p.category }));
+    return p.gallery.slice(0, 4).map((src, i) => ({ key: `${p.productCode}-${i}`, src, alt: `${p.name} görsel ${i + 1}`, category: p.category, href: `/urun/${p.slug}` }));
   }
-  return products.slice(0, 4).map((p) => ({ key: p.productCode, src: p.image, alt: p.name, category: p.category }));
+  return products.slice(0, 4).map((p) => ({ key: p.productCode, src: p.image, alt: p.name, category: p.category, href: `/urun/${p.slug}` }));
 }

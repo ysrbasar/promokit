@@ -255,6 +255,12 @@ describe("içe aktarma (ipromosyon XML)", () => {
     expect(r.costs["İTR1001"].variants["İTR1001-S"]).toBe(78);
   });
 
+  it("açıklamalarda ürün kodu kalmaz", () => {
+    const set = run().catalog.products[2];
+    expect(set.description).not.toMatch(/İTR1001|İKL2002/);
+    expect(set.description).toContain("ÇELİK TERMOS");
+  });
+
   it("set içeriği açıklamadan çözülür", () => {
     const set = run().catalog.products[2];
     expect(set.category).toBe("hediye-set");
@@ -303,6 +309,21 @@ describe("kit çeşitliliği", () => {
     const subs = kit.items.map((i) => i.productCode.charAt(0));
     expect(subs.filter((x) => x === "U")).toHaveLength(1);
     expect(kit.items.map((i) => i.productCode)).toEqual(expect.arrayContaining(["P1", "S1"]));
+  });
+});
+
+describe("aksesuar mantığı", () => {
+  it("kalem yoksa kalem kutusu önerilmez; kalem varsa olabilir", () => {
+    const box = product("KK1", { category: "kutu-ambalaj", subcategory: "Kalem Kutuları", isFeatured: true });
+    const giftBox = product("SB1", { category: "kutu-ambalaj", subcategory: "Özel Set Kutuları" });
+    const termos = product("T1", { category: "termos-matara", subcategory: "Termos Mataralar" });
+    const kit = buildKit([box, giftBox, termos], { ...EMPTY_ANSWERS, quantity: 0, categories: ["termos-matara"] }, settings);
+    const codes = kit.items.map((i) => i.productCode);
+    expect(codes).not.toContain("KK1");
+    expect(codes).toContain("SB1");
+    const pen = product("K1", { category: "kalem", subcategory: "Metal Kalemler" });
+    const kit2 = buildKit([pen, box], { ...EMPTY_ANSWERS, quantity: 0, categories: ["kalem", "kutu-ambalaj"] }, settings);
+    expect(kit2.items.map((i) => i.productCode)).toEqual(["K1", "KK1"]);
   });
 });
 

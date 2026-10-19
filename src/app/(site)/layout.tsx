@@ -17,6 +17,11 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
           </Link>
         </div>
       )}
+      {/* Revizyon projesi notu: her sayfada sol altta küçük bir rozet */}
+      <div role="note" className="pointer-events-none fixed bottom-20 left-3 z-30 flex items-center gap-2 rounded-full border border-champagne/50 bg-ink/90 px-3 py-1.5 text-[0.68rem] font-semibold text-ivory shadow-lift backdrop-blur lg:bottom-4 lg:left-4">
+        <span className="stock-lamp text-champagne" aria-hidden />
+        Bu bir revizyon projesidir
+      </div>
       <main id="icerik">{children}</main>
       <Footer />
       <MobileKitBar />

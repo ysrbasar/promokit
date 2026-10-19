@@ -101,12 +101,16 @@ export function KitBuilderWizard() {
     requestAnimationFrame(() => headingRef.current?.focus());
   };
 
-  const generate = async () => {
+  // "Yeni öneri oluştur" her basıldığında önceki önerilerdeki ürünler geri plana itilir
+  const [avoid, setAvoid] = useState<string[]>([]);
+  const generate = async (again = false) => {
+    const nextAvoid = again && result ? [...new Set([...avoid, ...result.items.map((i) => i.productCode)])] : [];
+    setAvoid(nextAvoid);
     setLoading(true);
     setError(null);
     go(STEPS.length - 1);
     try {
-      const r = await fetch("/api/recommend", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(answers) });
+      const r = await fetch("/api/recommend", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...answers, avoid: nextAvoid }) });
       if (!r.ok) throw new Error();
       const d = (await r.json()) as { kit: KitRecommendation; products: LiteProduct[] };
       primeProducts(d.products);
@@ -222,7 +226,7 @@ export function KitBuilderWizard() {
                 </div>
               )}
               {current.key === "result" && (
-                <ResultStep loading={loading} error={error} result={result} answers={answers} onRetry={generate} onRestart={() => go(0)} />
+                <ResultStep loading={loading} error={error} result={result} answers={answers} onRetry={() => generate()} onRegenerate={() => generate(true)} onRestart={() => go(0)} />
               )}
             </div>
           </motion.section>
@@ -490,6 +494,7 @@ function ResultStep({
   result,
   answers,
   onRetry,
+  onRegenerate,
   onRestart,
 }: {
   loading: boolean;
@@ -497,6 +502,7 @@ function ResultStep({
   result: KitRecommendation | null;
   answers: WizardAnswers;
   onRetry: () => void;
+  onRegenerate: () => void;
   onRestart: () => void;
 }) {
   if (loading)
@@ -546,6 +552,14 @@ function ResultStep({
         <p className="mt-4 text-sm text-ivory/50">
           {result.items.length} ürün · {answers.quantity.toLocaleString("tr-TR")} kit için stok koşulunu karşılıyor
         </p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Button variant="gold" onClick={onRegenerate}>
+            <Icon name="swap" className="size-4" /> Yeni öneri oluştur
+          </Button>
+          <Button variant="light" onClick={onRestart}>
+            Cevapları düzenle
+          </Button>
+        </div>
       </motion.div>
       {result.notes.length > 0 && (
         <ul className="space-y-2">
@@ -564,9 +578,14 @@ function ResultStep({
         </Link>
         .
       </p>
-      <Button variant="outline" onClick={onRestart}>
-        Cevapları düzenle
-      </Button>
+      <div className="flex flex-wrap gap-3">
+        <Button variant="outline" onClick={onRegenerate}>
+          <Icon name="swap" className="size-4" /> Yeni öneri oluştur
+        </Button>
+        <Button variant="ghost" onClick={onRestart}>
+          Cevapları düzenle
+        </Button>
+      </div>
     </div>
   );
 }

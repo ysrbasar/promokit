@@ -6,6 +6,7 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/
 import { useEffect, useState } from "react";
 import { useKit, useHydrated } from "@/lib/kit/store";
 import { ButtonLink, Icon, cn } from "../ui/primitives";
+import { useCart } from "@/lib/cart/store";
 import { CategoryIcon } from "../ui/CategoryIcon";
 import { Logo } from "./Logo";
 
@@ -23,6 +24,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const hydrated = useHydrated();
+  const cartCount = useCart((s) => s.items.length);
   const count = useKit((s) => s.draft.lines.length);
   const favCount = useKit((s) => s.favorites.length);
   useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 24));
@@ -76,6 +78,12 @@ export function Header() {
               )}
             </AnimatePresence>
           </Link>
+          <Link href="/sepet" aria-label={`Sepet, ${hydrated ? cartCount : 0} ürün`} className="relative grid size-10 place-items-center rounded-full hover:bg-ink/5">
+            <Icon name="cart" />
+            {hydrated && cartCount > 0 && (
+              <span className="absolute -right-0.5 -top-0.5 grid size-5 place-items-center rounded-full bg-[#16a34a] text-[0.65rem] font-bold text-white">{cartCount}</span>
+            )}
+          </Link>
           <ButtonLink href="/kit-olustur" variant={overHero ? "gold" : "primary"} size="sm" className="hidden sm:inline-flex">
             Kit Oluştur
           </ButtonLink>
@@ -96,7 +104,7 @@ export function Header() {
             className="overflow-hidden border-t border-line bg-ivory text-ink lg:hidden"
           >
             <div className="flex flex-col px-4 pb-6 pt-2 sm:px-6">
-              {[{ href: "/kit-olustur", label: "Kit Oluştur" }, ...NAV, { href: "/favoriler", label: "Favoriler" }, { href: "/kitim", label: "Kitim" }].map((n, i) => (
+              {[{ href: "/kit-olustur", label: "Kit Oluştur" }, ...NAV, { href: "/favoriler", label: "Favoriler" }, { href: "/kitim", label: "Kitim" }, { href: "/sepet", label: "Sepet" }].map((n, i) => (
                 <motion.div key={n.href} initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.04 * i }}>
                   <Link href={n.href} className="flex items-center justify-between border-b border-line py-4 font-display text-2xl">
                     {n.label}

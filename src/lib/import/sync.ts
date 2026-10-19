@@ -84,7 +84,7 @@ export function kitsFromSets(products: Product[]): ReadyKit[] {
     slug: p.slug,
     name: p.name.replace(/\s*Kutulu Özel Set$/i, " Seti"),
     tagline: p.setContents.map((c) => c.name).slice(0, 3).join(" · "),
-    description: p.description?.slice(0, 280) ?? `${p.setContents.length} parçalı kutulu kurumsal hediye seti.`,
+    description: `${p.setContents.map((c) => c.name).join(", ")}. Özel kutusunda, logonuzla kişiselleştirilmiş olarak teslim edilir.`,
     story: `${p.setContents.length} parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz ${p.printingMethods.slice(0, 2).join(" veya ") || "uygun baskı yöntemiyle"} uygulanır.`,
     audience: "Kurumsal hediye",
     purpose: "Müşteri, çalışan ve iş ortağı hediyesi",

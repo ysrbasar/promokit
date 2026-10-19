@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { bestLiteVariant, type LiteProduct } from "@/lib/catalog/lite";
 import { categoryLabel } from "@/lib/config/taxonomy";
+import { useCart } from "@/lib/cart/store";
 import { useKit, useHydrated } from "@/lib/kit/store";
 import { useCatalogInfo } from "../providers/CatalogContext";
 import { Icon, cn } from "../ui/primitives";
@@ -19,6 +20,8 @@ export function ProductCard({ product: p, priority }: { product: LiteProduct; pr
   const add = useKit((s) => s.add);
   const toggleFav = useKit((s) => s.toggleFavorite);
   const [flash, setFlash] = useState(false);
+  const addToCart = useCart((s) => s.add);
+  const inCart = useCart((s) => s.items.some((i) => i.productCode === p.productCode));
 
   const onAdd = () => {
     const v = bestLiteVariant(p, minStock);
@@ -76,6 +79,16 @@ export function ProductCard({ product: p, priority }: { product: LiteProduct; pr
             <StockBadge status={p.stockStatus} />
             <PriceTag price={p.price} currency={p.priceCurrency} type={p.priceType} />
           </div>
+          <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={() => addToCart({ productCode: p.productCode, variantCode: bestLiteVariant(p, minStock)?.code ?? p.variants[0]?.code ?? null, qty: p.minOrderQty ?? 1 })}
+            className={cn("grid size-11 shrink-0 place-items-center rounded-full border transition-all duration-300", hydrated && inCart ? "border-[#16a34a] bg-[#16a34a] text-white" : "border-line-strong text-ink hover:border-[#16a34a] hover:text-[#16a34a]")}
+            aria-label={hydrated && inCart ? "Sepette" : "Sepete ekle"}
+            title={hydrated && inCart ? "Sepette (adet sepette değiştirilebilir)" : "Tekli sipariş: sepete ekle"}
+          >
+            <Icon name="cart" className="size-[18px]" />
+          </button>
           <button
             type="button"
             onClick={onAdd}
@@ -89,6 +102,7 @@ export function ProductCard({ product: p, priority }: { product: LiteProduct; pr
           >
             <Icon name={hydrated && inKit ? "check" : "plus"} />
           </button>
+          </div>
         </div>
       </div>
 

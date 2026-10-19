@@ -28,7 +28,7 @@ export const QuoteKitSchema = z.object({
   name: z.string().trim().min(1).max(80),
   kitQuantity: z.number().int().min(1, "Kit adedi en az 1 olmalı").max(100000),
   lines: z.array(KitLineSchema).min(1, "Kitte en az bir ürün olmalı").max(30),
-  source: z.enum(["wizard", "free", "ready"]),
+  source: z.enum(["wizard", "free", "ready", "cart"]),
   readyKitSlug: z.string().nullable().optional(),
   answers: z.record(z.unknown()).nullable().optional(),
 });

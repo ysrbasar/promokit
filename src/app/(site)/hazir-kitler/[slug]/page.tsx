@@ -7,7 +7,10 @@ import { ProductImage } from "@/components/product/ProductImage";
 import { kitImages } from "@/lib/catalog/lite";
 import { StockBadge } from "@/components/product/StockAndPrice";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/motion";
-import { Badge, Container, SectionHeading } from "@/components/ui/primitives";
+import { AddToCartButton } from "@/components/cart/AddToCartButton";
+import { AddToKitButton } from "@/components/kit/AddToKitButton";
+import { CategoryIcon } from "@/components/ui/CategoryIcon";
+import { Badge, Container, Icon, SectionHeading } from "@/components/ui/primitives";
 import { categoryLabel } from "@/lib/config/taxonomy";
 import { getKitView, getKitViews } from "@/lib/server/views";
 
@@ -26,6 +29,28 @@ export default async function ReadyKitDetail({ params }: { params: Params }) {
   if (!v) notFound();
   const others = (await getKitViews()).filter((k) => k.kit.slug !== slug).slice(0, 3);
   const setContents = v.lines.flatMap((l) => l.product.setContents);
+  const products = v.lines.map((l) => l.product);
+  const names = setContents.length ? setContents.map((c) => c.name) : products.map((p) => p.name);
+  const pieces = setContents.length ? setContents.length : v.pieces;
+  const allInStock = products.every((p) => p.stockStatus === "available");
+  const methods = [...new Set(products.flatMap((p) => p.printingMethods))];
+  const moq = Math.max(0, ...products.map((p) => p.minOrderQty ?? 0));
+  const info = [
+    { icon: "kutu-ambalaj", anim: "anim-pop", title: `${pieces} parça`, text: names.join(", ") },
+    {
+      icon: "truck",
+      anim: "anim-drive",
+      title: allInStock ? "Stoktan hızlı tedarik" : "Tedarik süresi teklifte",
+      text: allInStock ? "Ürünler stokta; kesin teslim tarihi baskı onayıyla birlikte bildirilir." : "Stokta olmayan ürünler için gelecek stok tarihi teklifte bildirilir.",
+    },
+    { icon: "verify", anim: "anim-pop", title: "Onaylı baskı", text: "Logo önizlemesini onaylamadan üretime geçilmez." },
+    {
+      icon: "production",
+      anim: "anim-spin-slow",
+      title: methods.length ? `${methods.length} baskı seçeneği` : "Baskı teklifte",
+      text: [methods.slice(0, 4).join(", "), moq ? `Minimum ${moq.toLocaleString("tr-TR")} adet` : ""].filter(Boolean).join(" · ") || "Uygun yöntem ürün özelinde belirlenir.",
+    },
+  ];
 
   return (
     <>
@@ -56,9 +81,9 @@ export default async function ReadyKitDetail({ params }: { params: Params }) {
           <Reveal delay={0.15}>
             <div className="relative grid grid-cols-2 gap-3" aria-label="Temsili kit kompozisyonu">
               {kitImages(v.lines.map((l) => l.product)).map((m, i) => (
-                <div key={m.key} className={i % 2 ? "translate-y-8" : ""}>
-                  <ProductImage src={m.src} alt={m.alt} category={m.category} tone="dark" className="aspect-square rounded-card border border-ivory/10" sizes="(min-width: 1024px) 25vw, 45vw" priority={i < 2} />
-                </div>
+                <Link key={m.key} href={m.href} className={`group block transition-transform duration-500 hover:-translate-y-1 ${i % 2 ? "translate-y-8" : ""}`} aria-label={`${m.alt} ürün sayfası`}>
+                  <ProductImage src={m.src} alt={m.alt} category={m.category} tone="dark" className="aspect-square rounded-card border border-ivory/10 transition-shadow group-hover:shadow-gold" sizes="(min-width: 1024px) 25vw, 45vw" priority={i < 2} />
+                </Link>
               ))}
             </div>
             {v.lines.length > 1 && <p className="mt-12 text-center text-[0.7rem] text-ivory/35">Temsili kompozisyondur; ürünlerin kutu içindeki gerçek fotoğrafı değildir.</p>}
@@ -90,6 +115,25 @@ export default async function ReadyKitDetail({ params }: { params: Params }) {
         </Container>
       </section>
 
+      {/* Bilgi kartları */}
+      <section className="pb-24">
+        <Container>
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {info.map((c) => (
+              <li key={c.title} className="flex items-start gap-4 rounded-card border border-line bg-paper p-5 shadow-card transition-transform duration-500 hover:-translate-y-1">
+                <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-stone text-ink">
+                  <CategoryIcon name={c.icon} className={`size-6 ${c.anim}`} />
+                </span>
+                <span className="min-w-0">
+                  <span className="block font-bold">{c.title}</span>
+                  <span className="mt-1 block text-sm leading-relaxed text-muted">{c.text}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
       {/* İçindekiler */}
       <section className="border-y border-line bg-paper py-24">
         <Container>
@@ -106,8 +150,8 @@ export default async function ReadyKitDetail({ params }: { params: Params }) {
               <p className="eyebrow">Kutu içeriği</p>
               <ul className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
                 {setContents.map((c) => (
-                  <li key={c.code} className="flex gap-3">
-                    <span className="font-mono text-xs text-subtle">{c.code}</span>
+                  <li key={c.code} className="flex items-center gap-3">
+                    <Icon name="check" className="size-4 shrink-0 text-gold-deep" />
                     <span>{c.name}</span>
                   </li>
                 ))}
@@ -117,22 +161,30 @@ export default async function ReadyKitDetail({ params }: { params: Params }) {
           <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {v.lines.map((l) => (
               <StaggerItem key={l.productCode}>
-                <Link href={`/urun/${l.product.slug}`} className="group block overflow-hidden rounded-card border border-line bg-ivory transition-shadow duration-500 hover:shadow-lift">
-                  <ProductImage src={l.product.image} alt={l.product.name} category={l.product.category} className="aspect-square" />
-                  <div className="p-5">
+                <div className="group flex h-full flex-col overflow-hidden rounded-card border border-line bg-ivory transition-shadow duration-500 hover:shadow-lift">
+                  <Link href={`/urun/${l.product.slug}`} className="block overflow-hidden">
+                    <ProductImage src={l.product.image} alt={l.product.name} category={l.product.category} className="aspect-square transition-transform duration-700 group-hover:scale-105" />
+                  </Link>
+                  <div className="flex flex-1 flex-col p-5">
                     <p className="eyebrow">{l.role || categoryLabel(l.product.category)}</p>
-                    <p className="mt-2 font-display text-xl leading-tight">{l.product.name}</p>
-                    <div className="mt-3 flex items-center justify-between text-xs text-muted">
-                      <span className="font-mono">{l.productCode}</span>
-                      <span>× {l.qty}</span>
-                    </div>
+                    <Link href={`/urun/${l.product.slug}`} className="mt-2 font-display text-xl leading-tight hover:underline">
+                      {l.product.name}
+                    </Link>
                     <div className="mt-3 flex items-center justify-between">
                       <StockBadge status={l.product.stockStatus} />
-                      {l.status === "substituted" && <Badge tone="gold">Alternatif</Badge>}
-                      {l.status === "rule" && <Badge tone="gold">Önerilen</Badge>}
+                      <span className="text-xs text-muted">× {l.qty}</span>
+                    </div>
+                    {(l.status === "substituted" || l.status === "rule") && (
+                      <Badge tone="gold" className="mt-2 self-start">
+                        {l.status === "substituted" ? "Alternatif" : "Önerilen"}
+                      </Badge>
+                    )}
+                    <div className="mt-auto flex flex-wrap gap-2 pt-4">
+                      <AddToKitButton product={l.product} />
+                      <AddToCartButton product={l.product} variantCode={l.variantCode} size="sm" />
                     </div>
                   </div>
-                </Link>
+                </div>
               </StaggerItem>
             ))}
           </Stagger>

@@ -7,6 +7,7 @@ import { formatMoney } from "@/lib/catalog/pricing";
 import { stockPhrase } from "@/lib/catalog/stock";
 import { useKit, useHydrated } from "@/lib/kit/store";
 import { useCatalogInfo } from "../providers/CatalogContext";
+import { AddToCartButton } from "../cart/AddToCartButton";
 import { useProductVariant } from "./ProductVariantContext";
 import { Button, ButtonLink, Icon, cn } from "../ui/primitives";
 
@@ -125,8 +126,9 @@ export function ProductActions({ product: p }: { product: LiteProduct }) {
         >
           <Icon name={inKit ? "check" : "plus"} className="size-4" /> {inKit ? "Kitinizde" : "Kitime ekle"}
         </Button>
-        <Button size="lg" variant="outline" onClick={() => toggleFavorite(p.productCode)} aria-pressed={hydrated && fav}>
-          <Icon name="heart" className={cn("size-4", hydrated && fav && "fill-current text-danger")} /> {hydrated && fav ? "Favorilerde" : "Favorile"}
+        <AddToCartButton product={p} variantCode={variant} size="lg" />
+        <Button size="lg" variant="outline" onClick={() => toggleFavorite(p.productCode)} aria-pressed={hydrated && fav} aria-label="Favorile">
+          <Icon name="heart" className={cn("size-4", hydrated && fav && "fill-current text-danger")} />
         </Button>
       </div>
       <ButtonLink href={inKit ? "/teklif" : "/kitim"} variant="ghost" className="-ml-4">

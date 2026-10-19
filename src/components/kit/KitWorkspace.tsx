@@ -125,7 +125,7 @@ export function KitWorkspace({ compact = false, showActions = true, layout = "li
                       <div className="flex items-start justify-between gap-2">
                         <div className="min-w-0">
                           <p className="truncate text-[0.68rem] uppercase tracking-[0.16em] text-subtle">
-                            {p ? categoryLabel(p.category) : "…"} · <span className="font-mono normal-case tracking-normal">{line.productCode}</span>
+                            {p ? categoryLabel(p.category) : "…"}
                           </p>
                           <p className={cn("mt-0.5 line-clamp-2 font-display leading-tight", grid ? "text-xl" : "text-lg")}>{p?.name ?? "Yükleniyor…"}</p>
                           {grid && p?.price != null && p.priceCurrency && (
@@ -170,7 +170,7 @@ export function KitWorkspace({ compact = false, showActions = true, layout = "li
                             <Icon name="plus" className="size-3.5" />
                           </button>
                         </div>
-                        <button type="button" onClick={() => setSwapFor(line.productCode)} className="inline-flex h-8 items-center gap-1.5 rounded-full px-3 text-xs font-semibold text-gold-deep hover:bg-champagne-light/50">
+                        <button type="button" onClick={() => setSwapFor(line.productCode)} className="inline-flex h-8 items-center gap-1.5 rounded-full border border-champagne bg-champagne-light/40 px-3 text-xs font-bold text-ink transition-colors hover:bg-champagne">
                           <Icon name="swap" className="size-3.5" /> Değiştir
                         </button>
                       </div>

@@ -15,6 +15,8 @@ const Answers = z.object({
   personalization: z.array(z.string()).max(10),
   timing: z.string().nullable(),
   deliveryDate: z.string().nullable().optional(),
+  /** "Yeni öneri oluştur": daha önce önerilen ürün kodları */
+  avoid: z.array(z.string()).max(200).optional(),
 });
 
 /** POST /api/recommend — sihirbaz cevaplarından kural tabanlı kit önerisi */
@@ -22,7 +24,8 @@ export async function POST(req: Request) {
   const parsed = Answers.safeParse(await req.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: "Geçersiz cevaplar" }, { status: 400 });
   const [{ products }, settings] = await Promise.all([getCatalog(), getSettings()]);
-  const kit = buildKit(products, parsed.data, settings);
+  const { avoid, ...answers } = parsed.data;
+  const kit = buildKit(products, answers, settings, { avoid });
   const codes = new Set([...kit.items.map((i) => i.productCode), ...Object.values(kit.alternatives).flat()]);
   return NextResponse.json({ kit, products: products.filter((p) => codes.has(p.productCode)).map(toLite) });
 }

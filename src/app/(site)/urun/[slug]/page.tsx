@@ -142,7 +142,6 @@ export default async function ProductPage({ params }: { params: Params }) {
                         ) : (
                           c.name
                         )}
-                        <span className="block font-mono text-xs text-subtle">{c.code}</span>
                       </span>
                     </li>
                   ))}

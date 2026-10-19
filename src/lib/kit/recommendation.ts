@@ -62,6 +62,25 @@ export function kindOf(p: Pick<Product, "subcategory" | "productCode" | "name">)
 }
 const hasKind = (list: ScoredProduct[], p: Product) => list.some((x) => kindOf(x.product) === kindOf(p));
 
+/**
+ * Başka bir ürüne bağlı aksesuarlar: ana ürün kitte yoksa önerilmez
+ * (kalemsiz kalem kutusu, USB'siz USB kutusu anlamsızdır).
+ */
+const ACCESSORIES: { match: RegExp; needs: string }[] = [
+  { match: /kalem kutu/i, needs: "kalem" },
+  { match: /usb bellek kutu|usb aksesuar/i, needs: "usb" },
+];
+export function accessoryNeeds(p: Pick<Product, "subcategory">): string | null {
+  const sub = (p.subcategory ?? "").toLocaleLowerCase("tr-TR");
+  return ACCESSORIES.find((a) => a.match.test(sub))?.needs ?? null;
+}
+const accessoryOk = (list: ScoredProduct[], p: Product) => {
+  const needs = accessoryNeeds(p);
+  return !needs || list.some((x) => kindOf(x.product) === needs);
+};
+/** Kit içine konabilecek bir ürün mü: tür tekrarı yok ve aksesuarsa ana ürünü var */
+const fits = (list: ScoredProduct[], p: Product) => !hasKind(list, p) && accessoryOk(list, p);
+
 export type ScoredProduct = { product: Product; score: number; reasons: string[] };
 
 export type KitItem = {
@@ -141,10 +160,12 @@ export function scoreProduct(p: Product, answers: WizardAnswers, settings: Setti
   return { product: p, score: round(score), reasons };
 }
 
-export function rankCandidates(products: Product[], answers: WizardAnswers, settings: Settings): ScoredProduct[] {
+export function rankCandidates(products: Product[], answers: WizardAnswers, settings: Settings, avoid: ReadonlySet<string> = new Set()): ScoredProduct[] {
   return products
     .filter((p) => isCandidate(p, answers, settings))
     .map((p) => scoreProduct(p, answers, settings))
+    // "Yeni öneri" isteğinde daha önce önerilen ürünler geri plana itilir (yasaklanmaz: başka seçenek yoksa yine gelir)
+    .map((r) => (avoid.has(r.product.productCode) ? { ...r, score: round(r.score - 8) } : r))
     .sort((a, b) => b.score - a.score || a.product.productCode.localeCompare(b.product.productCode));
 }
 
@@ -175,10 +196,10 @@ export function findAlternatives(
     .map((x) => x.p);
 }
 
-export function buildKit(products: Product[], answers: WizardAnswers, settings: Settings): KitRecommendation {
+export function buildKit(products: Product[], answers: WizardAnswers, settings: Settings, opts: { avoid?: string[] } = {}): KitRecommendation {
   const tier = settings.budgetTiers.find((t) => t.key === answers.budgetKey) ?? null;
   const count = tier?.itemCount ?? 4;
-  const ranked = rankCandidates(products, answers, settings);
+  const ranked = rankCandidates(products, answers, settings, new Set(opts.avoid ?? []));
   const notes: string[] = [];
   const req = requiredQty(answers, settings);
 
@@ -204,7 +225,7 @@ export function buildKit(products: Product[], answers: WizardAnswers, settings: 
   // 1) Her istenen kategoriden en iyi ürün
   for (const cat of order) {
     if (picked.length >= count) break;
-    const best = ranked.find((r) => r.product.category === cat && !used.has(r.product.productCode));
+    const best = ranked.find((r) => r.product.category === cat && !used.has(r.product.productCode) && fits(picked, r.product));
     if (best) {
       picked.push(best);
       used.add(best.product.productCode);
@@ -216,13 +237,13 @@ export function buildKit(products: Product[], answers: WizardAnswers, settings: 
   // 2) İstenen kategoriler varsa önce onlardan ikinci ürünler (kitin odağı korunur)
   for (const r of ranked) {
     if (picked.length >= count || !wanted.length) break;
-    if (used.has(r.product.productCode) || !wanted.includes(r.product.category) || hasKind(picked, r.product)) continue;
+    if (used.has(r.product.productCode) || !wanted.includes(r.product.category) || !fits(picked, r.product)) continue;
     picked.push(r);
     used.add(r.product.productCode);
   }
   // 3) Aynı kategoriyi tekrarlamadan önce, hariç tutulmadıysa bir sunum kutusu ekle
   if (picked.length < count && !answers.excludeCategories.includes("kutu-ambalaj") && !picked.some((x) => x.product.category === "kutu-ambalaj")) {
-    const box = ranked.find((r) => r.product.category === "kutu-ambalaj" && !used.has(r.product.productCode));
+    const box = ranked.find((r) => r.product.category === "kutu-ambalaj" && !used.has(r.product.productCode) && fits(picked, r.product));
     if (box) {
       picked.push({ ...box, reasons: [...box.reasons, "Kitin sunum kutusu"] });
       used.add(box.product.productCode);
@@ -234,7 +255,7 @@ export function buildKit(products: Product[], answers: WizardAnswers, settings: 
     for (const r of ranked) {
       if (picked.length >= count) break;
       if (used.has(r.product.productCode)) continue;
-      if (picked.some((x) => x.product.category === r.product.category) || hasKind(picked, r.product)) continue;
+      if (picked.some((x) => x.product.category === r.product.category) || !fits(picked, r.product)) continue;
       picked.push({ ...r, reasons: [...r.reasons, "Kiti tamamlayan öneri"] });
       used.add(r.product.productCode);
     }
@@ -254,7 +275,7 @@ export function buildKit(products: Product[], answers: WizardAnswers, settings: 
           (r) =>
             r.product.category === cur.product.category &&
             !used.has(r.product.productCode) &&
-            !hasKind(picked.filter((_, i) => i !== idx), r.product) &&
+            fits(picked.filter((_, i) => i !== idx), r.product) &&
             isVerifiedPrice(r.product) &&
             (r.product.price as number) < (cur.product.price as number),
         );
@@ -278,7 +299,7 @@ export function buildKit(products: Product[], answers: WizardAnswers, settings: 
     const pool = [...ranked.filter((r) => wanted.includes(r.product.category)), ...ranked.filter((r) => !wanted.includes(r.product.category))];
     for (const r of pool) {
       if (picked.length >= count) break;
-      if (used.has(r.product.productCode) || !isVerifiedPrice(r.product) || hasKind(picked, r.product)) continue;
+      if (used.has(r.product.productCode) || !isVerifiedPrice(r.product) || !fits(picked, r.product)) continue;
       if (sum(picked) + (r.product.price as number) > tier.max) continue;
       const cap = wanted.includes(r.product.category) ? 3 : 2;
       if (picked.filter((x) => x.product.category === r.product.category).length >= cap) continue;

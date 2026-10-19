@@ -58,6 +58,18 @@ IPRO_SYNC_MINUTES=30      # isteğe bağlı, en az 5
 - **Yönetim → Ayarlar → Logo baskı kâr payı (%)** müşteriye gösterilen baskı fiyatına eklenir. Teklifte baskının alış bedeli ve satış bedeli ayrı ayrı saklanır ve kâra yansır.
 - Tedarikçi fiyat listesini güncellerse bu tablonun elle güncellenmesi gerekir; sayfa XML ile gelmiyor.
 
+### Hazır kitler ve XML
+
+- Tedarikçinin kutulu setleri otomatik olarak hazır kite dönüşür. Yeni setler her XML güncellemesinde kendiliğinden eklenir.
+- **Yönetim → Hazır kitler** sayfasında bir kiti silersen o kit gizlenir ve XML yenilense de geri gelmez. Gizlenen kitler aynı sayfada "Kaldırılan kitler" altında listelenir; "Geri getir" ile geri alınabilir.
+- Düzenlediğin kitler senin halinle korunur. Değiştirmediğin kitler XML'deki güncel bilgilerle yenilenmeye devam eder.
+- Yönetici değişiklikleri `data/runtime/kit-state.json` dosyasında yalnızca farklar olarak tutulur: gizlenen kitlerin adresleri ve değiştirilen ya da eklenen kitler.
+
+### Sepet (tekli sipariş)
+
+- Her ürünün **Kitime ekle** ve **Sepete ekle** düğmesi var. Sepet `/sepet` sayfasındadır.
+- Online ödeme yok: sepet, teklif formuyla sipariş talebi olarak gönderilir ve yönetim panelinde "Sepet siparişi" adıyla görünür.
+
 ### Kâr takibi
 
 - Teklif kaydedilirken her satırın o anki liste fiyatı ve alış fiyatı teklife yazılır.

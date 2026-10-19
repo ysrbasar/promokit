@@ -53,6 +53,19 @@ const num = (t: string | null | undefined): number | null => {
 
 const currencyOf = (t: string | null | undefined) => (t === "$" ? "USD" : t === "€" ? "EUR" : "TRY");
 
+/** Açıklamadaki tedarikçi ürün kodlarını ("* İMÖ3701- BEGE ...") ve madde işaretlerini temizler */
+export function cleanDescription(t: string | null): string | null {
+  if (!t) return null;
+  const out = t
+    .replace(/\*\s*/g, " · ")
+    .replace(/(?<![\p{L}\d])[İI][A-ZÇĞİÖŞÜ]{2}\d{3,5}[A-Z]?(?![\p{L}\d])\s*-?\s*/gu, "")
+    .replace(/\s+/g, " ")
+    .replace(/^(\s*·\s*)+|(\s*·\s*)+$/g, "")
+    .replace(/(\s*·\s*){2,}/g, " · ")
+    .trim();
+  return out || null;
+}
+
 /** "19-10-2026 12:40:36" → ISO */
 export function parseFeedDate(t: string | null | undefined): string | null {
   const m = t?.match(/^(\d{2})-(\d{2})-(\d{4}) (\d{2}):(\d{2}):(\d{2})$/);
@@ -120,7 +133,7 @@ export function parseIpromosyon(allXml: string, stockXml: string, now = new Date
     const name = titleCaseTr(rawName);
     const subcategory = decodeHtml($a(el).children("urun_kategori").text());
     const descRaw = $a(el).children("urun_aciklama").text();
-    const description = decodeHtml(descRaw);
+    const description = cleanDescription(decodeHtml(descRaw));
     const svs = stockBy.get(id) ?? [];
     const variants = svs.map((x) => x.variant);
     const images = [...new Set([...$a(el).find("resimler > resim").toArray().map((r) => $a(r).text().trim()), ...svs.flatMap((x) => x.images)])].filter(Boolean);

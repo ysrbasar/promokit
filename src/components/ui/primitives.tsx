@@ -128,4 +128,11 @@ const ICONS = {
     </>
   ),
   trash: <path d="M5 7h14M10 7V5h4v2M7 7l1 13h8l1-13" />,
+  cart: (
+    <>
+      <path d="M3 4h2.5l2.2 11h10.6l2-8H7" />
+      <circle cx="9.5" cy="19" r="1.4" />
+      <circle cx="17" cy="19" r="1.4" />
+    </>
+  ),
 } as const;

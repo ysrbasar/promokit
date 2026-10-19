@@ -8,7 +8,7 @@ import { z } from "zod";
 export const KitLineSchema = z.object({
   productCode: z.string(),
   variantCode: z.string().nullable(),
-  qty: z.number().int().min(1).max(20),
+  qty: z.number().int().min(1).max(100000),
   personalization: z.array(z.string()).default([]),
   /** Seçilen logo baskı yöntemi (ör. "Lazer"); null = baskısız */
   printMethod: z.string().max(60).nullable().optional(),

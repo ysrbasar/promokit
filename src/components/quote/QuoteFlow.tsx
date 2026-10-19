@@ -7,17 +7,33 @@ import { useState } from "react";
 import { QuoteRequestSchema } from "@/lib/quote/schema";
 import { LOGO_ACCEPT, getLogo, setLogo, validateLogo } from "@/lib/kit/logoStore";
 import { useKit, useHydrated } from "@/lib/kit/store";
+import { useCart } from "@/lib/cart/store";
+import { CartList } from "../cart/CartList";
 import { KitWorkspace } from "../kit/KitWorkspace";
 import { EASE } from "../ui/motion";
 import { Button, ButtonLink, Icon, Skeleton, cn } from "../ui/primitives";
 
 type Errors = Record<string, string>;
 
-export function QuoteFlow() {
+/** mode="cart": sepetteki tekli ürünler sipariş talebi olarak gönderilir (kit yerine) */
+export function QuoteFlow({ mode = "kit" }: { mode?: "kit" | "cart" }) {
   const router = useRouter();
   const hydrated = useHydrated();
-  const draft = useKit((s) => s.draft);
+  const kitDraft = useKit((s) => s.draft);
   const saveCurrent = useKit((s) => s.saveCurrent);
+  const cartItems = useCart((s) => s.items);
+  const clearCart = useCart((s) => s.clear);
+  const isCart = mode === "cart";
+  const draft = isCart
+    ? {
+        name: "Sepet siparişi",
+        kitQuantity: 1,
+        source: "cart" as const,
+        readyKitSlug: null,
+        answers: null as Record<string, unknown> | null,
+        lines: cartItems.map((i) => ({ productCode: i.productCode, variantCode: i.variantCode, qty: i.qty, personalization: [] as string[] })),
+      }
+    : kitDraft;
   const [step, setStep] = useState<1 | 2>(1);
   const [errors, setErrors] = useState<Errors>({});
   const [formError, setFormError] = useState<string | null>(null);
@@ -37,6 +53,7 @@ export function QuoteFlow() {
 
   if (!hydrated) return <Skeleton className="h-[480px]" />;
 
+  if (draft.lines.length === 0 && isCart) return <CartList />;
   if (draft.lines.length === 0)
     return (
       <div className="rounded-card border border-dashed border-line-strong p-12 text-center">
@@ -97,7 +114,8 @@ export function QuoteFlow() {
         setFormError(d.error ?? "Talebiniz gönderilemedi. Lütfen tekrar deneyin.");
         return;
       }
-      saveCurrent();
+      if (isCart) clearCart();
+      else saveCurrent();
       setLogo(null);
       router.push(`/teklif/basarili?no=${encodeURIComponent(d.id)}`);
     } catch {
@@ -120,7 +138,7 @@ export function QuoteFlow() {
     <div>
       <ol className="mb-10 flex items-center gap-3 text-sm" aria-label="Teklif adımları">
         {[
-          [1, "Kiti kontrol edin"],
+          [1, isCart ? "Sepeti kontrol edin" : "Kiti kontrol edin"],
           [2, "İletişim ve teslimat"],
         ].map(([n, l]) => (
           <li key={n} className="flex items-center gap-3">
@@ -136,8 +154,10 @@ export function QuoteFlow() {
       <AnimatePresence mode="wait">
         {step === 1 ? (
           <motion.div key="s1" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.45, ease: EASE }}>
-            <p className="mb-6 text-sm text-muted">Ürünleri, renkleri, kit başına adetleri, kit sayısını ve kişiselleştirme tercihlerini kontrol edin.</p>
-            <KitWorkspace showActions={false} />
+            <p className="mb-6 text-sm text-muted">
+              {isCart ? "Ürünleri, seçenekleri ve adetleri kontrol edin." : "Ürünleri, renkleri, kit başına adetleri, kit sayısını ve kişiselleştirme tercihlerini kontrol edin."}
+            </p>
+            {isCart ? <CartList /> : <KitWorkspace showActions={false} />}
             {missingVariant && <p className="mt-4 text-sm text-warning">Renk seçilmemiş ürünler için uygun renk teklif aşamasında önerilecek.</p>}
             <div className="mt-8 flex justify-end">
               <Button size="lg" onClick={() => setStep(2)}>
@@ -150,7 +170,7 @@ export function QuoteFlow() {
             <div className="rounded-card border border-line bg-paper p-5 text-sm">
               <span className="font-display text-xl">{draft.name}</span>
               <span className="ml-3 text-muted">
-                {draft.lines.length} ürün · {draft.kitQuantity.toLocaleString("tr-TR")} kit
+                {isCart ? `${draft.lines.length} ürün · ${draft.lines.reduce((a, l) => a + l.qty, 0).toLocaleString("tr-TR")} adet` : `${draft.lines.length} ürün · ${draft.kitQuantity.toLocaleString("tr-TR")} kit`}
               </span>
               <button type="button" onClick={() => setStep(1)} className="ml-3 text-xs font-semibold underline decoration-champagne underline-offset-4">
                 Düzenle

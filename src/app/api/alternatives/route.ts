@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
     purpose: sp.get("purpose"),
   };
   const alts = findAlternatives(target, products, answers, settings, {
-    limit: 4,
+    limit: 8,
     exclude: (sp.get("exclude") ?? "").split(",").filter(Boolean),
   });
   return NextResponse.json({ products: alts.map(toLite) });
