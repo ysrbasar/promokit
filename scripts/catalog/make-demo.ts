@@ -94,6 +94,7 @@ const products: Product[] = SEEDS.map(([cat, name, material, size, colors, price
     label: null,
     price: null,
     incoming: [],
+    options: [],
   }));
   const known = variants.map((v) => v.stockQuantity).filter((q): q is number => q !== null);
   const base = {

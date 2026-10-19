@@ -6,14 +6,15 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/
 import { useEffect, useState } from "react";
 import { useKit, useHydrated } from "@/lib/kit/store";
 import { ButtonLink, Icon, cn } from "../ui/primitives";
+import { CategoryIcon } from "../ui/CategoryIcon";
 import { Logo } from "./Logo";
 
 const NAV = [
-  { href: "/hazir-kitler", label: "Hazır Kitler" },
-  { href: "/katalog", label: "Ürün Kataloğu" },
-  { href: "/kurumsal-surec", label: "Süreç" },
-  { href: "/sss", label: "SSS" },
-  { href: "/iletisim", label: "İletişim" },
+  { href: "/hazir-kitler", label: "Hazır Kitler", icon: "hediye-set" },
+  { href: "/katalog", label: "Ürün Kataloğu", icon: "diger" },
+  { href: "/kurumsal-surec", label: "Süreç", icon: "takvim" },
+  { href: "/sss", label: "SSS", icon: "education" },
+  { href: "/iletisim", label: "İletişim", icon: "client" },
 ];
 
 export function Header() {
@@ -37,7 +38,7 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex h-[72px] max-w-[1320px] items-center gap-6 px-4 sm:px-6 lg:px-10">
-        <Link href="/" aria-label="Maison Kit ana sayfa" className="shrink-0">
+        <Link href="/" aria-label="Nadide Kit ana sayfa" className="shrink-0">
           <Logo />
         </Link>
         <nav aria-label="Ana menü" className="ml-6 hidden items-center gap-7 lg:flex">
@@ -46,10 +47,11 @@ export function Header() {
               key={n.href}
               href={n.href}
               className={cn(
-                "relative text-[0.82rem] font-medium tracking-wide opacity-80 transition-opacity hover:opacity-100",
+                "group relative flex items-center gap-1.5 text-[0.84rem] font-semibold tracking-wide opacity-80 transition-opacity hover:opacity-100",
                 pathname.startsWith(n.href) && "opacity-100 after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:bg-champagne",
               )}
             >
+              <CategoryIcon name={n.icon} className="size-4 text-champagne transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-125" />
               {n.label}
             </Link>
           ))}

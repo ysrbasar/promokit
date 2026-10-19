@@ -4,6 +4,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState, useTransition } from "react";
 import { CATEGORIES } from "@/lib/config/taxonomy";
+import { CategoryIcon } from "../ui/CategoryIcon";
 import { Icon, cn } from "../ui/primitives";
 
 export type Facets = { colors: { value: string; count: number }[]; materials: { value: string; count: number }[] };
@@ -48,8 +49,11 @@ function FilterGroups({ facets, fixedCategory, counts }: Props) {
               if (c.key && !counts[c.key]) return null;
               const on = (sp.get("kategori") ?? "") === c.key;
               return (
-                <button key={c.key || "all"} type="button" onClick={() => update({ kategori: c.key || null })} aria-pressed={on} className={cn("flex items-center justify-between rounded-soft px-3 py-2 text-left text-sm transition-colors", on ? "bg-ink text-ivory" : "hover:bg-stone")}>
-                  {c.label}
+                <button key={c.key || "all"} type="button" onClick={() => update({ kategori: c.key || null })} aria-pressed={on} className={cn("group flex items-center justify-between gap-2 rounded-soft px-3 py-2 text-left text-sm font-semibold transition-colors", on ? "bg-ink text-ivory" : "hover:bg-stone")}>
+                  <span className="flex items-center gap-2.5">
+                    <CategoryIcon name={c.key || "diger"} className={cn("size-5 shrink-0 transition-transform duration-300 group-hover:scale-125", on ? "text-champagne" : "text-gold-deep")} />
+                    {c.label}
+                  </span>
                   {c.key && <span className="text-xs opacity-60">{counts[c.key]}</span>}
                 </button>
               );

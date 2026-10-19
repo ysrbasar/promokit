@@ -20,6 +20,8 @@ export const Variant = z.object({
   imageUrl: z.string().nullable().default(null),
   /** Seçeneklerin okunur hali (ör. "Siyah / 16 GB") */
   label: z.string().nullable().default(null),
+  /** Seçenek boyutları (ör. [{name:"Renk", value:"Siyah"}, {name:"Kapasite", value:"16GB"}]) */
+  options: z.array(z.object({ name: z.string(), value: z.string() })).default([]),
   /** Varyanta özel liste fiyatı (KDV hariç); yoksa ürün fiyatı geçerli */
   price: z.number().nonnegative().nullable().default(null),
   /** Tedarikçinin bildirdiği gelecek stoklar */

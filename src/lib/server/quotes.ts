@@ -12,9 +12,10 @@ import {
   type StoredQuote,
 } from "../quote/schema";
 import { RUNTIME_DIR, readJson, writeJson } from "./jsonStore";
+import { quotePrint } from "../config/printPricing";
 import { computeProfit, type ProfitLine } from "../quote/profit";
 import { getCosts, unitCost } from "./costs";
-import { getCatalog } from "./repositories";
+import { getCatalog, getSettings } from "./repositories";
 
 /**
  * QuoteService: teklif taleplerini doğrular ve kalıcı olarak saklar.
@@ -44,9 +45,20 @@ export async function validateAttachment(file: File | null) {
   return { bytes, type: sniffed, ext: UPLOAD_TYPES[sniffed], name: file.name.slice(0, 120) };
 }
 
+function printFields(p: { subcategory: string | null; name: string; printingMethods: string[] }, method: string | null, units: number, markupPct: number) {
+  if (!method || !p.printingMethods.includes(method)) return { printMethod: null, printPrice: null, printCost: null };
+  const sale = quotePrint(p.subcategory, p.name, method, units, markupPct);
+  const cost = quotePrint(p.subcategory, p.name, method, units, 0);
+  return {
+    printMethod: method,
+    printPrice: sale.kind === "price" ? sale.total : sale.kind === "included" ? 0 : null,
+    printCost: cost.kind === "price" ? cost.total : cost.kind === "included" ? 0 : null,
+  };
+}
+
 export async function createQuote(req: QuoteRequest, file: File | null): Promise<StoredQuote> {
   const attachment = await validateAttachment(file);
-  const [{ products, info }, costs] = await Promise.all([getCatalog(), getCosts()]);
+  const [{ products, info }, costs, settings] = await Promise.all([getCatalog(), getCosts(), getSettings()]);
   const map = new Map(products.map((p) => [p.productCode, p]));
 
   const snapshot = req.kit.lines.map((l) => {
@@ -61,6 +73,7 @@ export async function createQuote(req: QuoteRequest, file: File | null): Promise
       color: v?.color ?? null,
       qty: l.qty,
       stockStatus: p.stockStatus,
+      ...printFields(p, l.printMethod ?? null, l.qty * req.kit.kitQuantity, settings.printMarkupPct),
       listPrice: p.isDemo ? null : (v?.price ?? p.price),
       cost: unitCost(costs, p.productCode, v?.code),
       currency: p.priceCurrency,
@@ -116,7 +129,8 @@ export async function listQuotesWithProfit() {
   return quotes.map((q) => {
     let estimated = false;
     const lines: (ProfitLine & { productCode: string })[] = q.snapshot.map((s) => {
-      if (s.listPrice !== undefined) return { productCode: s.productCode, qty: s.qty, listPrice: s.listPrice ?? null, cost: s.cost ?? null, currency: s.currency ?? null };
+      if (s.listPrice !== undefined)
+        return { productCode: s.productCode, qty: s.qty, listPrice: s.listPrice ?? null, cost: s.cost ?? null, currency: s.currency ?? null, printPrice: s.printPrice ?? null, printCost: s.printCost ?? null };
       estimated = true;
       const p = map.get(s.productCode);
       const v = p?.variants.find((x) => x.code === s.variantCode);

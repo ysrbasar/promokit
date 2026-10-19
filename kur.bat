@@ -1,5 +1,5 @@
 @echo off
-rem Maison Kit - yerel kurulum (Windows). Gerekli: Node.js 20+ (https://nodejs.org)
+rem Nadide Kit - yerel kurulum (Windows). Gerekli: Node.js 20+ (https://nodejs.org)
 cd /d "%~dp0"
 where node >nul 2>nul || (echo Node.js bulunamadi. https://nodejs.org adresinden LTS surumunu kurun. & pause & exit /b 1)
 call npm install || (pause & exit /b 1)

@@ -292,6 +292,20 @@ describe("bütçe sonrası tamamlama", () => {
   });
 });
 
+describe("kit çeşitliliği", () => {
+  it("tek kategori seçilse de aynı türden (ör. USB bellek) iki ürün gelmez", () => {
+    const tech = (code: string, sub: string) => product(code, { category: "teknoloji", subcategory: sub });
+    const kit = buildKit(
+      [tech("U1", "Metal Usb Bellekler"), tech("U2", "Plastik Usb Bellekler"), tech("U3", "Deri Usb bellekler"), tech("P1", "Powerbankler"), tech("S1", "Speaker")],
+      { ...EMPTY_ANSWERS, quantity: 0, categories: ["teknoloji"] },
+      settings,
+    );
+    const subs = kit.items.map((i) => i.productCode.charAt(0));
+    expect(subs.filter((x) => x === "U")).toHaveLength(1);
+    expect(kit.items.map((i) => i.productCode)).toEqual(expect.arrayContaining(["P1", "S1"]));
+  });
+});
+
 describe("kâr hesabı", () => {
   it("liste × adet × kit adedi; alışı bilinmeyen satır kâra katılmaz", async () => {
     const { computeProfit } = await import("@/lib/quote/profit");
@@ -308,5 +322,23 @@ describe("kâr hesabı", () => {
     expect(p.profit).toBe(300);
     expect(p.margin).toBeCloseTo(0.25);
     expect(p.complete).toBe(false);
+  });
+});
+
+describe("logo baskı fiyatları (tedarikçi listesi)", () => {
+  it("adet eşiğine göre sabit ücret veya adet başı fiyat uygulanır", async () => {
+    const { quotePrint } = await import("@/lib/config/printPricing");
+    // Kalem lazer: 500 adede kadar sabit 750 TL, üzeri adet başı 1,50 TL
+    expect(quotePrint("Metal Kalemler", "", "Lazer", 300)).toMatchObject({ kind: "price", total: 750 });
+    expect(quotePrint("Metal Kalemler", "", "Lazer", 1000)).toMatchObject({ kind: "price", total: 1500 });
+    // Kalem USB bellek kalem değil USB grubundan fiyatlanır: UV 80 adet üzeri 12 TL
+    expect(quotePrint("Kalem Usb Bellekler", "", "Uv Dijital", 100)).toMatchObject({ kind: "price", total: 1200 });
+    // Gofre: klişe 950 + 100 adede kadar 1300
+    expect(quotePrint("Dikişli Termo Deri Ajandalar", "", "Gofre", 50)).toMatchObject({ kind: "price", total: 2250 });
+    // Kâr payı %20
+    expect(quotePrint("Metal Kalemler", "", "Lazer", 300, 20)).toMatchObject({ kind: "price", total: 900 });
+    // Dahil ve özel fiyat
+    expect(quotePrint("Mouse Padler", "", "Ofset", 100).kind).toBe("included");
+    expect(quotePrint("Tişört", "", "Nakış", 100).kind).toBe("custom");
   });
 });

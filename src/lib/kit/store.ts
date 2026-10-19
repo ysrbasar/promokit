@@ -31,6 +31,7 @@ type KitStore = {
   setQty: (code: string, qty: number) => void;
   setVariant: (code: string, variant: string | null) => void;
   setPersonalization: (code: string, p: string[]) => void;
+  setPrintMethod: (code: string, method: string | null) => void;
   replace: (oldCode: string, next: { productCode: string; variantCode: string | null }) => void;
   setKitQuantity: (n: number) => void;
   rename: (name: string) => void;
@@ -60,6 +61,10 @@ export const useKit = create<KitStore>()(
       setQty: (code, qty) => set((s) => ({ draft: setLineQty(s.draft, code, qty) })),
       setVariant: (code, v) => set((s) => ({ draft: setLineVariant(s.draft, code, v) })),
       setPersonalization: (code, p) => set((s) => ({ draft: setLinePersonalization(s.draft, code, p) })),
+      setPrintMethod: (code, method) =>
+        set((s) => ({
+          draft: { ...s.draft, lines: s.draft.lines.map((l) => (l.productCode === code ? { ...l, printMethod: method } : l)), updatedAt: new Date().toISOString() },
+        })),
       replace: (oldCode, next) => set((s) => ({ draft: replaceLine(s.draft, oldCode, next) })),
       setKitQuantity: (n) => set((s) => ({ draft: setKitQuantity(s.draft, n) })),
       rename: (name) => set((s) => ({ draft: { ...s.draft, name: name.slice(0, 80) || "Kitim" } })),

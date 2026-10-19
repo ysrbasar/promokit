@@ -3,12 +3,13 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { KitCard } from "@/components/kit/KitCard";
 import { ProductCard } from "@/components/product/ProductCard";
 import { Accordion } from "@/components/ui/Accordion";
+import { CategoryIcon } from "@/components/ui/CategoryIcon";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/motion";
 import { ButtonLink, Container, Icon, SectionHeading } from "@/components/ui/primitives";
 import { CATEGORIES, PURPOSES } from "@/lib/config/taxonomy";
 import { FAQ } from "@/lib/content/faq";
 import { getSettings } from "@/lib/server/repositories";
-import { getCategoryCounts, getFeaturedProducts, getKitViews } from "@/lib/server/views";
+import { getCategoryCounts, getFeaturedProducts, getKitViews, getShowcaseProducts } from "@/lib/server/views";
 
 export const dynamic = "force-dynamic";
 
@@ -28,13 +29,13 @@ const SECTORS = [
 ];
 
 export default async function HomePage() {
-  const [kits, featured, counts, settings] = await Promise.all([getKitViews(), getFeaturedProducts(12), getCategoryCounts(), getSettings()]);
+  const [kits, featured, counts, settings, showcase] = await Promise.all([getKitViews(), getFeaturedProducts(12), getCategoryCounts(), getSettings(), getShowcaseProducts()]);
   const featuredKits = kits.filter((k) => k.kit.isFeatured).slice(0, 5);
   const [lead, ...restKits] = featuredKits;
 
   return (
     <>
-      <HeroSection products={featured.slice(0, 4)} />
+      <HeroSection products={showcase.length >= 4 ? showcase : featured.slice(0, 4)} />
 
       {/* 2. Üç adımda kit */}
       <section id="nasil" className="py-24 sm:py-32">
@@ -94,8 +95,13 @@ export default async function HomePage() {
           <Stagger className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-card border border-line bg-line sm:grid-cols-3 lg:grid-cols-4">
             {CATEGORIES.filter((c) => c.key !== "diger" && (counts.get(c.key) ?? 0) > 0).map((c) => (
               <StaggerItem key={c.key}>
-                <Link href={`/kategori/${c.key}`} className="group flex h-full min-h-40 flex-col justify-between bg-paper p-6 transition-colors duration-500 hover:bg-ink hover:text-ivory">
-                  <span className="text-xs text-subtle group-hover:text-champagne">{counts.get(c.key)} ürün</span>
+                <Link href={`/kategori/${c.key}`} className="group flex h-full min-h-44 flex-col justify-between gap-6 bg-paper p-6 transition-colors duration-500 hover:bg-ink hover:text-ivory">
+                  <span className="flex items-start justify-between">
+                    <span className="grid size-14 place-items-center rounded-2xl bg-champagne-light/60 text-gold-deep transition-all duration-500 group-hover:-rotate-6 group-hover:scale-110 group-hover:bg-champagne group-hover:text-ink">
+                      <CategoryIcon name={c.key} className="size-7" />
+                    </span>
+                    <span className="text-xs font-semibold text-subtle group-hover:text-champagne">{counts.get(c.key)} ürün</span>
+                  </span>
                   <span>
                     <span className="block font-display text-2xl leading-tight">{c.label}</span>
                     <span className="mt-1 block text-xs text-muted group-hover:text-ivory/60">{c.hint}</span>
@@ -136,8 +142,11 @@ export default async function HomePage() {
           <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {SECTORS.map((s) => (
               <StaggerItem key={s.k}>
-                <Link href={`/kit-olustur?amac=${s.k}`} className="group flex items-center justify-between gap-4 rounded-card border border-line bg-paper p-7 transition-all duration-500 hover:border-champagne hover:shadow-gold">
-                  <span>
+                <Link href={`/kit-olustur?amac=${s.k}`} className="group flex items-center justify-between gap-4 rounded-card border border-line bg-paper p-7 transition-all duration-500 hover:-translate-y-1 hover:border-champagne hover:shadow-gold">
+                  <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-ink text-champagne transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
+                    <CategoryIcon name={s.k} className="size-7" />
+                  </span>
+                  <span className="min-w-0 flex-1">
                     <span className="block font-display text-2xl">{s.t}</span>
                     <span className="mt-1 block text-sm text-muted">{s.d}</span>
                     <span className="mt-3 block text-xs text-gold-deep">{PURPOSES.find((p) => p.key === s.k)?.label}</span>

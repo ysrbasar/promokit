@@ -17,9 +17,14 @@ export const CATEGORIES = [
   { key: "hediye-set", label: "Hediyelik Setler", hint: "Hazır kombinasyonlar" },
   { key: "kutu-ambalaj", label: "Kutular ve Ambalajlar", hint: "Sunum ve paket" },
   { key: "doga-dostu", label: "Doğa Dostu Ürünler", hint: "Bambu, geri dönüşüm" },
-  { key: "saat", label: "Duvar Saatleri", hint: "Ofis ve mekân" },
+  { key: "saat", label: "Saatler", hint: "Duvar ve masa" },
+  { key: "takvim", label: "Takvimler", hint: "Masa, duvar, gemici" },
   { key: "anahtarlik", label: "Anahtarlıklar", hint: "Toplu dağıtım" },
-  { key: "plaket-odul", label: "Plaket ve Madalyalar", hint: "Ödül ve teşekkür" },
+  { key: "plaket-odul", label: "Kristal ve Plaketler", hint: "Ödül ve teşekkür" },
+  { key: "cakmak", label: "Çakmaklar", hint: "Siboplu, mutfak, kibrit" },
+  { key: "kirtasiye", label: "Boyama ve Kırtasiye", hint: "Okul ve ofis" },
+  { key: "rozet-magnet", label: "Rozet, Balon ve Magnet", hint: "Etkinlik dağıtımı" },
+  { key: "oto-yasam", label: "Oto ve Yaşam Ürünleri", hint: "Araç, çakı, şemsiye" },
   { key: "diger", label: "Diğer Ürünler", hint: "Sınıflandırılmamış" },
 ] as const satisfies readonly Option[];
 

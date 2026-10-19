@@ -64,7 +64,7 @@ export default async function AdminQuotes() {
                       const cur = l.currency ?? "TRY";
                       return (
                         <tr key={s.productCode} className="border-t border-line">
-                          <td className="py-1 font-mono">{s.variantCode ?? s.productCode}</td><td>{s.name}</td><td>{s.color ?? "—"}</td><td>{s.qty}</td><td>{STOCK_LABEL[s.stockStatus as StockStatus] ?? s.stockStatus}</td>
+                          <td className="py-1 font-mono">{s.variantCode ?? s.productCode}</td><td>{s.name}{s.printMethod && <span className="block text-[0.68rem] text-gold-deep">Baskı: {s.printMethod}{s.printPrice != null ? ` · ${formatMoney(s.printPrice)}` : " · teklifte"}{s.printCost != null ? ` (alış ${formatMoney(s.printCost)})` : ""}</span>}</td><td>{s.color ?? "—"}</td><td>{s.qty}</td><td>{STOCK_LABEL[s.stockStatus as StockStatus] ?? s.stockStatus}</td>
                           <td className="text-right">{l.listPrice !== null ? formatMoney(l.listPrice, cur) : "—"}</td>
                           <td className="text-right">{l.cost !== null ? formatMoney(l.cost, cur) : "—"}</td>
                           <td className="text-right">{l.listPrice !== null && l.cost !== null ? formatMoney((l.listPrice - l.cost) * l.qty, cur) : "—"}</td>

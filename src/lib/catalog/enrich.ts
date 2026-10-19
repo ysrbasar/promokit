@@ -24,6 +24,38 @@ export function slugify(s: string): string {
 
 const norm = (s: string) => slugify(s).replace(/-/g, " ");
 
+/**
+ * Tedarikçi alt kategorisi (ör. "Power Bank", "Kalem Usb Bellekler") → site kategorisi.
+ * Sıra önemlidir: ilk eşleşen kazanır (ör. "kalem usb" önce teknolojiye düşer).
+ */
+const SUBCATEGORY_RULES: [string, RegExp][] = [
+  ["kutu-ambalaj", /\b(koli|kutulari|set kutu)/],
+  ["teknoloji", /\b(usb|bellek|power ?bank|sarj|speaker|kulaklik|radyo|adaptor|airtag|selfie|magsafe|lamba|kamera)/],
+  ["masaustu", /\b(kalemlik|bardak altlik|mouse ?pad|kartvizitlik|masa set|ofis set|masa sumen|numarator|telefon stand|para tabak|kullu|hesap makine|menu kap|yaka kart|not tutucu)/],
+  ["kirtasiye", /\b(kalemtras|silgi|cetvel|boyama|post it|cizim tahta|sinav set)/],
+  ["kalem", /\b(kalem)/],
+  ["canta", /\b(termos canta|canta)/],
+  ["termos-matara", /\b(termos|matara|karaf)/],
+  ["kupa-bardak", /\b(bardak|kupa|fincan|french press)/],
+  ["defter-ajanda", /\b(defter|ajanda|bloknot|organizer|sekreterlik)/],
+  ["takvim", /\b(takvim)/],
+  ["saat", /\b(saat)/],
+  ["plaket-odul", /\b(plaket|madalya)/],
+  ["anahtarlik", /\b(anahtarlik)/],
+  ["cakmak", /\b(cakmak|kibrit)/],
+  ["tekstil", /\b(tisort|sweat|sapka|bere|atki|sal|boyunluk|yelek|mont|yagmurluk|battaniye|onluk)/],
+  ["rozet-magnet", /\b(rozet|balon|magnet|bayrak|yoyo|stres topu|frizbi|duduk|bileklik|yelpaze)/],
+  ["oto-yasam", /\b(araba|ruhsat|caki|fener|semsiye|ayna|manikur|dis firca|el fani|mutfak|metre|bavul|pasaport|supurge|acil durum|bitki)/],
+  ["doga-dostu", /\b(geri donusum)/],
+];
+
+export function classifySubcategory(sub: string | null | undefined): string | null {
+  if (!sub) return null;
+  const t = norm(sub);
+  for (const [cat, re] of SUBCATEGORY_RULES) if (re.test(t)) return cat;
+  return null;
+}
+
 const CATEGORY_RULES: [string, RegExp][] = [
   ["saat", /\b(duvar saati|mekanizmali saat|saatli duvar)/],
   ["anahtarlik", /\b(anahtarlik)/],
@@ -62,6 +94,11 @@ const CATEGORY_OCCASIONS: Record<string, string[]> = {
   "hediye-set": ["vip", "client", "dealer", "seasonal", "other"],
   "kutu-ambalaj": ["welcome", "client", "dealer", "vip", "seasonal", "other"],
   "doga-dostu": ["event", "education", "welcome", "other"],
+  takvim: ["client", "dealer", "seasonal", "other"],
+  cakmak: ["event", "dealer", "other"],
+  kirtasiye: ["education", "event", "other"],
+  "rozet-magnet": ["event", "education", "other"],
+  "oto-yasam": ["dealer", "client", "event", "other"],
 };
 
 const CATEGORY_AUDIENCE: Record<string, string[]> = {

@@ -8,9 +8,10 @@ type Ctx = {
   kind: "import" | "demo";
   minStock: number;
   budgetTiers: BudgetTier[];
+  printMarkupPct: number;
 };
 
-const CatalogCtx = createContext<Ctx>({ kind: "demo", minStock: 50, budgetTiers: [] });
+const CatalogCtx = createContext<Ctx>({ kind: "demo", minStock: 50, budgetTiers: [], printMarkupPct: 0 });
 
 export function CatalogProvider({ value, children }: { value: Ctx; children: React.ReactNode }) {
   return <CatalogCtx.Provider value={value}>{children}</CatalogCtx.Provider>;

@@ -10,6 +10,8 @@ export const KitLineSchema = z.object({
   variantCode: z.string().nullable(),
   qty: z.number().int().min(1).max(20),
   personalization: z.array(z.string()).default([]),
+  /** Seçilen logo baskı yöntemi (ör. "Lazer"); null = baskısız */
+  printMethod: z.string().max(60).nullable().optional(),
 });
 export type KitLine = z.infer<typeof KitLineSchema>;
 

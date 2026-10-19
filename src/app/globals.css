@@ -23,8 +23,8 @@
   --color-warning: #8a5a12;
   --color-danger: #9b2c22;
 
-  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
-  --font-sans: var(--font-manrope), "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-serif), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-body), "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 
   --radius-card: 0.875rem;
   --radius-soft: 0.5rem;
@@ -51,7 +51,7 @@
     background: var(--color-ivory);
     color: var(--color-ink);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv11";
+    font-weight: 500;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
@@ -66,8 +66,8 @@
   }
   h1, h2, h3, .font-display {
     font-family: var(--font-display);
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -104,5 +104,76 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Dikkat çekici onay butonu: yeşil zemin, nabız gibi atan ışık halkası ve üzerinden geçen parlama */
+@layer components {
+  .btn-glow {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3.5rem;
+    padding: 0 1.75rem;
+    border-radius: 9999px;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    color: #fff;
+    background: linear-gradient(135deg, #16a34a, #15803d 55%, #166534);
+    box-shadow: 0 0 0 0 rgb(34 197 94 / 0.55), 0 12px 30px -10px rgb(22 163 74 / 0.8);
+    animation: glow-pulse 1.8s ease-out infinite;
+    transition: transform 0.25s ease;
+  }
+  .btn-glow:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+  .btn-glow::after {
+    content: "";
+    position: absolute;
+    inset: -40% auto -40% -60%;
+    width: 45%;
+    z-index: -1;
+    background: linear-gradient(100deg, transparent, rgb(255 255 255 / 0.55), transparent);
+    transform: skewX(-20deg);
+    animation: glow-shine 2.6s ease-in-out infinite;
+  }
+  @keyframes glow-pulse {
+    0% { box-shadow: 0 0 0 0 rgb(34 197 94 / 0.6), 0 12px 30px -10px rgb(22 163 74 / 0.8); }
+    70% { box-shadow: 0 0 0 16px rgb(34 197 94 / 0), 0 12px 30px -10px rgb(22 163 74 / 0.8); }
+    100% { box-shadow: 0 0 0 0 rgb(34 197 94 / 0), 0 12px 30px -10px rgb(22 163 74 / 0.8); }
+  }
+  @keyframes glow-shine {
+    0% { left: -60%; }
+    60%, 100% { left: 130%; }
+  }
+
+  /* Stok lambası: yanıp sönen ışık */
+  .stock-lamp {
+    position: relative;
+    display: inline-block;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 9999px;
+    background: currentColor;
+  }
+  .stock-lamp::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: currentColor;
+    animation: lamp-ping 1.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  @keyframes lamp-ping {
+    0% { transform: scale(1); opacity: 0.9; }
+    80%, 100% { transform: scale(2.6); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn-glow, .btn-glow::after, .stock-lamp::after { animation: none; }
   }
 }

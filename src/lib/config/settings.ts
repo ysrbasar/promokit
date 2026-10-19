@@ -22,12 +22,15 @@ export const SettingsSchema = z.object({
   budgetTiers: z.array(BudgetTierSchema).min(1),
   /** Kit önerisinde varyant stoğunun kit adedini karşılaması zorunlu mu */
   requireStockForKitQuantity: z.boolean(),
+  /** Tedarikçi baskı fiyatlarına eklenen kâr payı (%). Müşteri baskı fiyatını bu payla görür. */
+  printMarkupPct: z.number().min(0).max(500),
 });
 export type Settings = z.infer<typeof SettingsSchema>;
 
 export const DEFAULT_SETTINGS: Settings = {
   minStock: 50,
   requireStockForKitQuantity: true,
+  printMarkupPct: 0,
   budgetTiers: [
     { key: "economy", label: "Ekonomik", min: null, max: 300, itemCount: 3, tier: "economy" },
     { key: "lt500", label: "500 TL altı", min: null, max: 500, itemCount: 3, tier: "economy" },

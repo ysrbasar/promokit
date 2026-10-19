@@ -1,5 +1,5 @@
 @echo off
-rem Maison Kit - canli takip: siteyi gelistirme modunda acar, her dakika GitHub'dan guncelleme ceker.
+rem Nadide Kit - canli takip: siteyi gelistirme modunda acar, her dakika GitHub'dan guncelleme ceker.
 cd /d "%~dp0"
 where node >nul 2>nul || (echo Node.js bulunamadi: https://nodejs.org & pause & exit /b 1)
 where git >nul 2>nul || (echo Git bulunamadi: https://git-scm.com/download/win & pause & exit /b 1)
@@ -18,7 +18,7 @@ echo ipromosyon XML anahtarini girin (bos birakirsaniz otomatik katalog guncelle
 set /p IPROKEY=Anahtar: 
 if not "%IPROKEY%"=="" (>>.env echo IPRO_XML_KEY=%IPROKEY%)
 :run2
-start "Maison Kit - site" cmd /k "npm run dev"
+start "Nadide Kit - site" cmd /k "npm run dev"
 timeout /t 8 /nobreak >nul
 start "" http://localhost:3000
 echo.

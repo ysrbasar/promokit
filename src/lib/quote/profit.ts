@@ -1,6 +1,14 @@
 /** Teklif kârlılığı: satır başına liste fiyatı × adet × kit adedi; alış fiyatı bilinmeyen satır kâra katılmaz. */
 
-export type ProfitLine = { qty: number; listPrice: number | null; cost: number | null; currency: string | null };
+export type ProfitLine = {
+  qty: number;
+  listPrice: number | null;
+  cost: number | null;
+  currency: string | null;
+  /** Logo baskısı toplamları (kit adedinden bağımsız, satırın tamamı için) */
+  printPrice?: number | null;
+  printCost?: number | null;
+};
 export type Profit = { currency: string; revenue: number; cost: number; profit: number; margin: number | null; complete: boolean };
 
 export function computeProfit(lines: ProfitLine[], kitQuantity: number): Profit[] {
@@ -12,6 +20,10 @@ export function computeProfit(lines: ProfitLine[], kitQuantity: number): Profit[
     else {
       p.revenue += l.listPrice * l.qty * kitQuantity;
       p.cost += l.cost * l.qty * kitQuantity;
+    }
+    if (l.printPrice != null && l.printCost != null) {
+      p.revenue += l.printPrice;
+      p.cost += l.printCost;
     }
     by.set(cur, p);
   }

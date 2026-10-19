@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import type { LiteProduct } from "@/lib/catalog/lite";
 import { formatMoney, priceKit } from "@/lib/catalog/pricing";
+import { quotePrint, type PrintQuote } from "@/lib/config/printPricing";
 import { PERSONALIZATION, categoryLabel } from "@/lib/config/taxonomy";
 import { MAX_QTY_PER_KIT, totalPieces } from "@/lib/kit/kitState";
 import { useKit, useHydrated } from "@/lib/kit/store";
@@ -18,11 +19,12 @@ import { AlternativesDrawer } from "./AlternativesDrawer";
  * Kit özeti / çalışma alanı. `compact` modunda sihirbazın yan panelinde, normal modda
  * "Kitim" sayfasında kullanılır. Tüm değişiklikler global mağazaya yazılır.
  */
-export function KitWorkspace({ compact = false, showActions = true }: { compact?: boolean; showActions?: boolean }) {
+export function KitWorkspace({ compact = false, showActions = true, layout = "list" }: { compact?: boolean; showActions?: boolean; layout?: "list" | "grid" }) {
   const hydrated = useHydrated();
-  const { minStock } = useCatalogInfo();
+  const { minStock, printMarkupPct } = useCatalogInfo();
   const draft = useKit((s) => s.draft);
-  const { setQty, remove, setVariant, setKitQuantity, rename, saveCurrent, setPersonalization } = useKit();
+  const { setQty, remove, setVariant, setKitQuantity, rename, saveCurrent, setPersonalization, setPrintMethod } = useKit();
+  const grid = layout === "grid" && !compact;
   const codes = draft.lines.map((l) => l.productCode);
   const { get } = useProducts(codes);
   const [swapFor, setSwapFor] = useState<string | null>(null);
@@ -34,6 +36,17 @@ export function KitWorkspace({ compact = false, showActions = true }: { compact?
     if (p) priceMap.set(c, p);
   }
   const pricing = priceKit(draft.lines.map((l) => ({ productCode: l.productCode, qtyPerKit: l.qty })), priceMap, draft.kitQuantity);
+
+  // Logo baskısı: tedarikçi baskı fiyat listesinden, kit adedi × kit başı adet üzerinden anında hesaplanır
+  const printFor = (code: string, method: string | null | undefined, qtyPerKit: number): PrintQuote | null => {
+    const p = priceMap.get(code);
+    if (!p || !method) return null;
+    return quotePrint(p.subcategory, p.name, method, draft.kitQuantity * qtyPerKit, printMarkupPct);
+  };
+  const prints = draft.lines.map((l) => printFor(l.productCode, l.printMethod, l.qty)).filter((x): x is PrintQuote => !!x);
+  const printTotal = prints.reduce((s, q) => s + (q.kind === "price" ? q.total : 0), 0);
+  const printUnknown = prints.filter((q) => q.kind === "custom").length;
+  const grandTotal = pricing.status === "complete" ? pricing.total + printTotal : null;
 
   if (!hydrated) return <Skeleton className="h-80 w-full" />;
 
@@ -80,7 +93,7 @@ export function KitWorkspace({ compact = false, showActions = true }: { compact?
           )}
         </div>
       ) : (
-        <ul className="flex flex-col gap-3" aria-label="Kitteki ürünler">
+        <ul className={grid ? "grid gap-5 sm:grid-cols-2 xl:grid-cols-3" : "flex flex-col gap-3"} aria-label="Kitteki ürünler">
           <AnimatePresence initial={false}>
             {draft.lines.map((line) => {
               const p = get(line.productCode);
@@ -94,23 +107,32 @@ export function KitWorkspace({ compact = false, showActions = true }: { compact?
                   initial={{ opacity: 0, y: 16, scale: 0.98 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, x: -30, transition: { duration: 0.3 } }}
-                  className="group rounded-card border border-line bg-paper p-3 shadow-card"
+                  className={cn("group rounded-card border border-line bg-paper shadow-card transition-shadow hover:shadow-lift", grid ? "overflow-hidden" : "p-3")}
                 >
-                  <div className="flex gap-3">
+                  <div className={grid ? "flex flex-col" : "flex gap-3"}>
                     {p ? (
-                      <Link href={`/urun/${p.slug}`} className="shrink-0">
-                        <ProductImage src={p.image} alt={p.name} category={p.category} className="size-20 rounded-soft" sizes="80px" />
+                      <Link href={`/urun/${p.slug}`} className={grid ? "block overflow-hidden" : "shrink-0"}>
+                        {grid ? (
+                          <ProductImage src={(v?.image ?? p.image) || null} alt={p.name} category={p.category} className="aspect-square transition-transform duration-700 group-hover:scale-105" sizes="(min-width: 1280px) 30vw, (min-width: 640px) 45vw, 90vw" />
+                        ) : (
+                          <ProductImage src={p.image} alt={p.name} category={p.category} className="size-20 rounded-soft" sizes="80px" />
+                        )}
                       </Link>
                     ) : (
-                      <Skeleton className="size-20 shrink-0" />
+                      <Skeleton className={grid ? "aspect-square" : "size-20 shrink-0"} />
                     )}
-                    <div className="min-w-0 flex-1">
+                    <div className={cn("min-w-0 flex-1", grid && "p-4")}>
                       <div className="flex items-start justify-between gap-2">
                         <div className="min-w-0">
                           <p className="truncate text-[0.68rem] uppercase tracking-[0.16em] text-subtle">
                             {p ? categoryLabel(p.category) : "…"} · <span className="font-mono normal-case tracking-normal">{line.productCode}</span>
                           </p>
-                          <p className="mt-0.5 line-clamp-2 font-display text-lg leading-tight">{p?.name ?? "Yükleniyor…"}</p>
+                          <p className={cn("mt-0.5 line-clamp-2 font-display leading-tight", grid ? "text-xl" : "text-lg")}>{p?.name ?? "Yükleniyor…"}</p>
+                          {grid && p?.price != null && p.priceCurrency && (
+                            <p className="mt-1 text-sm font-semibold">
+                              {formatMoney(v?.price ?? p.price, p.priceCurrency)} <span className="text-xs font-normal text-subtle">/ adet · KDV hariç</span>
+                            </p>
+                          )}
                         </div>
                         <button type="button" onClick={() => remove(line.productCode)} className="grid size-8 shrink-0 place-items-center rounded-full text-subtle hover:bg-danger/10 hover:text-danger" aria-label={`${p?.name ?? line.productCode} ürününü kitten çıkar`}>
                           <Icon name="close" className="size-4" />
@@ -129,9 +151,9 @@ export function KitWorkspace({ compact = false, showActions = true }: { compact?
                             {p.variants.map((x) => {
                               const ok = x.stockQuantity !== null && x.stockQuantity >= minStock;
                               return (
-                                <option key={x.code} value={x.code} disabled={!ok}>
+                                <option key={x.code} value={x.code}>
                                   {x.label ?? x.color ?? x.code}
-                                  {!ok ? (x.stockQuantity === null ? " — doğrulanacak" : " — stok yetersiz") : ""}
+                                  {!ok ? (x.stockQuantity === null ? " — doğrulanacak" : x.stockQuantity === 0 ? " — stokta yok" : " — sınırlı stok") : ""}
                                 </option>
                               );
                             })}
@@ -152,6 +174,44 @@ export function KitWorkspace({ compact = false, showActions = true }: { compact?
                           <Icon name="swap" className="size-3.5" /> Değiştir
                         </button>
                       </div>
+                      {p && p.printingMethods.length > 0 && (
+                        <div className="mt-2">
+                          <select
+                            aria-label="Logo baskısı"
+                            value={line.printMethod ?? ""}
+                            onChange={(e) => setPrintMethod(line.productCode, e.target.value || null)}
+                            className={cn("h-9 w-full rounded-full border bg-ivory px-3 text-xs font-semibold", line.printMethod ? "border-champagne" : "border-line-strong")}
+                          >
+                            <option value="">Logo baskısı yok</option>
+                            {p.printingMethods.map((m) => {
+                              const q = printFor(line.productCode, m, line.qty);
+                              const tag = !q ? "" : q.kind === "price" ? ` — ${formatMoney(q.total)} (${formatMoney(q.perUnit)}/adet)` : q.kind === "included" ? " — fiyata dahil" : " — teklifte";
+                              return (
+                                <option key={m} value={m}>
+                                  {m} baskı{tag}
+                                </option>
+                              );
+                            })}
+                          </select>
+                          {(() => {
+                            const q = printFor(line.productCode, line.printMethod, line.qty);
+                            if (!q) return null;
+                            return (
+                              <p className="mt-1 text-[0.7rem] text-muted">
+                                {q.kind === "price" ? (
+                                  <>
+                                    Logo baskısı: <b className="text-ink">{formatMoney(q.total)}</b> toplam · {formatMoney(q.perUnit)} / adet ({(draft.kitQuantity * line.qty).toLocaleString("tr-TR")} adet, tek taraf)
+                                  </>
+                                ) : q.kind === "included" ? (
+                                  "Logo baskısı ürün fiyatına dahil."
+                                ) : (
+                                  "Bu baskı için tedarikçi özel fiyat verir; teklifte bildirilir."
+                                )}
+                              </p>
+                            );
+                          })()}
+                        </div>
+                      )}
                       {short && (
                         <p className="mt-2 text-xs text-warning">
                           Bu renkte {need.toLocaleString("tr-TR")} adet için stok yetersiz görünüyor; başka renk seçin veya teklif aşamasında doğrulayalım.
@@ -192,19 +252,34 @@ export function KitWorkspace({ compact = false, showActions = true }: { compact?
             </span>
             <span>{draft.kitQuantity.toLocaleString("tr-TR")} kit</span>
           </div>
+          {pricing.status === "complete" && (printTotal > 0 || printUnknown > 0) && (
+            <dl className="mt-4 space-y-1 border-t border-ivory/10 pt-3 text-sm">
+              <div className="flex justify-between">
+                <dt className="text-ivory/60">Ürünler</dt>
+                <dd>{formatMoney(pricing.total, pricing.currency)}</dd>
+              </div>
+              <div className="flex justify-between">
+                <dt className="text-ivory/60">Logo baskısı</dt>
+                <dd>
+                  {formatMoney(printTotal)}
+                  {printUnknown > 0 && <span className="ml-1 text-xs text-ivory/50">+ {printUnknown} baskı teklifte</span>}
+                </dd>
+              </div>
+            </dl>
+          )}
           <div className="mt-4 flex items-end justify-between gap-4">
             {pricing.status === "complete" ? (
               <>
                 <div>
                   <p className="text-xs text-ivory/50">Kişi başı tahmini</p>
                   <p className="font-display text-3xl text-champagne">
-                    <AnimatedNumber value={pricing.perKit} format={(n) => formatMoney(n, pricing.currency)} />
+                    <AnimatedNumber value={(grandTotal ?? pricing.total) / Math.max(1, draft.kitQuantity)} format={(n) => formatMoney(n, pricing.currency)} />
                   </p>
                 </div>
                 <div className="text-right">
                   <p className="text-xs text-ivory/50">Toplam tahmini</p>
                   <p className="font-display text-2xl">
-                    <AnimatedNumber value={pricing.total} format={(n) => formatMoney(n, pricing.currency)} />
+                    <AnimatedNumber value={grandTotal ?? pricing.total} format={(n) => formatMoney(n, pricing.currency)} />
                   </p>
                 </div>
               </>
@@ -219,14 +294,14 @@ export function KitWorkspace({ compact = false, showActions = true }: { compact?
           </div>
           {pricing.status === "complete" && (
             <p className="mt-3 text-[0.7rem] leading-relaxed text-ivory/40">
-              {pricing.priceType === "demo" ? "Örnek fiyatlarla hesaplanmıştır." : "Liste fiyatlarıyla hesaplanmıştır; baskı ve ambalaj hariç, KDV dahil değildir."} Kesin tutar teklifte bildirilir.
+              {pricing.priceType === "demo" ? "Örnek fiyatlarla hesaplanmıştır." : `Liste fiyatlarıyla hesaplanmıştır; ${printTotal > 0 ? "seçtiğiniz logo baskıları dahil, " : "logo baskısı seçilmedi, "}KDV dahil değildir.`} Kesin tutar teklifte bildirilir.
             </p>
           )}
           {showActions && (
             <div className={cn("mt-5 flex gap-2", compact ? "flex-col" : "flex-col sm:flex-row")}>
-              <ButtonLink href="/teklif" variant="gold" className="flex-1">
-                Teklif iste <Icon name="arrow" className="size-4" />
-              </ButtonLink>
+              <Link href="/teklif" className="btn-glow flex-1">
+                <Icon name="check" className="size-5" /> {grid ? "Kitimi onayla ve teklif iste" : "Onayla, teklif iste"}
+              </Link>
               <Button
                 variant="light"
                 className="flex-1"

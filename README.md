@@ -1,6 +1,6 @@
-# Maison Kit — Premium kurumsal hediye kiti platformu
+# Nadide Kit — Premium kurumsal hediye kiti platformu
 
-Kullanıcıların sorularla ya da katalogdan seçerek kurumsal hediye kiti oluşturduğu, hazır kitleri incelediği ve teklif istediği Next.js uygulaması. "Maison Kit" bir çalışma adıdır; marka adı `src/components/layout/Logo.tsx` içinde değiştirilir.
+Kullanıcıların sorularla ya da katalogdan seçerek kurumsal hediye kiti oluşturduğu, hazır kitleri incelediği ve teklif istediği Next.js uygulaması. "Nadide Kit" bir çalışma adıdır; marka adı `src/components/layout/Logo.tsx` içinde değiştirilir.
 
 > **Veri durumu (19.10.2026):** Katalog tek kaynaktan, ipromosyon.com XML beslemelerinden gelir: 1.161 ürün, 2.319 varyant, 263 ürün stokta, 898 ürün "Stokta yok" etiketiyle listelenir. 73 kutulu set var ve bunlardan 46 hazır kit üretildi. Müşteriye liste fiyatı (iskontosuz) "KDV hariç" notuyla gösterilir. Alış fiyatları yalnızca yönetim panelinde görünür.
 
@@ -48,6 +48,15 @@ IPRO_SYNC_MINUTES=30      # isteğe bağlı, en az 5
   - "Şimdi güncelle" düğmesi
 - Komut satırından elle güncelleme: `npm run catalog:update` (yalnızca `data/runtime/` altına yazar) ya da `npm run catalog:update -- --seed` (ek olarak depodaki başlangıç verisini de yeniler).
 - Stokta olmayan ürünler katalogda "Stokta yok" etiketiyle görünür, ancak kit önerilerine girmez. Katalogdaki "Yalnızca stokta olanlar" filtresi bunları gizler.
+
+### Logo baskı fiyatları
+
+- Fiyatlar tedarikçinin baskı fiyat sayfasından (ipromosyon.com/sayfa/baski-fiyatlari) alındı ve `src/lib/config/printPricing.ts` dosyasında tablo olarak tutuluyor.
+- Hesap ürün grubuna, baskı yöntemine ve adede göre yapılıyor. Örneğin: "500 adede kadar sabit 750 TL, üzeri adet başı 1,50 TL". Gofre ve kademeli fiyatlar da dahil.
+- Ürün sayfasında 100, 250, 500 ve 1000 adet için adet başı baskı fiyatı gösteriliyor.
+- Kitte baskı yöntemi seçildiği anda tutar, kit adedine göre toplama ekleniyor.
+- **Yönetim → Ayarlar → Logo baskı kâr payı (%)** müşteriye gösterilen baskı fiyatına eklenir. Teklifte baskının alış bedeli ve satış bedeli ayrı ayrı saklanır ve kâra yansır.
+- Tedarikçi fiyat listesini güncellerse bu tablonun elle güncellenmesi gerekir; sayfa XML ile gelmiyor.
 
 ### Kâr takibi
 

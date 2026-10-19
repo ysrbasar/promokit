@@ -1,6 +1,7 @@
 import type { Product } from "../catalog/schema";
 import { isProductEligible, pickVariant } from "../catalog/stock";
 import { isVerifiedPrice } from "../catalog/pricing";
+import { printGroupOf } from "../config/printPricing";
 import type { Settings } from "../config/settings";
 import { PRINTING_TO_PERSONALIZATION, categoryLabel, labelOf, PURPOSES, STYLES } from "../config/taxonomy";
 
@@ -50,6 +51,16 @@ const PURPOSE_CATEGORY_PRIORITY: Record<string, string[]> = {
 };
 
 const TIER_ORDER = ["economy", "mid", "premium", "luxury"] as const;
+
+/**
+ * Ürün türü: tedarikçinin ürün grubu (Metal/Plastik/Deri USB bellek → "usb"; tüm kalemler → "kalem").
+ * Bir kitte aynı türden iki ürün olmaz: "Teknoloji" seçilince 4 USB bellek değil; USB + powerbank + speaker gibi farklı ürünler gelir.
+ */
+export function kindOf(p: Pick<Product, "subcategory" | "productCode" | "name">): string {
+  if (!p.subcategory) return `#${p.productCode}`;
+  return printGroupOf(p.subcategory)?.key ?? p.subcategory.toLocaleLowerCase("tr-TR").trim();
+}
+const hasKind = (list: ScoredProduct[], p: Product) => list.some((x) => kindOf(x.product) === kindOf(p));
 
 export type ScoredProduct = { product: Product; score: number; reasons: string[] };
 
@@ -205,7 +216,7 @@ export function buildKit(products: Product[], answers: WizardAnswers, settings: 
   // 2) İstenen kategoriler varsa önce onlardan ikinci ürünler (kitin odağı korunur)
   for (const r of ranked) {
     if (picked.length >= count || !wanted.length) break;
-    if (used.has(r.product.productCode) || !wanted.includes(r.product.category)) continue;
+    if (used.has(r.product.productCode) || !wanted.includes(r.product.category) || hasKind(picked, r.product)) continue;
     picked.push(r);
     used.add(r.product.productCode);
   }
@@ -223,7 +234,7 @@ export function buildKit(products: Product[], answers: WizardAnswers, settings: 
     for (const r of ranked) {
       if (picked.length >= count) break;
       if (used.has(r.product.productCode)) continue;
-      if (picked.some((x) => x.product.category === r.product.category)) continue;
+      if (picked.some((x) => x.product.category === r.product.category) || hasKind(picked, r.product)) continue;
       picked.push({ ...r, reasons: [...r.reasons, "Kiti tamamlayan öneri"] });
       used.add(r.product.productCode);
     }
@@ -243,6 +254,7 @@ export function buildKit(products: Product[], answers: WizardAnswers, settings: 
           (r) =>
             r.product.category === cur.product.category &&
             !used.has(r.product.productCode) &&
+            !hasKind(picked.filter((_, i) => i !== idx), r.product) &&
             isVerifiedPrice(r.product) &&
             (r.product.price as number) < (cur.product.price as number),
         );
@@ -266,7 +278,7 @@ export function buildKit(products: Product[], answers: WizardAnswers, settings: 
     const pool = [...ranked.filter((r) => wanted.includes(r.product.category)), ...ranked.filter((r) => !wanted.includes(r.product.category))];
     for (const r of pool) {
       if (picked.length >= count) break;
-      if (used.has(r.product.productCode) || !isVerifiedPrice(r.product)) continue;
+      if (used.has(r.product.productCode) || !isVerifiedPrice(r.product) || hasKind(picked, r.product)) continue;
       if (sum(picked) + (r.product.price as number) > tier.max) continue;
       const cap = wanted.includes(r.product.category) ? 3 : 2;
       if (picked.filter((x) => x.product.category === r.product.category).length >= cap) continue;

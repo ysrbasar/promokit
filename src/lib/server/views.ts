@@ -1,7 +1,9 @@
 import "server-only";
 import { toLite, type LiteProduct } from "../catalog/lite";
 import { priceKit, type KitPricing } from "../catalog/pricing";
+import type { Product } from "../catalog/schema";
 import { isProductEligible } from "../catalog/stock";
+import { kindOf } from "../kit/recommendation";
 import { resolveReadyKit, type ReadyKit, type ResolvedLine } from "../kit/readyKits";
 import { getCatalog, getReadyKits, getSettings } from "./repositories";
 
@@ -44,8 +46,31 @@ export async function getFeaturedProducts(limit = 8): Promise<LiteProduct[]> {
 }
 
 export async function getCategoryCounts() {
-  const [{ products }, settings] = await Promise.all([getCatalog(), getSettings()]);
+  const { products } = await getCatalog();
   const counts = new Map<string, number>();
-  for (const p of products) if (isProductEligible(p, settings.minStock)) counts.set(p.category, (counts.get(p.category) ?? 0) + 1);
+  // Katalog varsayılan olarak tüm ürünleri (stokta olmayanlar etiketli) listeler; sayılar da öyle
+  for (const p of products) if (p.isActive) counts.set(p.category, (counts.get(p.category) ?? 0) + 1);
   return counts;
+}
+
+/**
+ * Hero vitrini: stoktaki, görselli ürünlerden kategorileri sırayla karıştırarak bir havuz kurar.
+ * Ardışık her 4'lü grup mümkün olduğunca farklı kategorilerden (ve farklı alt kategorilerden) oluşur.
+ */
+export async function getShowcaseProducts(limit = 48): Promise<LiteProduct[]> {
+  const [{ products }, settings] = await Promise.all([getCatalog(), getSettings()]);
+  const byCat = new Map<string, Product[]>();
+  for (const p of products) {
+    if (!p.isActive || !p.imageOriginalUrl || !isProductEligible(p, settings.minStock)) continue;
+    const list = byCat.get(p.category) ?? [];
+    // Aynı türden yalnızca bir ürün (ör. tek bir USB bellek)
+    if (!list.some((x) => kindOf(x) === kindOf(p))) list.push(p);
+    byCat.set(p.category, list);
+  }
+  const queues = [...byCat.values()].map((l) => l.sort((a, b) => Number(b.isFeatured) - Number(a.isFeatured) || b.dataCompleteness - a.dataCompleteness));
+  const out: Product[] = [];
+  for (let round = 0; out.length < limit && queues.some((q) => q.length > round); round++) {
+    for (const q of queues) if (q[round] && out.length < limit) out.push(q[round]);
+  }
+  return out.map(toLite);
 }

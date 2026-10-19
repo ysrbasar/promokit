@@ -66,6 +66,10 @@ export type StoredQuote = QuoteRequest & {
     /** Talep anındaki alış fiyatı — yalnız yönetim paneli */
     cost?: number | null;
     currency?: string | null;
+    /** Logo baskısı: yöntem, müşteriye fiyat (kâr paylı) ve tedarikçi bedeli — toplam tutarlar */
+    printMethod?: string | null;
+    printPrice?: number | null;
+    printCost?: number | null;
   }[];
   attachment: { fileName: string; storedAs: string; size: number; type: string } | null;
   catalogKind: "import" | "demo";

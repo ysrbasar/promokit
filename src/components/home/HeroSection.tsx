@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 import type { LiteProduct } from "@/lib/catalog/lite";
 import { ProductImage } from "../product/ProductImage";
 import { ButtonLink, Icon } from "../ui/primitives";
@@ -11,7 +11,9 @@ import { EASE } from "../ui/motion";
 /**
  * Hero: koyu, dramatik zemin üzerinde katmanlı kit kompozisyonu.
  * Kompozisyon temsilidir (gerçek ürün fotoğrafı değildir); kartlar katalogdaki ürünlerdir.
+ * 4 kart her 2 saniyede bir küçülerek kaybolur, yerine farklı kategorilerden 4 yeni ürün gelir.
  */
+const ROTATE_MS = 2000;
 export function HeroSection({ products }: { products: LiteProduct[] }) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -20,7 +22,17 @@ export function HeroSection({ products }: { products: LiteProduct[] }) {
   const yFront = useTransform(scrollYProgress, [0, 1], [0, -40]);
   const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  const [a, b, c, d] = products;
+  const reduce = useReducedMotion();
+  const [page, setPage] = useState(0);
+  const pages = Math.max(1, Math.floor(products.length / 4));
+  useEffect(() => {
+    if (pages < 2 || reduce) return;
+    const t = setInterval(() => setPage((n) => (n + 1) % pages), ROTATE_MS);
+    return () => clearInterval(t);
+  }, [pages, reduce]);
+  const [a, b, c, d] = products.slice(page * 4, page * 4 + 4);
+  // Sonraki 4 ürünün görselleri önceden yüklenir; değişimde boş kart görünmez
+  const upcoming = products.slice(((page + 1) % pages) * 4, ((page + 1) % pages) * 4 + 4);
   const word = { hidden: { y: "110%" }, show: { y: "0%" } };
 
   return (
@@ -36,7 +48,7 @@ export function HeroSection({ products }: { products: LiteProduct[] }) {
           <motion.p className="eyebrow mb-7" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: EASE }}>
             Kurumsal hediye kitleri
           </motion.p>
-          <h1 className="text-[3.1rem] font-light leading-[0.98] sm:text-7xl lg:text-[5.6rem]">
+          <h1 className="text-[2.9rem] font-bold leading-[1.02] sm:text-7xl lg:text-[5.2rem]">
             <motion.span className="block" initial="hidden" animate="show" transition={{ staggerChildren: 0.08, delayChildren: 0.15 }}>
               {["Markanıza", "özel", "kitler."].map((w) => (
                 <span key={w} className="mr-[0.22em] inline-block overflow-hidden pb-[0.08em] align-bottom">
@@ -96,6 +108,11 @@ export function HeroSection({ products }: { products: LiteProduct[] }) {
         </motion.div>
 
         {/* Katmanlı kompozisyon */}
+        <div aria-hidden className="pointer-events-none absolute size-0 overflow-hidden opacity-0">
+          {upcoming.map((p) => (
+            <ProductImage key={p.productCode} src={p.image} alt="" category={p.category} className="size-[220px]" sizes="220px" priority />
+          ))}
+        </div>
         <div className="relative mx-auto aspect-square w-full max-w-[560px]" aria-label="Temsili kit kompozisyonu">
           <motion.div style={{ y: yBack }} className="absolute inset-[8%] rounded-[2rem] border border-champagne/25" initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.4, ease: EASE }} />
           <motion.div style={{ y: yBack }} className="absolute inset-[16%] rounded-[1.6rem] bg-gradient-to-br from-ink-3 to-ink-2 shadow-[0_60px_120px_-40px_rgb(0_0_0/0.8)]" initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.2, ease: EASE }}>
@@ -104,20 +121,30 @@ export function HeroSection({ products }: { products: LiteProduct[] }) {
             <div className="absolute left-1/2 top-1/2 size-14 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-champagne/60" />
           </motion.div>
           {[
-            { p: a, cls: "left-[0%] top-[4%] w-[36%] -rotate-6", y: yMid, delay: 0.5 },
-            { p: b, cls: "right-[0%] top-[12%] w-[34%] rotate-[5deg]", y: yFront, delay: 0.65 },
-            { p: c, cls: "left-[12%] bottom-[0%] w-[34%] rotate-[4deg]", y: yFront, delay: 0.8 },
-            { p: d, cls: "right-[4%] bottom-[6%] w-[32%] -rotate-[7deg]", y: yMid, delay: 0.95 },
-          ].map(({ p, cls, y, delay }, i) =>
-            p ? (
-              <motion.div key={p.productCode} style={{ y }} className={`absolute ${cls}`} initial={{ opacity: 0, y: 60 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay, ease: EASE }}>
-                <Link href={`/urun/${p.slug}`} className="group block overflow-hidden rounded-2xl border border-ivory/10 bg-ink-2/80 shadow-[0_30px_60px_-30px_rgb(0_0_0/0.9)] backdrop-blur transition-transform duration-700 hover:-translate-y-2">
-                  <ProductImage src={p.image} alt={p.name} category={p.category} tone="dark" className="aspect-square" priority={i < 2} sizes="220px" />
-                  <span className="block truncate px-3 py-2.5 text-[0.7rem] text-ivory/70">{p.name}</span>
-                </Link>
-              </motion.div>
-            ) : null,
-          )}
+            { p: a, cls: "left-[0%] top-[4%] w-[36%] -rotate-6", y: yMid },
+            { p: b, cls: "right-[0%] top-[12%] w-[34%] rotate-[5deg]", y: yFront },
+            { p: c, cls: "left-[12%] bottom-[0%] w-[34%] rotate-[4deg]", y: yFront },
+            { p: d, cls: "right-[4%] bottom-[6%] w-[32%] -rotate-[7deg]", y: yMid },
+          ].map(({ p, cls, y }, i) => (
+            <motion.div key={i} style={{ y }} className={`absolute ${cls}`}>
+              <AnimatePresence mode="wait">
+                {p && (
+                  <motion.div
+                    key={p.productCode}
+                    initial={{ opacity: 0, scale: 0.4, rotate: -8 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                    exit={{ opacity: 0, scale: 0.35, rotate: 8, transition: { duration: 0.2, ease: "easeIn" } }}
+                    transition={{ type: "spring", stiffness: 420, damping: 24, delay: i * 0.07 }}
+                  >
+                    <Link href={`/urun/${p.slug}`} className="group block overflow-hidden rounded-2xl border border-ivory/10 bg-ink-2/80 shadow-[0_30px_60px_-30px_rgb(0_0_0/0.9)] backdrop-blur transition-transform duration-700 hover:-translate-y-2">
+                      <ProductImage src={p.image} alt={p.name} category={p.category} tone="dark" className="aspect-square" priority={page === 0 && i < 2} sizes="220px" />
+                      <span className="block truncate px-3 py-2.5 text-[0.7rem] font-semibold text-ivory/80">{p.name}</span>
+                    </Link>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
         </div>
       </div>
 

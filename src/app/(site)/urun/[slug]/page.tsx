@@ -4,10 +4,13 @@ import { notFound } from "next/navigation";
 import { ProductActions } from "@/components/product/ProductActions";
 import { ProductCard } from "@/components/product/ProductCard";
 import { ProductImage } from "@/components/product/ProductImage";
+import { ProductGallery, ProductVariantProvider } from "@/components/product/ProductVariantContext";
 import { PriceTag, StockBadge } from "@/components/product/StockAndPrice";
 import { Reveal } from "@/components/ui/motion";
-import { Badge, Container, SectionHeading } from "@/components/ui/primitives";
+import { Badge, Container, Icon, SectionHeading } from "@/components/ui/primitives";
 import { productImage, toLite } from "@/lib/catalog/lite";
+import { formatMoney } from "@/lib/catalog/pricing";
+import { describeRule, quotePrint } from "@/lib/config/printPricing";
 import { isProductEligible } from "@/lib/catalog/stock";
 import { categoryLabel } from "@/lib/config/taxonomy";
 import { EMPTY_ANSWERS, findAlternatives } from "@/lib/kit/recommendation";
@@ -15,6 +18,7 @@ import { getCatalog, getProductBySlug, getSettings } from "@/lib/server/reposito
 import { SITE_URL } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
+const PRINT_SAMPLE_QTY = [100, 250, 500, 1000];
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const p = await getProductBySlug((await params).slug);
@@ -81,17 +85,11 @@ export default async function ProductPage({ params }: { params: Params }) {
           <span className="text-ink">{p.name}</span>
         </nav>
 
+        <ProductVariantProvider product={lite}>
         <div className="grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
           <Reveal>
             <div className="group sticky top-28 space-y-3">
-              <ProductImage src={lite.image} alt={p.name} category={p.category} priority className="aspect-square rounded-card border border-line" sizes="(min-width: 1024px) 50vw, 100vw" />
-              {p.gallery.length > 1 && (
-                <div className="grid grid-cols-4 gap-3">
-                  {p.gallery.slice(1, 5).map((g, i) => (
-                    <ProductImage key={g} src={g} alt={`${p.name} görsel ${i + 2}`} category={p.category} className="aspect-square rounded-soft border border-line" sizes="120px" />
-                  ))}
-                </div>
-              )}
+              <ProductGallery product={lite} />
               {p.isDemo && <p className="text-xs text-subtle">Örnek katalog kaydı — gerçek ürün görseli ve bilgisi değildir.</p>}
             </div>
           </Reveal>
@@ -173,19 +171,64 @@ export default async function ProductPage({ params }: { params: Params }) {
                 Baskı ve kişiselleştirme
               </h2>
               {p.printingMethods.length ? (
-                <div className="flex flex-wrap gap-2">
-                  {p.printingMethods.map((m) => (
-                    <Badge key={m} tone="gold">
-                      {m}
-                    </Badge>
-                  ))}
-                </div>
+                <>
+                  <div className="overflow-x-auto rounded-soft border border-line bg-paper">
+                    <table className="w-full min-w-[420px] text-sm">
+                      <thead className="bg-stone/60 text-left text-xs text-muted">
+                        <tr>
+                          <th className="px-4 py-2.5">Baskı yöntemi</th>
+                          {PRINT_SAMPLE_QTY.map((q) => (
+                            <th key={q} className="px-2 py-2.5 text-right">
+                              {q} adet
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {p.printingMethods.map((m) => {
+                          const quotes = PRINT_SAMPLE_QTY.map((q) => quotePrint(p.subcategory, p.name, m, q, settings.printMarkupPct));
+                          const first = quotes[0];
+                          return (
+                            <tr key={m} className="border-t border-line">
+                              <td className="px-4 py-3 font-semibold">
+                                <span className="flex items-center gap-2">
+                                  <Icon name="sparkle" className="size-4 text-champagne" /> {m}
+                                </span>
+                                {first.kind === "price" && <span className="mt-0.5 block text-[0.7rem] font-normal text-subtle">{describeRule(first.rule, settings.printMarkupPct)}</span>}
+                              </td>
+                              {first.kind === "price" ? (
+                                quotes.map((q, i) => (
+                                  <td key={i} className="px-2 py-3 text-right tabular-nums">
+                                    {q.kind === "price" ? (
+                                      <>
+                                        <b>{formatMoney(q.perUnit)}</b>
+                                        <span className="block text-[0.68rem] text-subtle">/ adet</span>
+                                      </>
+                                    ) : (
+                                      "—"
+                                    )}
+                                  </td>
+                                ))
+                              ) : (
+                                <td colSpan={PRINT_SAMPLE_QTY.length} className="px-2 py-3 text-right text-xs">
+                                  {first.kind === "included" ? <span className="font-semibold text-success">Baskı fiyata dahil</span> : <span className="text-muted">Fiyat teklifte bildirilir</span>}
+                                </td>
+                              )}
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                  <p className="mt-2 text-xs text-subtle">Tek taraf, tek logo baskı fiyatlarıdır; KDV hariç. Kitinizde baskı yöntemini seçtiğinizde kit adedine göre toplama eklenir.</p>
+                </>
               ) : (
                 <p className="text-sm text-muted">Uygun baskı yöntemi teklif aşamasında ürün özelinde belirlenir.</p>
               )}
             </section>
           </Reveal>
         </div>
+        </ProductVariantProvider>
       </Container>
 
       {similar.length > 0 && (

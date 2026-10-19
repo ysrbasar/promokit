@@ -145,6 +145,15 @@ export function SettingsForm({ settings }: { settings: Settings }) {
           </table>
         </div>
       </div>
+      <div className="rounded-card border border-line bg-paper p-6">
+        <label className="block text-sm font-semibold" htmlFor="printMarkup">
+          Logo baskı kâr payı (%)
+        </label>
+        <p className="mt-1 text-xs text-muted">
+          Baskı fiyatları tedarikçinin güncel baskı fiyat listesinden (ürün grubu, baskı yöntemi ve adede göre) otomatik hesaplanır. Müşteri bu fiyata eklediğiniz kâr payıyla görür; ör. %20 → 1.000 TL baskı müşteriye 1.200 TL.
+        </p>
+        <input id="printMarkup" type="number" min={0} max={500} value={s.printMarkupPct} onChange={(e) => setS({ ...s, printMarkupPct: Math.min(500, Math.max(0, Number(e.target.value) || 0)) })} className="mt-3 h-11 w-32 rounded-soft border border-line-strong bg-ivory px-3" />
+      </div>
       <div className="flex items-center gap-4">
         <Button type="submit" disabled={pending}>
           Kaydet

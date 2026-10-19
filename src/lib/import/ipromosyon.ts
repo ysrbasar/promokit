@@ -1,7 +1,7 @@
 import * as cheerio from "cheerio";
 import type { Element } from "domhandler";
 import type { CatalogFile, Product, Variant } from "../catalog/schema";
-import { budgetTierFromPrice, classifyCategory, colorHex, completeness, deriveTags, slugify } from "../catalog/enrich";
+import { budgetTierFromPrice, classifyCategory, classifySubcategory, colorHex, completeness, deriveTags, slugify } from "../catalog/enrich";
 
 /**
  * ipromosyon.com XML beslemeleri:
@@ -30,8 +30,10 @@ export function titleCaseTr(s: string): string {
     .map((w) => {
       const up = w.toLocaleUpperCase("tr-TR");
       if (ACRONYMS.has(up) || /\d/.test(w)) return up;
-      const lower = w.toLocaleLowerCase("tr-TR");
-      return lower.charAt(0).toLocaleUpperCase("tr-TR") + lower.slice(1);
+      // W/Q/X içeren kelimeler İngilizcedir ("WIRELESS" → "Wireless", "Wıreless" değil)
+      const loc = /[WQX]/i.test(w) ? "en-US" : "tr-TR";
+      const lower = w.toLocaleLowerCase(loc);
+      return lower.charAt(0).toLocaleUpperCase(loc) + lower.slice(1);
     })
     .join(" ");
 }
@@ -94,6 +96,7 @@ export function parseIpromosyon(allXml: string, stockXml: string, now = new Date
         stockUpdatedAt: now,
         imageUrl: images[0] ?? null,
         label: opts.map((o) => o.value).join(" / ") || null,
+        options: opts.map((o) => ({ name: titleCaseTr(o.key), value: o.value })),
         price: num(txt($s, el, "iskontosuz_stoklu_urun_fiyat")),
         incoming,
       },
@@ -127,7 +130,7 @@ export function parseIpromosyon(allXml: string, stockXml: string, now = new Date
     const cost = num(txt($a, el, "urun_fiyat")) ?? (svs.length ? Math.min(...svs.map((x) => x.cost ?? Infinity)) : null);
     const known = variants.map((v) => v.stockQuantity).filter((q): q is number => q !== null);
     const isSet = /kutulu.*set|özel set/i.test(subcategory ?? "") || /kutulu .*set/i.test(name);
-    const category = isSet ? "hediye-set" : classifyCategory(subcategory, name) ?? classifyCategory(description) ?? "diger";
+    const category = isSet ? "hediye-set" : classifySubcategory(subcategory) ?? classifyCategory(name) ?? "diger";
     const moq = Number(txt($a, el, "minimum_siparis_adeti"));
     const printing = $a(el).find("baski_alternatifleri > baski").toArray().map((b) => titleCaseTr($a(b).text())).filter(Boolean);
 

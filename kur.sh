@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Maison Kit — yerel kurulum (macOS / Linux). Gerekli: Node.js 20+ (https://nodejs.org)
+# Nadide Kit — yerel kurulum (macOS / Linux). Gerekli: Node.js 20+ (https://nodejs.org)
 set -e
 cd "$(dirname "$0")"
 command -v node >/dev/null || { echo "Node.js bulunamadı. https://nodejs.org adresinden LTS sürümünü kurun."; exit 1; }

@@ -1,5 +1,5 @@
 @echo off
-rem Maison Kit - ilk kurulum: depoyu indirir ve canli takibi baslatir. Bir kez calistirin.
+rem Nadide Kit - ilk kurulum: depoyu indirir ve canli takibi baslatir. Bir kez calistirin.
 cd /d "%~dp0"
 where git >nul 2>nul || (echo Once Git kurun: https://git-scm.com/download/win & pause & exit /b 1)
 where node >nul 2>nul || (echo Once Node.js LTS kurun: https://nodejs.org & pause & exit /b 1)

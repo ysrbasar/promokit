@@ -133,7 +133,7 @@ export function KitBuilderWizard() {
   const next = () => (step === STEPS.length - 2 ? generate() : go(step + 1));
 
   return (
-    <div className="mx-auto grid max-w-[1320px] gap-10 px-4 pb-28 pt-28 sm:px-6 lg:grid-cols-[1fr_380px] lg:px-10 lg:pt-32">
+    <div className={cn("mx-auto grid max-w-[1320px] gap-10 px-4 pb-28 pt-28 sm:px-6 lg:px-10 lg:pt-32", current.key !== "result" && "lg:grid-cols-[1fr_380px]")}>
       <div className="min-w-0">
         {/* İlerleme */}
         <nav aria-label="Sihirbaz adımları" className="mb-10">
@@ -246,12 +246,13 @@ export function KitBuilderWizard() {
       </div>
 
       {/* Canlı özet: masaüstünde sabit, mobilde alt panel */}
-      <aside className="hidden lg:block" aria-label="Canlı kit özeti">
-        <div className="sticky top-28 space-y-6">
-          <AnswersSummary answers={answers} onEdit={(i) => current.key !== "result" && go(i)} />
-          {current.key === "result" && <KitWorkspace compact />}
-        </div>
-      </aside>
+      {current.key !== "result" && (
+        <aside className="hidden lg:block" aria-label="Canlı kit özeti">
+          <div className="sticky top-28 space-y-6">
+            <AnswersSummary answers={answers} onEdit={(i) => go(i)} />
+          </div>
+        </aside>
+      )}
       <AnimatePresence>
         {summaryOpen && (
           <>
@@ -555,30 +556,17 @@ function ResultStep({
           ))}
         </ul>
       )}
-      <div className="lg:hidden">
-        <KitWorkspace />
-      </div>
-      <div className="hidden lg:block">
-        <p className="text-sm text-muted">
-          Sağdaki özetten ürünleri çıkarabilir, renk ve adetleri değiştirebilir, <strong>Değiştir</strong> ile benzer alternatifleri görebilirsiniz. Daha fazla düzenleme için{" "}
-          <Link href="/kitim" className="font-semibold underline decoration-champagne underline-offset-4">
-            Kitim
-          </Link>{" "}
-          sayfasını kullanın ya da{" "}
-          <Link href="/katalog" className="font-semibold underline decoration-champagne underline-offset-4">
-            katalogdan ürün ekleyin
-          </Link>
-          .
-        </p>
-        <div className="mt-6 flex gap-3">
-          <ButtonLink href="/teklif" variant="gold" size="lg">
-            Teklif iste <Icon name="arrow" className="size-4" />
-          </ButtonLink>
-          <Button variant="outline" size="lg" onClick={onRestart}>
-            Cevapları düzenle
-          </Button>
-        </div>
-      </div>
+      <KitWorkspace layout="grid" />
+      <p className="text-sm text-muted">
+        Ürünleri çıkarabilir, renk, adet ve logo baskısını değiştirebilir, <strong>Değiştir</strong> ile benzer alternatifleri görebilirsiniz. Daha fazla ürün için{" "}
+        <Link href="/katalog" className="font-semibold underline decoration-champagne underline-offset-4">
+          katalogdan ekleyin
+        </Link>
+        .
+      </p>
+      <Button variant="outline" onClick={onRestart}>
+        Cevapları düzenle
+      </Button>
     </div>
   );
 }
