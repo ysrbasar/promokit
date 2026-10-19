@@ -213,12 +213,18 @@ export default async function HomePage() {
             </Link>
           </Reveal>
           {[
-            ["Teklif talebi", "Kitiniz, adetler ve tercihleriniz tek formda bize ulaşır."],
-            ["Doğrulama", "Stok, baskı yöntemi ve termin tedarikçiyle teyit edilir."],
-            ["Onay ve üretim", "Baskı önizlemesini onaylarsınız; üretim ve paketleme başlar."],
-          ].map(([t, d], i) => (
+            ["Teklif talebi", "Kitiniz, adetler ve tercihleriniz tek formda bize ulaşır.", "form", "anim-float"],
+            ["Doğrulama", "Stok, baskı yöntemi ve termin tedarikçiyle teyit edilir.", "verify", "anim-pop"],
+            ["Onay ve üretim", "Baskı önizlemesini onaylarsınız; üretim ve paketleme başlar.", "production", "anim-spin-slow"],
+          ].map(([t, d, icon, anim], i) => (
             <Reveal key={t} delay={0.1 * i}>
-              <div className="h-px w-12 bg-champagne" />
+              <div className="flex items-center gap-4">
+                <span className="relative grid size-16 place-items-center rounded-2xl bg-ink text-champagne shadow-[0_14px_30px_-14px_rgb(14_21_37/0.8)]">
+                  <span className="absolute -right-2 -top-2 grid size-6 place-items-center rounded-full bg-champagne font-display text-xs font-bold text-ink">{i + 1}</span>
+                  <CategoryIcon name={icon} className={`size-8 ${anim}`} />
+                </span>
+                {i < 2 && <span className="road-dash-x hidden h-0.5 flex-1 rounded-full opacity-70 lg:block" />}
+              </div>
               <h3 className="mt-6 text-2xl">{t}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">{d}</p>
             </Reveal>

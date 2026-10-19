@@ -38,7 +38,7 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex h-[72px] max-w-[1320px] items-center gap-6 px-4 sm:px-6 lg:px-10">
-        <Link href="/" aria-label="Nadide Kit ana sayfa" className="shrink-0">
+        <Link href="/" aria-label="PromoKit ana sayfa" className="shrink-0">
           <Logo />
         </Link>
         <nav aria-label="Ana menü" className="ml-6 hidden items-center gap-7 lg:flex">

@@ -1,6 +1,6 @@
-# Nadide Kit — Premium kurumsal hediye kiti platformu
+# PromoKit — Premium kurumsal hediye kiti platformu
 
-Kullanıcıların sorularla ya da katalogdan seçerek kurumsal hediye kiti oluşturduğu, hazır kitleri incelediği ve teklif istediği Next.js uygulaması. "Nadide Kit" bir çalışma adıdır; marka adı `src/components/layout/Logo.tsx` içinde değiştirilir.
+Kullanıcıların sorularla ya da katalogdan seçerek kurumsal hediye kiti oluşturduğu, hazır kitleri incelediği ve teklif istediği Next.js uygulaması. "PromoKit" bir çalışma adıdır; marka adı `src/components/layout/Logo.tsx` içinde değiştirilir.
 
 > **Veri durumu (19.10.2026):** Katalog tek kaynaktan, ipromosyon.com XML beslemelerinden gelir: 1.161 ürün, 2.319 varyant, 263 ürün stokta, 898 ürün "Stokta yok" etiketiyle listelenir. 73 kutulu set var ve bunlardan 46 hazır kit üretildi. Müşteriye liste fiyatı (iskontosuz) "KDV hariç" notuyla gösterilir. Alış fiyatları yalnızca yönetim panelinde görünür.
 

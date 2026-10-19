@@ -61,7 +61,7 @@ export function Footer() {
         </div>
       </Container>
       <Container className="flex flex-col gap-3 border-t border-ivory/10 py-6 text-xs text-ivory/40 sm:flex-row sm:justify-between">
-        <span>© {new Date().getFullYear()} Nadide Kit. Tüm hakları saklıdır.</span>
+        <span>© {new Date().getFullYear()} PromoKit. Tüm hakları saklıdır.</span>
         <span>Stok bilgileri tedarikçi verisinden alınır ve teklif aşamasında yeniden doğrulanır.</span>
       </Container>
     </footer>

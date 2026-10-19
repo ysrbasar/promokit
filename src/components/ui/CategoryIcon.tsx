@@ -120,6 +120,38 @@ const PATHS: Record<string, React.ReactNode> = {
       <rect x="13" y="13" width="7" height="7" rx="1.5" />
     </>
   ),
+  // Süreç adımları
+  form: (
+    <>
+      <path d="M6 2.5h8.5L19 7v14.5H6z" />
+      <path d="M14 2.5V7h5M9 11h7M9 14.5h7M9 18h4" />
+    </>
+  ),
+  verify: (
+    <>
+      <path d="M12 2.5l7.5 3v6c0 4.6-3.2 8.4-7.5 10-4.3-1.6-7.5-5.4-7.5-10v-6z" />
+      <path d="M8.5 12l2.5 2.5 4.5-5" />
+    </>
+  ),
+  preview: (
+    <>
+      <path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" />
+      <circle cx="12" cy="12" r="3" />
+    </>
+  ),
+  production: (
+    <>
+      <circle cx="12" cy="12" r="3" />
+      <path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1" />
+    </>
+  ),
+  truck: (
+    <>
+      <path d="M2.5 6.5h11v10h-11zM13.5 10h4l3 3.5v3h-7z" />
+      <circle cx="6.5" cy="18" r="1.8" />
+      <circle cx="17" cy="18" r="1.8" />
+    </>
+  ),
   // Sektör / amaç ikonları
   welcome: (
     <>

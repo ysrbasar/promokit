@@ -1,5 +1,5 @@
 @echo off
-rem Nadide Kit - yonetim paneli parolasini sifirlar (XML anahtari ve diger ayarlar korunur).
+rem PromoKit - yonetim paneli parolasini sifirlar (XML anahtari ve diger ayarlar korunur).
 cd /d "%~dp0"
 echo.
 echo Yeni yonetim paneli parolasini yazin (en az 10 karakter).

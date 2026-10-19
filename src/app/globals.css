@@ -177,3 +177,33 @@
     .btn-glow, .btn-glow::after, .stock-lamp::after { animation: none; }
   }
 }
+
+/* Hareketli ikonlar */
+@layer components {
+  .anim-float { animation: icon-float 3s ease-in-out infinite; }
+  .anim-spin-slow { animation: icon-spin 8s linear infinite; }
+  .anim-drive { animation: icon-drive 2.4s ease-in-out infinite; }
+  .anim-pop { animation: icon-pop 2.6s ease-in-out infinite; }
+  .anim-blink { animation: icon-blink 3.2s ease-in-out infinite; }
+  @keyframes icon-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+  @keyframes icon-spin { to { transform: rotate(360deg); } }
+  @keyframes icon-drive { 0%, 100% { transform: translateX(-3px); } 50% { transform: translateX(4px); } }
+  @keyframes icon-pop { 0%, 100% { transform: scale(1) rotate(0); } 45% { transform: scale(1.12) rotate(-6deg); } 60% { transform: scale(1) rotate(3deg); } }
+  @keyframes icon-blink { 0%, 90%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.15); } }
+  /* Yol çizgisi: kesikli şerit aşağı doğru akar */
+  .road-dash {
+    background-image: linear-gradient(to bottom, var(--color-champagne) 0 55%, transparent 55% 100%);
+    background-size: 100% 28px;
+    animation: road-flow 1.2s linear infinite;
+  }
+  @keyframes road-flow { to { background-position: 0 28px; } }
+  .road-dash-x {
+    background-image: linear-gradient(to right, var(--color-champagne) 0 55%, transparent 55% 100%);
+    background-size: 18px 100%;
+    animation: road-flow-x 0.9s linear infinite;
+  }
+  @keyframes road-flow-x { to { background-position: 18px 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .anim-float, .anim-spin-slow, .anim-drive, .anim-pop, .anim-blink, .road-dash, .road-dash-x { animation: none; }
+  }
+}

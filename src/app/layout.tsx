@@ -11,9 +11,9 @@ const sans = Plus_Jakarta_Sans({ subsets: ["latin", "latin-ext"], weight: ["400"
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: "Nadide Kit — Markanıza özel premium promosyon kitleri", template: "%s · Nadide Kit" },
+  title: { default: "PromoKit — Markanıza özel premium promosyon kitleri", template: "%s · PromoKit" },
   description: "İhtiyacınızı anlatın, bütçenizi belirleyin, ürünlerinizi seçin. Stoktaki gerçek ürünlerle kurumsal hediye kitinizi birlikte oluşturalım.",
-  openGraph: { type: "website", locale: "tr_TR", siteName: "Nadide Kit" },
+  openGraph: { type: "website", locale: "tr_TR", siteName: "PromoKit" },
   alternates: { canonical: "/" },
 };
 
