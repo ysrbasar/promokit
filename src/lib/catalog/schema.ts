@@ -18,12 +18,18 @@ export const Variant = z.object({
   stockQuantity: z.number().int().nonnegative().nullable(),
   stockUpdatedAt: z.string().nullable(),
   imageUrl: z.string().nullable().default(null),
+  /** Seçeneklerin okunur hali (ör. "Siyah / 16 GB") */
+  label: z.string().nullable().default(null),
+  /** Varyanta özel liste fiyatı (KDV hariç); yoksa ürün fiyatı geçerli */
+  price: z.number().nonnegative().nullable().default(null),
+  /** Tedarikçinin bildirdiği gelecek stoklar */
+  incoming: z.array(z.object({ qty: z.number().int(), date: z.string() })).default([]),
 });
 export type Variant = z.infer<typeof Variant>;
 
 export const SourceNote = z.object({
   field: z.string(),
-  source: z.enum(["prmstk", "pdf", "site", "admin", "demo"]),
+  source: z.enum(["prmstk", "pdf", "site", "admin", "demo", "ipromosyon"]),
   value: z.string(),
   note: z.string().optional(),
 });
@@ -70,6 +76,13 @@ export const Product = z.object({
   sources: z.array(SourceNote).default([]),
   needsReview: z.array(z.string()).default([]),
   isDemo: z.boolean().default(false),
+  /** KDV oranı (%); fiyatlar KDV hariçtir */
+  vatRate: z.number().nullable().default(null),
+  minOrderQty: z.number().int().nullable().default(null),
+  /** Tedarikçi stoklu satış yapıyor mu (false = siparişe özel üretim) */
+  stockKept: z.boolean().default(true),
+  /** Kutulu setlerde içerik listesi */
+  setContents: z.array(z.object({ code: z.string(), name: z.string() })).default([]),
 });
 export type Product = z.infer<typeof Product>;
 

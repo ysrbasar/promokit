@@ -10,6 +10,12 @@ set /p ADMINPW=Parola:
 call npx tsx scripts/admin-hash.ts "%ADMINPW%" > .env
 if errorlevel 1 (del .env & pause & exit /b 1)
 :build
+findstr /b /c:"IPRO_XML_KEY=" .env >nul 2>nul && goto build2
+echo.
+echo ipromosyon XML anahtarini girin (bos birakirsaniz otomatik katalog guncellemesi kapali kalir):
+set /p IPROKEY=Anahtar: 
+if not "%IPROKEY%"=="" (>>.env echo IPRO_XML_KEY=%IPROKEY%)
+:build2
 call npm run build || (pause & exit /b 1)
 echo.
 echo Site: http://localhost:3000   Yonetim paneli: http://localhost:3000/admin

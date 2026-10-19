@@ -67,5 +67,6 @@ function round(n: number) {
 }
 
 export function formatMoney(n: number, currency = "TRY") {
-  return new Intl.NumberFormat("tr-TR", { style: "currency", currency, maximumFractionDigits: 0 }).format(n);
+  const digits = n < 1000 && !Number.isInteger(n) ? 2 : 0;
+  return new Intl.NumberFormat("tr-TR", { style: "currency", currency, minimumFractionDigits: digits, maximumFractionDigits: digits }).format(n);
 }

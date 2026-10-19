@@ -14,7 +14,8 @@ const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 export async function CatalogView({ searchParams, fixedCategory, basePath }: { searchParams: CatalogSearchParams; fixedCategory?: string; basePath: string }) {
   const [{ products }, settings, countsMap] = await Promise.all([getCatalog(), getSettings(), getCategoryCounts()]);
   const category = fixedCategory ?? one(searchParams.kategori);
-  const stockOnly = one(searchParams.stok) !== "tumu";
+  // Varsayılan: tüm ürünler (stokta olmayanlar "Stokta yok" etiketiyle); ?stok=var ile yalnız stoklular
+  const stockOnly = one(searchParams.stok) === "var";
   const result = searchProducts(
     products,
     {

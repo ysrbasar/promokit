@@ -5,6 +5,7 @@ import { formatMoney } from "@/lib/catalog/pricing";
 import { STOCK_LABEL } from "@/lib/catalog/stock";
 import { normalize, normalizeCode } from "@/lib/catalog/search";
 import { CATEGORIES } from "@/lib/config/taxonomy";
+import { getCosts, unitCost } from "@/lib/server/costs";
 import { getCatalog } from "@/lib/server/repositories";
 import { cn } from "@/components/ui/primitives";
 
@@ -13,7 +14,7 @@ type SP = { q?: string; durum?: string; kategori?: string; sayfa?: string };
 
 export default async function AdminProducts({ searchParams }: { searchParams: Promise<SP> }) {
   const { q = "", durum = "", kategori = "", sayfa = "1" } = await searchParams;
-  const { products } = await getCatalog();
+  const [{ products }, costs] = await Promise.all([getCatalog(), getCosts()]);
 
   const counts = new Map<string, number>();
   for (const p of products) counts.set(p.category, (counts.get(p.category) ?? 0) + 1);
@@ -23,13 +24,18 @@ export default async function AdminProducts({ searchParams }: { searchParams: Pr
   if (kategori) list = list.filter((p) => p.category === kategori);
   if (durum === "aktif") list = list.filter((p) => p.isActive);
   if (durum === "pasif") list = list.filter((p) => !p.isActive);
+  if (durum === "stokta") list = list.filter((p) => (p.stockQuantity ?? 0) > 0);
+  if (durum === "stoksuz") list = list.filter((p) => p.stockStatus === "out");
   if (durum === "fiyatsiz") list = list.filter((p) => p.price === null);
   if (durum === "inceleme") list = list.filter((p) => p.needsReview.length > 0);
 
   const page = Math.max(1, Number(sayfa) || 1);
   const pages = Math.max(1, Math.ceil(list.length / PAGE));
   const href = (patch: Partial<SP>) => `/admin/urunler?${new URLSearchParams({ q, durum, kategori, sayfa: "1", ...patch })}`;
-  const rows: AdminRow[] = list.slice((page - 1) * PAGE, page * PAGE).map((p) => ({
+  const rows: AdminRow[] = list.slice((page - 1) * PAGE, page * PAGE).map((p) => {
+    const cost = unitCost(costs, p.productCode);
+    const cur = p.priceCurrency ?? "TRY";
+    return {
     code: p.productCode,
     name: p.name,
     slug: p.slug,
@@ -39,9 +45,12 @@ export default async function AdminProducts({ searchParams }: { searchParams: Pr
     isFeatured: p.isFeatured,
     stockLabel: STOCK_LABEL[p.stockStatus],
     stockQuantity: p.stockQuantity,
-    price: p.price !== null ? formatMoney(p.price, p.priceCurrency ?? "TRY") : "—",
+    price: p.price !== null ? formatMoney(p.price, cur) : "—",
+    cost: cost !== null ? formatMoney(cost, cur) : "—",
+    margin: p.price && cost !== null ? (p.price - cost) / p.price : null,
     review: p.needsReview,
-  }));
+    };
+  });
 
   return (
     <div>
@@ -69,6 +78,8 @@ export default async function AdminProducts({ searchParams }: { searchParams: Pr
           <option value="">Tüm durumlar</option>
           <option value="aktif">Sitede görünenler</option>
           <option value="pasif">Kaldırılanlar</option>
+          <option value="stokta">Stokta olanlar</option>
+          <option value="stoksuz">Stokta olmayanlar</option>
           <option value="fiyatsiz">Fiyatı olmayanlar</option>
           <option value="inceleme">İnceleme gerektirenler</option>
         </select>

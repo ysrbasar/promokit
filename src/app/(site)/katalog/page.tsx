@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default async function CatalogPage({ searchParams }: { searchParams: Promise<CatalogSearchParams> }) {
   return (
     <>
-      <PageHeader eyebrow="Serbest kit oluşturma" title="Ürün kataloğu" lead="Kitinizi kendiniz kurun: ürünleri arayın, filtreleyin ve tek dokunuşla kitinize ekleyin. Varsayılan olarak yalnızca yeterli stoğu olan ürünler listelenir." />
+      <PageHeader eyebrow="Serbest kit oluşturma" title="Ürün kataloğu" lead="Kitinizi kendiniz kurun: ürünleri arayın, filtreleyin ve tek dokunuşla kitinize ekleyin. Stokta olmayan ürünler “Stokta yok” olarak işaretlidir. Fiyatlara KDV dahil değildir." />
       <Container className="py-12 pb-28">
         <CatalogView searchParams={await searchParams} basePath="/katalog" />
       </Container>

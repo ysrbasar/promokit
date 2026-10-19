@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { KitCard, KitPriceLine } from "@/components/kit/KitCard";
 import { ReadyKitActions } from "@/components/kit/ReadyKitActions";
 import { ProductImage } from "@/components/product/ProductImage";
+import { kitImages } from "@/lib/catalog/lite";
 import { StockBadge } from "@/components/product/StockAndPrice";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/motion";
 import { Badge, Container, SectionHeading } from "@/components/ui/primitives";
@@ -24,6 +25,7 @@ export default async function ReadyKitDetail({ params }: { params: Params }) {
   const v = await getKitView(slug);
   if (!v) notFound();
   const others = (await getKitViews()).filter((k) => k.kit.slug !== slug).slice(0, 3);
+  const setContents = v.lines.flatMap((l) => l.product.setContents);
 
   return (
     <>
@@ -53,13 +55,13 @@ export default async function ReadyKitDetail({ params }: { params: Params }) {
           </Reveal>
           <Reveal delay={0.15}>
             <div className="relative grid grid-cols-2 gap-3" aria-label="Temsili kit kompozisyonu">
-              {v.lines.slice(0, 4).map((l, i) => (
-                <div key={l.productCode} className={i % 2 ? "translate-y-8" : ""}>
-                  <ProductImage src={l.product.image} alt={l.product.name} category={l.product.category} tone="dark" className="aspect-square rounded-card border border-ivory/10" sizes="(min-width: 1024px) 25vw, 45vw" priority={i < 2} />
+              {kitImages(v.lines.map((l) => l.product)).map((m, i) => (
+                <div key={m.key} className={i % 2 ? "translate-y-8" : ""}>
+                  <ProductImage src={m.src} alt={m.alt} category={m.category} tone="dark" className="aspect-square rounded-card border border-ivory/10" sizes="(min-width: 1024px) 25vw, 45vw" priority={i < 2} />
                 </div>
               ))}
             </div>
-            <p className="mt-12 text-center text-[0.7rem] text-ivory/35">Temsili kompozisyondur; ürünlerin kutu içindeki gerçek fotoğrafı değildir.</p>
+            {v.lines.length > 1 && <p className="mt-12 text-center text-[0.7rem] text-ivory/35">Temsili kompozisyondur; ürünlerin kutu içindeki gerçek fotoğrafı değildir.</p>}
           </Reveal>
         </Container>
       </section>
@@ -98,6 +100,19 @@ export default async function ReadyKitDetail({ params }: { params: Params }) {
                 <li key={n}>• {n}</li>
               ))}
             </ul>
+          )}
+          {setContents.length > 0 && (
+            <div className="mt-10 rounded-card border border-line bg-ivory p-6">
+              <p className="eyebrow">Kutu içeriği</p>
+              <ul className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
+                {setContents.map((c) => (
+                  <li key={c.code} className="flex gap-3">
+                    <span className="font-mono text-xs text-subtle">{c.code}</span>
+                    <span>{c.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
           <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {v.lines.map((l) => (

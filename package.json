@@ -10,14 +10,9 @@
     "typecheck": "tsc --noEmit",
     "lint": "next lint",
     "test": "vitest run",
-    "scrape": "tsx scripts/catalog/scrape-prmstk.ts",
-    "scrape:inspect": "tsx scripts/catalog/scrape-prmstk.ts --inspect",
-    "pdf:index": "tsx scripts/catalog/pdf-index.ts",
-    "site:crawl": "tsx scripts/catalog/crawl-promosyonfirma.ts",
-    "catalog:build": "tsx scripts/catalog/build-catalog.ts",
-    "catalog:report": "tsx scripts/catalog/report.ts",
     "admin:hash": "tsx scripts/admin-hash.ts",
-    "catalog:demo": "tsx scripts/catalog/make-demo.ts"
+    "catalog:demo": "tsx scripts/catalog/make-demo.ts",
+    "catalog:update": "tsx --env-file-if-exists=.env scripts/catalog/import-ipromosyon.ts"
   },
   "engines": {
     "node": ">=20"
@@ -43,7 +38,6 @@
     "@types/react-dom": "^19.2.0",
     "eslint": "^9.39.5",
     "eslint-config-next": "^15.5.28",
-    "pdfjs-dist": "^6.4.299",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.23.15",
     "typescript": "^6.0.3",

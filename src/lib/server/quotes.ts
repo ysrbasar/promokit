@@ -12,6 +12,8 @@ import {
   type StoredQuote,
 } from "../quote/schema";
 import { RUNTIME_DIR, readJson, writeJson } from "./jsonStore";
+import { computeProfit, type ProfitLine } from "../quote/profit";
+import { getCosts, unitCost } from "./costs";
 import { getCatalog } from "./repositories";
 
 /**
@@ -44,7 +46,7 @@ export async function validateAttachment(file: File | null) {
 
 export async function createQuote(req: QuoteRequest, file: File | null): Promise<StoredQuote> {
   const attachment = await validateAttachment(file);
-  const { products, info } = await getCatalog();
+  const [{ products, info }, costs] = await Promise.all([getCatalog(), getCosts()]);
   const map = new Map(products.map((p) => [p.productCode, p]));
 
   const snapshot = req.kit.lines.map((l) => {
@@ -59,6 +61,9 @@ export async function createQuote(req: QuoteRequest, file: File | null): Promise
       color: v?.color ?? null,
       qty: l.qty,
       stockStatus: p.stockStatus,
+      listPrice: p.isDemo ? null : (v?.price ?? p.price),
+      cost: unitCost(costs, p.productCode, v?.code),
+      currency: p.priceCurrency,
     };
   });
 
@@ -102,4 +107,27 @@ export async function updateQuoteStatus(id: string, status: QuoteStatus) {
   const q = await readJson<StoredQuote>(file);
   if (!q) throw new QuoteError("Teklif bulunamadı");
   await writeJson(file, { ...q, status });
+}
+
+/** Yönetim paneli: teklif + satır fiyatları + kâr. Eski kayıtlarda fiyat yoksa güncel katalogdan tahmin edilir. */
+export async function listQuotesWithProfit() {
+  const [quotes, { products }, costs] = await Promise.all([listQuotes(), getCatalog(), getCosts()]);
+  const map = new Map(products.map((p) => [p.productCode, p]));
+  return quotes.map((q) => {
+    let estimated = false;
+    const lines: (ProfitLine & { productCode: string })[] = q.snapshot.map((s) => {
+      if (s.listPrice !== undefined) return { productCode: s.productCode, qty: s.qty, listPrice: s.listPrice ?? null, cost: s.cost ?? null, currency: s.currency ?? null };
+      estimated = true;
+      const p = map.get(s.productCode);
+      const v = p?.variants.find((x) => x.code === s.variantCode);
+      return {
+        productCode: s.productCode,
+        qty: s.qty,
+        listPrice: p && !p.isDemo ? (v?.price ?? p.price) : null,
+        cost: unitCost(costs, s.productCode, s.variantCode),
+        currency: p?.priceCurrency ?? null,
+      };
+    });
+    return { quote: q, lines, profit: computeProfit(lines, q.kit.kitQuantity), estimated };
+  });
 }

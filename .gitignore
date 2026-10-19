@@ -15,3 +15,5 @@ data/import/*
 !data/import/report.json
 !data/import/review-queue.json
 !data/import/prmstk.config.json
+# Alış fiyatları (yalnızca yönetim paneli)
+data/private/

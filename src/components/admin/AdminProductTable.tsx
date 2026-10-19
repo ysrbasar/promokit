@@ -16,6 +16,9 @@ export type AdminRow = {
   stockLabel: string;
   stockQuantity: number | null;
   price: string;
+  /** Alış fiyatı — yalnız yönetim paneli */
+  cost: string;
+  margin: number | null;
   review: string[];
 };
 
@@ -91,7 +94,7 @@ export function AdminProductTable({ rows, totalInFilter, allCodesInFilter }: { r
               </th>
               <th className="p-3">Ürün</th>
               <th className="p-3">Stok</th>
-              <th className="p-3">Fiyat</th>
+              <th className="p-3">Liste / alış</th>
               <th className="p-3">Kategori</th>
               <th className="p-3 text-right">İşlem</th>
             </tr>
@@ -124,7 +127,11 @@ export function AdminProductTable({ rows, totalInFilter, allCodesInFilter }: { r
                   {r.stockLabel}
                   <div className="text-subtle">{r.stockQuantity ?? "—"} adet</div>
                 </td>
-                <td className="p-3 text-xs">{r.price}</td>
+                <td className="p-3 text-xs">
+                  {r.price}
+                  <div className="text-subtle">alış {r.cost}</div>
+                  {r.margin !== null && <div className={r.margin >= 0 ? "font-semibold text-success" : "font-semibold text-danger"}>kâr %{Math.round(r.margin * 100)}</div>}
+                </td>
                 <td className="p-3">
                   <select aria-label="Kategori" value={r.category} onChange={(e) => run({ productCode: r.code, category: e.target.value }, "taşındı")} className="h-8 max-w-44 rounded border border-line-strong bg-ivory px-2 text-xs">
                     {CATEGORIES.map((c) => (

@@ -1,46 +1,36 @@
-import path from "node:path";
-import { getCatalog, getImportReport } from "@/lib/server/repositories";
-import { DATA_DIR, readJson } from "@/lib/server/jsonStore";
+import { SyncButton } from "@/components/admin/SyncButton";
+import { SyncStatusCard } from "@/components/admin/SyncStatusCard";
+import { readSyncStatus, syncConfigured } from "@/lib/import/sync";
+import { getCatalog } from "@/lib/server/repositories";
 
-type Review = { productCode: string; reason: string; detail?: string }[];
-
-export default async function AdminData() {
-  const [{ products, info }, report, review] = await Promise.all([
-    getCatalog(),
-    getImportReport(),
-    readJson<Review>(path.join(DATA_DIR, "import", "review-queue.json")),
-  ]);
+export default async function AdminCatalogSync() {
+  const [status, { products }] = await Promise.all([readSyncStatus(), getCatalog()]);
+  const configured = syncConfigured();
   const noImage = products.filter((p) => !p.imageOriginalUrl && !p.localImagePath);
+  const noPrice = products.filter((p) => p.price === null);
   return (
     <div>
-      <h1 className="text-4xl">Veri kalitesi</h1>
-      {info.kind === "demo" && (
-        <p className="mt-4 rounded-card bg-warning/10 p-4 text-sm text-warning">
-          Uygulama örnek katalogla çalışıyor. Gerçek veri için sunucuda: <code>npm run scrape:inspect</code> → <code>npm run scrape</code> → <code>npm run site:crawl</code> → <code>npm run pdf:index</code> → <code>npm run catalog:build</code>
-        </p>
-      )}
-      <section className="mt-8">
-        <h2 className="text-2xl">Son içe aktarma raporu</h2>
-        {report ? (
-          <pre className="mt-4 max-h-[480px] overflow-auto rounded-card border border-line bg-paper p-5 text-xs">{JSON.stringify(report, null, 2)}</pre>
-        ) : (
-          <p className="mt-2 text-sm text-muted">Henüz rapor yok (data/import/report.json).</p>
-        )}
-      </section>
-      <section className="mt-10">
-        <h2 className="text-2xl">İnceleme kuyruğu ({review?.length ?? 0})</h2>
-        {review?.length ? (
-          <ul className="mt-4 max-h-80 overflow-auto rounded-card border border-line bg-paper p-4 text-xs">
-            {review.slice(0, 500).map((r, i) => <li key={i} className="border-b border-line py-1.5"><span className="font-mono">{r.productCode}</span> — {r.reason}{r.detail && ` (${r.detail})`}</li>)}
-          </ul>
-        ) : <p className="mt-2 text-sm text-muted">Kayıt yok.</p>}
-      </section>
-      <section className="mt-10">
-        <h2 className="text-2xl">Görseli eksik ürünler ({noImage.length})</h2>
-        <ul className="mt-4 max-h-80 overflow-auto rounded-card border border-line bg-paper p-4 text-xs">
-          {noImage.slice(0, 500).map((p) => <li key={p.productCode} className="border-b border-line py-1.5"><span className="font-mono">{p.productCode}</span> — {p.name}</li>)}
-        </ul>
-      </section>
+      <h1 className="text-4xl">Katalog güncelleme</h1>
+      <p className="mt-2 max-w-2xl text-sm text-muted">
+        Ürünler, stoklar ve fiyatlar ipromosyon XML beslemesinden otomatik olarak yenilenir. Hata olursa son çalışan katalog korunur. Alış fiyatları yalnızca bu panelde görünür.
+      </p>
+      <div className="mt-6">
+        <SyncButton disabled={!configured || status.running} />
+        {!configured && <p className="mt-2 text-sm text-warning">.env dosyasına IPRO_XML_KEY eklenmeden otomatik güncelleme çalışmaz.</p>}
+      </div>
+      <div className="mt-6">
+        <SyncStatusCard status={status} configured={configured} />
+      </div>
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <div className="rounded-card border border-line bg-paper p-6 text-sm">
+          <p className="font-semibold">Görseli olmayan ürünler ({noImage.length})</p>
+          <p className="mt-2 text-xs text-muted">{noImage.slice(0, 30).map((p) => p.productCode).join(", ") || "—"}</p>
+        </div>
+        <div className="rounded-card border border-line bg-paper p-6 text-sm">
+          <p className="font-semibold">Fiyatı olmayan ürünler ({noPrice.length})</p>
+          <p className="mt-2 text-xs text-muted">Müşteriye &quot;Fiyat teklifte&quot; olarak gösterilir. {noPrice.slice(0, 30).map((p) => p.productCode).join(", ")}</p>
+        </div>
+      </div>
     </div>
   );
 }

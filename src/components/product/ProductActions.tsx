@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { bestLiteVariant, type LiteProduct } from "@/lib/catalog/lite";
+import { formatMoney } from "@/lib/catalog/pricing";
 import { stockPhrase } from "@/lib/catalog/stock";
 import { useKit, useHydrated } from "@/lib/kit/store";
 import { useCatalogInfo } from "../providers/CatalogContext";
@@ -14,7 +15,7 @@ export function ProductActions({ product: p }: { product: LiteProduct }) {
   const { add, toggleFavorite, setVariant } = useKit();
   const line = useKit((s) => s.draft.lines.find((l) => l.productCode === p.productCode));
   const fav = useKit((s) => s.favorites.includes(p.productCode));
-  const [variant, setV] = useState<string | null>(() => bestLiteVariant(p, minStock)?.code ?? null);
+  const [variant, setV] = useState<string | null>(() => bestLiteVariant(p, minStock)?.code ?? p.variants[0]?.code ?? null);
   const [toast, setToast] = useState(false);
   const selected = p.variants.find((v) => v.code === variant) ?? null;
   const inKit = hydrated && !!line;
@@ -32,7 +33,6 @@ export function ProductActions({ product: p }: { product: LiteProduct }) {
                 <button
                   key={v.code}
                   type="button"
-                  disabled={!ok}
                   aria-pressed={on}
                   onClick={() => {
                     setV(v.code);
@@ -41,12 +41,12 @@ export function ProductActions({ product: p }: { product: LiteProduct }) {
                   className={cn(
                     "flex items-center gap-2 rounded-full border py-1.5 pl-1.5 pr-4 text-sm transition-all",
                     on ? "border-ink bg-ink text-ivory" : "border-line-strong hover:border-ink",
-                    !ok && "cursor-not-allowed opacity-40 line-through",
+                    !ok && !on && "opacity-50",
                   )}
-                  title={ok ? stockPhrase(v.stockQuantity, minStock) : v.stockQuantity === null ? "Stok doğrulanacak" : "Stok yetersiz"}
+                  title={stockPhrase(v.stockQuantity, minStock)}
                 >
                   <span className="size-6 rounded-full border border-line-strong" style={{ background: v.colorHex ?? "#d9d0c1" }} />
-                  {v.color ?? v.code}
+                  {v.label ?? v.color ?? v.code}
                 </button>
               );
             })}
@@ -55,9 +55,15 @@ export function ProductActions({ product: p }: { product: LiteProduct }) {
             {selected ? (
               <>
                 <span className="font-mono text-xs">{selected.code}</span> · {stockPhrase(selected.stockQuantity, minStock)}
+                {selected.price !== null && p.priceCurrency && <> · {formatMoney(selected.price, p.priceCurrency)} / adet (KDV hariç)</>}
+                {selected.incoming.map((g) => (
+                  <span key={g.date} className="mt-1 block text-xs text-gold-deep">
+                    {g.date.replace(/-/g, ".")} tarihinde {g.qty.toLocaleString("tr-TR")} adet gelecek
+                  </span>
+                ))}
               </>
             ) : (
-              "Bu ürünün şu an stok eşiğini karşılayan rengi yok; teklif aşamasında doğrulanabilir."
+              "Bir renk / varyant seçin. Stokta olmayan seçenekler için tedarik süresi teklifte bildirilir."
             )}
           </p>
         </fieldset>

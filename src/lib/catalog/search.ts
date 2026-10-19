@@ -1,6 +1,6 @@
 import Fuse from "fuse.js";
 import type { Product } from "./schema";
-import { isProductEligible, productStatus } from "./stock";
+import { isProductEligible } from "./stock";
 import { isVerifiedPrice } from "./pricing";
 
 /** ProductSearchService: katalog arama, filtreleme ve sıralama (saf fonksiyonlar). */
@@ -53,7 +53,6 @@ export function filterProducts(products: Product[], query: ProductQuery, minStoc
   return products.filter((p) => {
     if (!p.isActive) return false;
     if (stockOnly && !isProductEligible(p, minStock)) return false;
-    if (!stockOnly && productStatus(p, minStock) === "out") return false;
     if (query.category && p.category !== query.category) return false;
     if (query.color) {
       const c = normalize(query.color);
@@ -132,7 +131,8 @@ export function sortProducts(list: Product[], sort: SortKey): Product[] {
     case "newest":
       return arr.sort((a, b) => (b.lastVerifiedAt ?? "").localeCompare(a.lastVerifiedAt ?? ""));
     default:
-      return arr.sort((a, b) => Number(b.isFeatured) - Number(a.isFeatured));
+      // Stokta olanlar önce, sonra öne çıkanlar
+      return arr.sort((a, b) => Number((b.stockQuantity ?? 0) > 0) - Number((a.stockQuantity ?? 0) > 0) || Number(b.isFeatured) - Number(a.isFeatured));
   }
 }
 

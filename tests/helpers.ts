@@ -4,7 +4,7 @@ import { DEFAULT_SETTINGS, type Settings } from "@/lib/config/settings";
 export const settings: Settings = { ...DEFAULT_SETTINGS, minStock: 50 };
 
 export function variant(code: string, stock: number | null, color = "Siyah"): Variant {
-  return { code, color, colorHex: null, stockQuantity: stock, stockUpdatedAt: null, imageUrl: null };
+  return { code, color, colorHex: null, stockQuantity: stock, stockUpdatedAt: null, imageUrl: null, label: null, price: null, incoming: [] };
 }
 
 export function product(code: string, over: Partial<Product> = {}): Product {
@@ -48,6 +48,10 @@ export function product(code: string, over: Partial<Product> = {}): Product {
     sources: [],
     needsReview: [],
     isDemo: false,
+    vatRate: null,
+    minOrderQty: null,
+    stockKept: true,
+    setContents: [],
     ...over,
   };
 }

@@ -12,6 +12,12 @@ set /p ADMINPW=Parola:
 call npx tsx scripts/admin-hash.ts "%ADMINPW%" > .env
 if errorlevel 1 (del .env & pause & exit /b 1)
 :run
+findstr /b /c:"IPRO_XML_KEY=" .env >nul 2>nul && goto run2
+echo.
+echo ipromosyon XML anahtarini girin (bos birakirsaniz otomatik katalog guncellemesi kapali kalir):
+set /p IPROKEY=Anahtar: 
+if not "%IPROKEY%"=="" (>>.env echo IPRO_XML_KEY=%IPROKEY%)
+:run2
 start "Maison Kit - site" cmd /k "npm run dev"
 timeout /t 8 /nobreak >nul
 start "" http://localhost:3000

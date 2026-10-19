@@ -130,7 +130,7 @@ export function KitWorkspace({ compact = false, showActions = true }: { compact?
                               const ok = x.stockQuantity !== null && x.stockQuantity >= minStock;
                               return (
                                 <option key={x.code} value={x.code} disabled={!ok}>
-                                  {x.color ?? x.code}
+                                  {x.label ?? x.color ?? x.code}
                                   {!ok ? (x.stockQuantity === null ? " — doğrulanacak" : " — stok yetersiz") : ""}
                                 </option>
                               );
@@ -219,7 +219,7 @@ export function KitWorkspace({ compact = false, showActions = true }: { compact?
           </div>
           {pricing.status === "complete" && (
             <p className="mt-3 text-[0.7rem] leading-relaxed text-ivory/40">
-              {pricing.priceType === "demo" ? "Örnek fiyatlarla hesaplanmıştır." : "Baskı ve ambalaj hariç, kaynaktaki ürün birim fiyatlarından hesaplanmıştır."} Kesin tutar teklifte bildirilir.
+              {pricing.priceType === "demo" ? "Örnek fiyatlarla hesaplanmıştır." : "Liste fiyatlarıyla hesaplanmıştır; baskı ve ambalaj hariç, KDV dahil değildir."} Kesin tutar teklifte bildirilir.
             </p>
           )}
           {showActions && (

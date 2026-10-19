@@ -37,7 +37,7 @@ export function PriceTag({
   return (
     <span className={cn("block text-sm font-semibold text-ink", className)}>
       {formatMoney(price, currency ?? "TRY")}
-      <span className="ml-1 text-[0.68rem] font-normal text-subtle">{type === "demo" ? "örnek fiyat" : "/ adet"}</span>
+      <span className="ml-1 text-[0.68rem] font-normal text-subtle">{type === "demo" ? "örnek fiyat" : "/ adet · KDV hariç"}</span>
     </span>
   );
 }

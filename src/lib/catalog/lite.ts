@@ -12,7 +12,11 @@ export type LiteProduct = {
   capacity: string | null;
   dimensions: string | null;
   colors: string[];
-  variants: { code: string; color: string | null; colorHex: string | null; stockQuantity: number | null }[];
+  variants: { code: string; color: string | null; colorHex: string | null; stockQuantity: number | null; label: string | null; price: number | null; incoming: { qty: number; date: string }[] }[];
+  gallery: string[];
+  minOrderQty: number | null;
+  stockKept: boolean;
+  setContents: { code: string; name: string }[];
   stockStatus: StockStatus;
   price: number | null;
   priceCurrency: string | null;
@@ -37,7 +41,11 @@ export function toLite(p: Product): LiteProduct {
     capacity: p.capacity,
     dimensions: p.dimensions,
     colors: p.availableColors,
-    variants: p.variants.map((v) => ({ code: v.code, color: v.color, colorHex: v.colorHex, stockQuantity: v.stockQuantity })),
+    variants: p.variants.map((v) => ({ code: v.code, color: v.color, colorHex: v.colorHex, stockQuantity: v.stockQuantity, label: v.label, price: v.price, incoming: v.incoming })),
+    gallery: p.gallery.slice(0, 4),
+    minOrderQty: p.minOrderQty,
+    stockKept: p.stockKept,
+    setContents: p.setContents,
     stockStatus: p.stockStatus,
     price: p.price,
     priceCurrency: p.priceCurrency,
@@ -52,4 +60,13 @@ export function bestLiteVariant(p: Pick<LiteProduct, "variants">, minStock: numb
   const ok = p.variants.filter((v) => v.stockQuantity !== null && v.stockQuantity >= minStock && v.stockQuantity >= requiredQty);
   if (!ok.length) return null;
   return ok.find((v) => v.code === preferred) ?? [...ok].sort((a, b) => (b.stockQuantity ?? 0) - (a.stockQuantity ?? 0))[0];
+}
+
+/** Kit kapak görselleri: tek ürünlü (kutulu set) kitlerde ürünün galerisi, aksi halde her üründen bir görsel */
+export function kitImages(products: Pick<LiteProduct, "productCode" | "name" | "category" | "image" | "gallery">[]) {
+  if (products.length === 1 && products[0].gallery.length > 1) {
+    const p = products[0];
+    return p.gallery.slice(0, 4).map((src, i) => ({ key: `${p.productCode}-${i}`, src, alt: `${p.name} görsel ${i + 1}`, category: p.category }));
+  }
+  return products.slice(0, 4).map((p) => ({ key: p.productCode, src: p.image, alt: p.name, category: p.category }));
 }

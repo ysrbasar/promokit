@@ -20,7 +20,7 @@ export async function GET(req: NextRequest) {
       category: sp.get("category") ?? undefined,
       color: sp.get("color") ?? undefined,
       material: sp.get("material") ?? undefined,
-      stockOnly: sp.get("stock") !== "all",
+      stockOnly: sp.get("stock") === "in",
       sort: (sp.get("sort") as SortKey) ?? undefined,
       page: Number(sp.get("page") ?? 1),
       pageSize: Number(sp.get("pageSize") ?? 24),

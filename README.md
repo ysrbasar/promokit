@@ -2,7 +2,7 @@
 
 Kullanıcıların sorularla ya da katalogdan seçerek kurumsal hediye kiti oluşturduğu, hazır kitleri incelediği ve teklif istediği Next.js uygulaması. "Maison Kit" bir çalışma adıdır; marka adı `src/components/layout/Logo.tsx` içinde değiştirilir.
 
-> **Veri durumu (16.10.2026):** Gerçek katalog içe aktarıldı: prmstk.com 2027 stok sayfaları (262 sayfa, 1.154 ürün, 2.577 renk varyantı, renk bazında stok) ve promosyonfirma.com ürün sayfaları (1.134 sayfa; 998 üründe TL birim fiyat, galeri fotoğrafları, kategori yolu). 810 ürün stok eşiğini (50+) geçiyor. Hazır kitler gerçek ürün kodlarına bağlandı.
+> **Veri durumu (19.10.2026):** Katalog tek kaynaktan, ipromosyon.com XML beslemelerinden gelir: 1.161 ürün, 2.319 varyant, 263 ürün stokta, 898 ürün "Stokta yok" etiketiyle listelenir. 73 kutulu set var ve bunlardan 46 hazır kit üretildi. Müşteriye liste fiyatı (iskontosuz) "KDV hariç" notuyla gösterilir. Alış fiyatları yalnızca yönetim panelinde görünür.
 
 ## Hızlı başlangıç
 
@@ -21,23 +21,41 @@ npm run admin:hash -- "en-az-10-karakterli-parola"   # çıktıyı .env dosyası
 npm run dev
 ```
 
-## Gerçek kataloğu içe aktarma
+## Katalog: ipromosyon XML ve otomatik güncelleme
 
-Kaynaklara erişimi olan bir makinede, sırasıyla (vekil sunucu arkasındaysanız önce `export NODE_USE_ENV_PROXY=1`):
+`.env` dosyasına tedarikçi anahtarını ekleyin. `kur.bat`, `kur.sh` ve `canli.bat` ilk çalıştırmada bunu sorar. **Anahtar depoya girmez.**
 
-```bash
-npm run scrape:inspect   # 1) 2.html ve birkaç sayfanın yapısını incele → data/import/prmstk-inspect.json
-npm run scrape           # 2) 2.html … 264.html (kaldığı yerden devam eder, başarısız sayfaları raporlar)
-npm run site:crawl       # 3) promosyonfirma.com ürün detayları (sitemap + JSON-LD)
-npm run pdf:index        # 4) 2027 PDF kataloğu: ürün kodu → sayfa indeksi (sayfa grupları halinde)
-npm run catalog:build    # 5) birleştir → data/catalog.json + data/import/report.json
-npm run catalog:report   #    doğrulama raporunu yeniden yazdır
+```
+IPRO_XML_KEY=<anahtar>
+IPRO_SYNC_MINUTES=30      # isteğe bağlı, en az 5
 ```
 
-- **1. adım zorunludur.** Ayrıştırıcı üç strateji dener: yapılandırılmış seçiciler, başlık satırı tanınan tablolar ve "Stok:" etiketli bloklar. Gerçek sayfa yapısı görülemediği için tanınmayan bir yapı olabilir. O durumda `data/import/prmstk.config.json` içine `selectors` tanımlayın (alan listesi: `src/lib/import/prmstkParser.ts` → `ParserConfig`). Ayrıştırıcı hiçbir şey bulamazsa sayfayı `empty` olarak raporlar; veri uydurmaz.
-- `data/catalog.json` oluştuğu anda uygulama otomatik olarak gerçek kataloğa geçer, örnek veri şeridi de kaybolur. Yeniden derleme gerekmez.
-- `catalog:build -- --download-images` görselleri `public/products/<kod>/` altına indirir. **Bunu yalnızca kaynak sitenin görsellerin yeniden barındırılmasına izin verdiği doğrulandıktan sonra kullanın.** Varsayılan davranış kaynak URL'sini kullanmaktır.
-- Robots.txt'e uyulur, istekler arasında 1,2–1,5 sn beklenir, hatalı istekler üstel geri çekilmeyle yeniden denenir. `--offline` ile ham HTML önbelleğinden ağ kullanmadan yeniden ayrıştırma yapılır.
+- Sunucu açıkken (`npm run dev` veya `npm start`), `src/instrumentation.ts` beslemeleri her `IPRO_SYNC_MINUTES` dakikada bir çeker. Veri eskimişse sunucu açılır açılmaz da çeker.
+  - "hepsi" (`iproapi`) beslemesinden ürün, açıklama, liste fiyatı, minimum sipariş ve baskı yöntemleri gelir.
+  - "stoklu" (`iproapi_cl`) beslemesinden varyant stoğu, gelecek stok ve varyant fiyatı gelir.
+- Çıktılar:
+  - `data/runtime/catalog.json` (müşteri kataloğu)
+  - `data/runtime/synced-kits.json` (setlerden üretilen hazır kitler)
+  - `data/private/costs.json` (**alış fiyatları**)
+  - `data/runtime/sync-status.json`
+
+  Bu dosyaların hepsi gitignore'dadır. Depodaki `data/catalog.json` ve `data/kits.json` başlangıç verisidir.
+- Besleme hatalı ya da şüpheli derecede küçükse (50 üründen az) mevcut katalog korunur. Hata, yönetim panelinde gösterilir.
+- **Yönetim → Katalog güncelleme** sayfası şunları gösterir:
+  - tedarikçinin XML oluşturma tarihleri
+  - son başarılı güncelleme ve sonraki planlı güncelleme
+  - hata durumu
+  - "Şimdi güncelle" düğmesi
+- Komut satırından elle güncelleme: `npm run catalog:update` (yalnızca `data/runtime/` altına yazar) ya da `npm run catalog:update -- --seed` (ek olarak depodaki başlangıç verisini de yeniler).
+- Stokta olmayan ürünler katalogda "Stokta yok" etiketiyle görünür, ancak kit önerilerine girmez. Katalogdaki "Yalnızca stokta olanlar" filtresi bunları gizler.
+
+### Kâr takibi
+
+- Teklif kaydedilirken her satırın o anki liste fiyatı ve alış fiyatı teklife yazılır.
+- **Teklifler** sayfası her teklif için ciro, alış, kâr ve marjı gösterir; "Kazanıldı" durumundaki teklifler ve açık teklifler için toplamları da verir.
+- **Ürünler** tablosu liste fiyatını, alış fiyatını ve marjı gösterir.
+- Hesap şu formülle yapılır: liste fiyatı × adet × kit adedi. KDV, baskı ve ambalaj dahil değildir.
+- Alış fiyatları hiçbir genel API'ye veya sayfaya gönderilmez (`src/lib/server/costs.ts`).
 
 ### Veri kuralları (uygulanan)
 
@@ -46,7 +64,7 @@ npm run catalog:report   #    doğrulama raporunu yeniden yazdır
 | Stok 0 → gösterilmez/önerilmez; 1–49 → varsayılan gizli; bilinmeyen stok ≠ 0, garanti verilmez | `src/lib/catalog/stock.ts` |
 | Eşik yönetim panelinden değişir (varsayılan 50); varyant stokları ayrı | `src/lib/config/settings.ts`, `/admin/ayarlar` |
 | Ürün kodu ana anahtar; varyantlar ana ürüne bağlanır; tekrar çalıştırma mükerrer üretmez | `src/lib/import/merge.ts` |
-| Fiyat yalnızca kaynakta açıkça varsa "source" tipinde alınır; eksik fiyatla toplam hesaplanmaz | `merge.ts`, `src/lib/catalog/pricing.ts` |
+| Fiyat yalnızca kaynakta açıkça varsa "source" tipinde alınır; eksik fiyatla toplam hesaplanmaz | `src/lib/import/ipromosyon.ts`, `src/lib/catalog/pricing.ts` |
 | Birden fazla ürüne atanmış görsel kullanılmaz → inceleme kuyruğu | `merge.ts` |
 | Kaynaklar arası çelişki sessizce birleştirilmez → `sources` + `review-queue.json` | `merge.ts` |
 
@@ -58,7 +76,7 @@ npm run catalog:report   #    doğrulama raporunu yeniden yazdır
 - **Serbest katalog:** Ad ve ürün koduyla arama, kategori/renk/malzeme/stok filtreleri, sıralama ve sayfalama. Filtre durumu URL'de tutulur.
 - **Hazır kitler:** 10 başlangıç kiti gerçek ürün kodlarına bağlıdır. Stoğu yetersiz ürün benzer ürünle değiştirilir; katalogda olmayan kod kitin kuralıyla tamamlanır.
 - **Teklif akışı:** İki adımlıdır: kit kontrolü, ardından iletişim bilgileri. İstemci ve sunucu aynı Zod şemasıyla doğrulama yapar. Logo dosyasının türü ve boyutu sihirli baytlarla kontrol edilir. KVKK onayı ve ayrı pazarlama izni alınır. Kayıt `data/runtime/quotes/` altına yazılır.
-- **Yönetim paneli:** Gerçek kimlik doğrulama kullanır: scrypt parola hash'i, HMAC imzalı httpOnly çerez, middleware ve her API'de ikinci kontrol, giriş denemesi sınırı. Panelden yapılabilenler: ürün aktif/pasif/öne çıkan/kategori, stok eşiği ve bütçe aralıkları, hazır kit düzenleyici, teklif listesi ve durum, veri kalitesi raporu, eksik görseller, inceleme kuyruğu.
+- **Yönetim paneli:** Gerçek kimlik doğrulama kullanır: scrypt parola hash'i, HMAC imzalı httpOnly çerez, middleware ve her API'de ikinci kontrol, giriş denemesi sınırı. Panelden yapılabilenler: ürün aktif/pasif/öne çıkan/kategori, stok eşiği ve bütçe aralıkları, hazır kit düzenleyici, teklif listesi, durum ve teklif bazında kâr, katalog güncelleme durumu ve "Şimdi güncelle".
 - **SEO:** Sitemap (örnek ürünler hariç), robots, canonical, Product ve FAQ JSON-LD. Yönetim sayfaları `noindex` alır.
 - **Erişilebilirlik:** Klavye ile kullanılabilir, odak göstergeleri ve ARIA rolleri var, "hareketi azalt" tercihi desteklenir.
 
@@ -69,11 +87,11 @@ src/lib/catalog/      schema (Zod), stock (StockEligibilityService), search (Pro
                       pricing (KitPricingService), enrich (sınıflandırma kuralları), lite (istemci görünümü)
 src/lib/kit/          recommendation (KitRecommendationEngine), kitState (KitBuilderState, saf fonksiyonlar),
                       store (Zustand + localStorage), readyKits (hazır kit çözümleyici)
-src/lib/import/       prmstkParser, siteParser, parseValues, merge (CatalogImportService)
+src/lib/import/       ipromosyon (XML ayrıştırıcı), sync (zamanlanmış güncelleme)
 src/lib/server/       repositories (ProductRepository/ayarlar/kitler), quotes (QuoteService), jsonStore, views
 src/lib/auth/         session (HMAC), password (scrypt), admin
-scripts/catalog/      scrape-prmstk, crawl-promosyonfirma, pdf-index, build-catalog, report, make-demo
-data/                 demo-catalog.json, kits.json, (catalog.json), import/, runtime/ (gitignore)
+scripts/catalog/      import-ipromosyon (npm run catalog:update), make-demo
+data/                 demo-catalog.json, kits.json, catalog.json, runtime/ ve private/ (gitignore)
 ```
 
 Kalıcı veriler JSON dosyalarında tutulur. Bu dosyalara erişim yalnızca `src/lib/server/repositories.ts` ve `quotes.ts` üzerinden yapılır; veritabanına geçişte değişmesi gereken tek katman budur.
@@ -87,12 +105,13 @@ npm run lint
 npm run build
 ```
 
-Bu oturumda son çalıştırma sonuçları: 29/29 test geçti; typecheck, lint ve üretim derlemesi temiz. Bunlara ek olarak Playwright ile tarayıcıda uçtan uca şu akışlar elle denendi: sihirbaz → öneri → ürün değiştirme → teklif (önce hatalı, sonra geçerli gönderim) → başarı; kodla arama; hazır kiti özelleştirme; 390 px mobil görünümde yatay taşma olmaması; üretim modunda yönetici girişi ve panel işlemleri. Bu uçtan uca testler depoya eklenmedi.
+Bu oturumda son çalıştırma sonuçları: 27/27 test geçti; typecheck, lint ve üretim derlemesi temiz. Bunlara ek olarak Playwright ile tarayıcıda uçtan uca şu akışlar elle denendi: sihirbaz → öneri → ürün değiştirme → teklif (önce hatalı, sonra geçerli gönderim) → başarı; kodla arama; hazır kiti özelleştirme; 390 px mobil görünümde yatay taşma olmaması; üretim modunda yönetici girişi ve panel işlemleri. Bu uçtan uca testler depoya eklenmedi.
 
 ## Bilinen eksikler / yapılmayanlar
 
-- **Gerçek katalog içe aktarılmadı** (ağ erişimi yok). Ayrıştırıcı test fixture'ları olası sayfa yapılarını temsil eder; gerçek `prmstk.com` yapısına karşı doğrulanmadı.
-- PDF'ten **OCR ve görsel kırpma uygulanmadı.** Yalnızca metin katmanından kod → sayfa indeksi çıkarılır; metinsiz sayfalar `ocrNeeded` olarak raporlanır.
+- 364 üründe beslemede fiyat yok. Bu ürünlerde fiyat "teklifte" olarak gösterilir ve kit toplamı hesaplanmaz.
+- Ürün görselleri ipromosyon.com sunucusundan yüklenir; yerel kopya alınmaz.
+- Yönetici hazır kitleri elle düzenlerse bu düzenleme, otomatik gelen setlerin yerine geçer.
 - **E-posta/CRM entegrasyonu yok.** Teklifler yalnızca yönetim panelinde listelenir; başarı ekranı bunu açıkça belirtir.
 - **Logo baskı önizlemesi yok.** Arayüzde de bu şekilde belirtilir.
 - **Kalıcılık:** Teklifler, ayarlar ve yönetici düzenlemeleri dosya sistemine yazılır. Sunucusuz (serverless) ortamlarda kalıcı değildir. Tek sunuculu bir Node kurulumu (`npm run build && npm start`) kullanın ya da repository katmanını bir veritabanına bağlayın.

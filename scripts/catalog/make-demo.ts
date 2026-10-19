@@ -91,6 +91,9 @@ const products: Product[] = SEEDS.map(([cat, name, material, size, colors, price
     stockQuantity: stockFor(i, j),
     stockUpdatedAt: now,
     imageUrl: null,
+    label: null,
+    price: null,
+    incoming: [],
   }));
   const known = variants.map((v) => v.stockQuantity).filter((q): q is number => q !== null);
   const base = {
@@ -128,6 +131,10 @@ const products: Product[] = SEEDS.map(([cat, name, material, size, colors, price
     sources: [{ field: "*", source: "demo" as const, value: "örnek veri" }],
     needsReview: [],
     isDemo: true,
+    vatRate: null,
+    minOrderQty: null,
+    stockKept: true,
+    setContents: [],
   };
   const tags = deriveTags({ name, material, category: cat, description: null });
   const p: Product = { ...base, ...tags, dataCompleteness: 0 };

@@ -1,519 +1,1343 @@
 {
   "kits": [
     {
-      "slug": "welcome-kit",
-      "name": "Welcome Kit",
-      "tagline": "İlk günün en güzel hatırası",
-      "description": "Yeni ekip arkadaşlarınızı masalarında karşılayan; günlük kullanımda markanızı taşıyan termos, defter ve kalemden oluşan dengeli bir başlangıç seti.",
-      "story": "İşe başlangıç günü, bir şirket kültürünün ilk temas noktasıdır. Welcome Kit, ilk kahveden ilk toplantı notuna kadar her gün kullanılacak parçalarla bu ilk izlenimi kalıcı kılar.",
-      "audience": "Yeni çalışanlar",
-      "purpose": "Onboarding ve işe başlangıç",
-      "recommendedQuantity": "25–250 kişi",
+      "slug": "monga-kutulu-ozel-set-imo3761",
+      "name": "Monga Seti",
+      "tagline": "Rubi Rubber Tükenmez Kalem · Swıwel Döner Metal USB Bellek",
+      "description": "SİYAH KUŞE SIVAMALI MUKKAVA SET KUTUSU 10,5 X 17,5 X 3,3 CM SET İÇERİĞİ * İKM2203 - RUBİ RUBBER METAL TÜKENMEZ KALEM * İUB6652 - SWIWEL DÖNER METAL USB BELLEK USB KAPASİTE : 16 GB - 32 GB - 64 GB - 128 GB",
+      "story": "2 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
       "personalization": [
-        "Logo baskısı",
-        "Lazer kazıma",
-        "Özel kutu",
-        "Hoş geldin kartı"
+        "Lazer"
       ],
       "tone": "light",
       "rule": {
-        "purpose": "welcome",
-        "audience": "employees",
-        "style": "minimal",
-        "budgetKey": "500-1000",
+        "purpose": "client",
         "categories": [
-          "termos-matara",
-          "defter-ajanda",
-          "kalem",
-          "kutu-ambalaj"
+          "hediye-set"
         ]
       },
       "items": [
         {
-          "productCode": "CB-05",
+          "productCode": "İMÖ3761",
           "qty": 1,
-          "role": "Günün ilk kahvesi için"
-        },
-        {
-          "productCode": "ATAŞEHIR",
-          "qty": 1,
-          "role": "Notlar ve fikirler"
-        },
-        {
-          "productCode": "0510-410",
-          "qty": 1,
-          "role": "Her imzada marka"
-        },
-        {
-          "productCode": "BEYKOZ",
-          "qty": 1,
-          "role": "Sunum kutusu"
+          "role": "Kutulu set"
         }
       ],
       "isFeatured": true
     },
     {
-      "slug": "premium-yonetici-kiti",
-      "name": "Premium Yönetici Kiti",
-      "tagline": "Masada sessiz bir prestij",
-      "description": "Deri ajanda, metal kalem seti ve masaüstü aksesuarlarıyla üst düzey yöneticiler için hazırlanmış rafine bir seçki.",
-      "story": "Yönetici masası, kararların ve ilişkilerin kurulduğu yerdir. Bu kit, her gün dokunulan nesnelerde ölçülü bir lüks sunar.",
-      "audience": "Üst düzey yöneticiler",
-      "purpose": "Yönetici ve VIP hediyesi",
-      "recommendedQuantity": "10–100 kişi",
+      "slug": "letta-kutulu-ozel-set-imo3762",
+      "name": "Letta Seti",
+      "tagline": "Klark Roller Kalem · Elıte Metal USB Bellek",
+      "description": "SİYAH KUŞE SIVAMALI MUKKAVA SET KUTUSU 10,5 X 17,5 X 3,3 CM SET İÇERİĞİ * İKR2352 - KLARK ROLLER KALEM * İUB6721 - ELITE METAL USB BELLEK USB KAPASİTE : 16 GB - 32 GB - 64 GB - 128 GB",
+      "story": "2 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
       "personalization": [
-        "Lazer kazıma",
-        "Kabartma",
-        "Kadife kutu"
-      ],
-      "tone": "dark",
-      "rule": {
-        "purpose": "vip",
-        "audience": "executives",
-        "style": "luxury",
-        "budgetKey": "2000-5000",
-        "categories": [
-          "defter-ajanda",
-          "kalem",
-          "masaustu",
-          "termos-matara",
-          "kutu-ambalaj"
-        ]
-      },
-      "items": [
-        {
-          "productCode": "D-3156",
-          "qty": 1,
-          "role": "Yılın planı"
-        },
-        {
-          "productCode": "0505-465",
-          "qty": 1,
-          "role": "İmza anları için"
-        },
-        {
-          "productCode": "0061",
-          "qty": 1,
-          "role": "Masa düzeni"
-        },
-        {
-          "productCode": "3534",
-          "qty": 1,
-          "role": "Toplantı arası"
-        },
-        {
-          "productCode": "4600",
-          "qty": 1,
-          "role": "Sunum"
-        }
-      ],
-      "isFeatured": true
-    },
-    {
-      "slug": "etkinlik-kongre-kiti",
-      "name": "Etkinlik ve Kongre Kiti",
-      "tagline": "Kalabalıkta akılda kalan",
-      "description": "Konferans çantası, bloknot ve kalemle katılımcılara pratik, hafif ve markalı bir karşılama.",
-      "story": "Kayıt masasında verilen çanta, etkinlik boyunca markanızın yürüyen vitrinidir.",
-      "audience": "Etkinlik katılımcıları",
-      "purpose": "Etkinlik, kongre ve fuar",
-      "recommendedQuantity": "100–1.000 kişi",
-      "personalization": [
-        "Serigrafi",
-        "Tampon baskı"
-      ],
-      "tone": "light",
-      "rule": {
-        "purpose": "event",
-        "audience": "attendees",
-        "style": "dynamic",
-        "budgetKey": "economy",
-        "categories": [
-          "canta",
-          "defter-ajanda",
-          "kalem"
-        ]
-      },
-      "items": [
-        {
-          "productCode": "BAYRAKLI",
-          "qty": 1,
-          "role": "Taşıma"
-        },
-        {
-          "productCode": "0506",
-          "qty": 1,
-          "role": "Oturum notları"
-        },
-        {
-          "productCode": "FATIH",
-          "qty": 1,
-          "role": ""
-        }
-      ],
-      "isFeatured": true
-    },
-    {
-      "slug": "teknoloji-kiti",
-      "name": "Teknoloji Kiti",
-      "tagline": "Her zaman şarjlı, her zaman bağlantıda",
-      "description": "Powerbank, şarj kablosu ve kablosuz şarj standıyla modern çalışma hayatının teknolojik ihtiyaçları.",
-      "story": "Hibrit çalışma çağında en çok kullanılan hediye, cihazları hayatta tutan hediyedir.",
-      "audience": "Müşteriler ve ekipler",
-      "purpose": "Müşteri ve bayi hediyesi",
-      "recommendedQuantity": "25–500 kişi",
-      "personalization": [
-        "Lazer kazıma",
-        "UV baskı",
-        "Işıklı logo"
+        "Lazer"
       ],
       "tone": "dark",
       "rule": {
         "purpose": "client",
-        "audience": "clients",
-        "style": "tech",
-        "budgetKey": "1000-2000",
         "categories": [
-          "teknoloji",
-          "kutu-ambalaj"
+          "hediye-set"
         ]
       },
       "items": [
         {
-          "productCode": "KBL-03",
+          "productCode": "İMÖ3762",
           "qty": 1,
-          "role": "Yolda enerji"
-        },
-        {
-          "productCode": "TT-80",
-          "qty": 1,
-          "role": "Her cihaza uyum"
-        },
-        {
-          "productCode": "ADP-10",
-          "qty": 1,
-          "role": "Masada şarj"
-        },
-        {
-          "productCode": "KBL-01",
-          "qty": 1,
-          "role": "Sunum kutusu"
-        },
-        {
-          "productCode": "8113",
-          "qty": 1,
-          "role": ""
+          "role": "Kutulu set"
         }
       ],
       "isFeatured": true
     },
     {
-      "slug": "surdurulebilirlik-kiti",
-      "name": "Sürdürülebilirlik Kiti",
-      "tagline": "Doğaya saygılı bir marka imzası",
-      "description": "Bambu, mantar ve geri dönüştürülmüş malzemelerden oluşan, çevre bilincini öne çıkaran seçki.",
-      "story": "Sürdürülebilirlik bir kampanya değil, bir tutumdur. Bu kit, markanızın değerlerini malzemesiyle anlatır.",
-      "audience": "Çalışanlar ve katılımcılar",
-      "purpose": "Kurumsal sorumluluk",
-      "recommendedQuantity": "50–500 kişi",
+      "slug": "osyon-kutulu-ozel-set-imo3724",
+      "name": "Osyon Seti",
+      "tagline": "Faro Rubber Roller Kalem · Giga Metal USB Bellek",
+      "description": "* İMÖ3695 POVE ÖZEL SET KUTUSU KUTU EBAT : 10,5 X 17,5 X 3,3 CM SET İÇERİĞİ * İKR2365 - FARO RUBBER ROLLER KALEM * İUB6704 - GİGA METAL USB BELLEK USB KAPASİTE: 16GB, 32GB, 64GB",
+      "story": "2 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
       "personalization": [
-        "Lazer kazıma",
-        "Serigrafi",
-        "Kraft kutu"
+        "Lazer"
       ],
       "tone": "light",
       "rule": {
-        "purpose": "welcome",
-        "audience": "general",
-        "style": "eco",
-        "budgetKey": "lt500",
+        "purpose": "client",
         "categories": [
-          "doga-dostu",
-          "canta",
-          "kutu-ambalaj"
+          "hediye-set"
         ]
       },
       "items": [
         {
-          "productCode": "GD-050",
+          "productCode": "İMÖ3724",
           "qty": 1,
-          "role": "Kayıt defteri"
-        },
-        {
-          "productCode": "0522-130",
-          "qty": 1,
-          "role": "Yazı"
-        },
-        {
-          "productCode": "0522-290",
-          "qty": 1,
-          "role": ""
-        }
-      ],
-      "isFeatured": false
-    },
-    {
-      "slug": "ogrenci-egitim-kiti",
-      "name": "Öğrenci ve Eğitim Kiti",
-      "tagline": "Kampüste her gün yanında",
-      "description": "Sırt çantası, matara, defter ve kalemle öğrencilere ve eğitim programı katılımcılarına pratik bir set.",
-      "story": "Öğrenim yolculuğu boyunca taşınan her nesne, kurumunuzla kurulan bağın bir parçası olur.",
-      "audience": "Öğrenciler",
-      "purpose": "Öğrenci ve eğitim",
-      "recommendedQuantity": "50–1.000 kişi",
-      "personalization": [
-        "Tampon baskı",
-        "Serigrafi"
-      ],
-      "tone": "light",
-      "rule": {
-        "purpose": "education",
-        "audience": "students",
-        "style": "dynamic",
-        "budgetKey": "500-1000",
-        "categories": [
-          "canta",
-          "termos-matara",
-          "defter-ajanda",
-          "kalem"
-        ]
-      },
-      "items": [
-        {
-          "productCode": "CB-05",
-          "qty": 1,
-          "role": "Kampüs çantası"
-        },
-        {
-          "productCode": "ATAŞEHIR",
-          "qty": 1,
-          "role": "Ders arası"
-        },
-        {
-          "productCode": "0510-410",
-          "qty": 1,
-          "role": "Ders notları"
-        },
-        {
-          "productCode": "BEYKOZ",
-          "qty": 1,
-          "role": ""
-        }
-      ],
-      "isFeatured": false
-    },
-    {
-      "slug": "bayi-musteri-hediye-kiti",
-      "name": "Bayi ve Müşteri Hediye Kiti",
-      "tagline": "İş ortaklığına zarif bir teşekkür",
-      "description": "Termos, deri ajanda ve hoparlörle bayilerinize ve müşterilerinize değer verdiğinizi gösteren kombinasyon.",
-      "story": "Güçlü iş ortaklıkları küçük ama anlamlı jestlerle beslenir.",
-      "audience": "Bayiler ve müşteriler",
-      "purpose": "Bayi ve müşteri hediyesi",
-      "recommendedQuantity": "25–500 kişi",
-      "personalization": [
-        "Lazer kazıma",
-        "Kabartma",
-        "Özel kutu"
-      ],
-      "tone": "dark",
-      "rule": {
-        "purpose": "dealer",
-        "audience": "partners",
-        "style": "classic",
-        "budgetKey": "1000-2000",
-        "categories": [
-          "termos-matara",
-          "defter-ajanda",
-          "teknoloji",
-          "kutu-ambalaj"
-        ]
-      },
-      "items": [
-        {
-          "productCode": "3720",
-          "qty": 1,
-          "role": "Günlük kullanım"
-        },
-        {
-          "productCode": "BURGAZ",
-          "qty": 1,
-          "role": "Planlama"
-        },
-        {
-          "productCode": "KBL-03",
-          "qty": 1,
-          "role": "Keyif"
-        },
-        {
-          "productCode": "3527",
-          "qty": 1,
-          "role": "Sunum kutusu"
-        },
-        {
-          "productCode": "CB-05",
-          "qty": 1,
-          "role": ""
+          "role": "Kutulu set"
         }
       ],
       "isFeatured": true
     },
     {
-      "slug": "yilbasi-ozel-gun-kiti",
-      "name": "Yılbaşı ve Özel Gün Kiti",
-      "tagline": "Yeni yılı birlikte karşılayın",
-      "description": "Kupa, ajanda ve hediye kutusuyla yılbaşı ve özel günler için sıcak bir kutlama seti.",
-      "story": "Yılın son haftalarında gönderilen bir kutu, yeni yıla birlikte başlama niyetini taşır.",
-      "audience": "Çalışanlar ve müşteriler",
-      "purpose": "Yılbaşı ve özel gün",
-      "recommendedQuantity": "25–1.000 kişi",
+      "slug": "pimat-deri-kutulu-set-imo3711",
+      "name": "Pimat Deri Kutulu Set",
+      "tagline": "Pika Termo Deri Defter · Matt Tablet & Dokunmatik Kalem",
+      "description": "TERMO DERİ VEYA AHŞAP MDF ÖZEL 21X18 CM KUTU SET İÇERİĞİ * İDT1989 - 9x14 cm PİKA TERMO DERİ DEFTER * İKT2510 - MATT DOKUNMATİK TÜKENMEZ KALEM TERMO DERİ KUTUDA FÜME RENK STANDART VE STOKLU OLUP, İSTENİLDİĞİ TAKDİRDE KIRMIZI, LACİVERT, SİYAH, TURKUAZ RENKLERDE ÖZEL ÜRETİM YAPILAB",
+      "story": "2 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
       "personalization": [
-        "Serigrafi",
-        "Kart ve mesaj",
-        "Özel kutu"
-      ],
-      "tone": "dark",
-      "rule": {
-        "purpose": "seasonal",
-        "audience": "employees",
-        "style": "classic",
-        "budgetKey": "500-1000",
-        "categories": [
-          "kupa-bardak",
-          "defter-ajanda",
-          "termos-matara",
-          "kutu-ambalaj"
-        ]
-      },
-      "items": [
-        {
-          "productCode": "D-3825",
-          "qty": 1,
-          "role": "Sıcak bir yudum"
-        },
-        {
-          "productCode": "ATAŞEHIR",
-          "qty": 1,
-          "role": "Yeni yıl planı"
-        },
-        {
-          "productCode": "3527",
-          "qty": 1,
-          "role": "Kış yolculukları"
-        },
-        {
-          "productCode": "BEYKOZ",
-          "qty": 1,
-          "role": "Sunum"
-        }
-      ],
-      "isFeatured": false
-    },
-    {
-      "slug": "ekonomik-toplu-dagitim-kiti",
-      "name": "Ekonomik Toplu Dağıtım Kiti",
-      "tagline": "Geniş kitlelere, akıllı bütçeyle",
-      "description": "Bez çanta, bloknot ve kalemle yüksek adetli dağıtımlar için düşük birim maliyetli set.",
-      "story": "Fuarlar, kampanyalar ve toplu dağıtımlarda markayı en çok kişiye ulaştırmanın yolu doğru temel üçlüdür.",
-      "audience": "Genel dağıtım",
-      "purpose": "Etkinlik ve kampanya",
-      "recommendedQuantity": "250–5.000 kişi",
-      "personalization": [
-        "Tampon baskı",
-        "Serigrafi"
+        "Lazer",
+        "Gofre"
       ],
       "tone": "light",
       "rule": {
-        "purpose": "event",
-        "audience": "general",
-        "style": "dynamic",
-        "budgetKey": "economy",
+        "purpose": "client",
         "categories": [
-          "canta",
-          "defter-ajanda",
-          "kalem"
+          "hediye-set"
         ]
       },
       "items": [
         {
-          "productCode": "BAYRAKLI",
+          "productCode": "İMÖ3711",
           "qty": 1,
-          "role": "Taşıma"
-        },
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": true
+    },
+    {
+      "slug": "diamond-kutulu-ozel-set-imo3766",
+      "name": "Dıamond Seti",
+      "tagline": "Sobil Set Kutusu · Soma 500 ML Cam Matara · Kont Deri Ayna",
+      "description": "* İMÖ3700 - SOBİL ÖZEL SET KUTUSU KUTU EBAD: 22 X 27 X 10 CM SET İÇERİĞİ * İCM6544 - SOMA 500 ML CAM MATARA * İAY3807 - KONT DERİ AYNA * İÇT7342 - YUVARLAK ÇANTA ASKISI",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya UV Dijital uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "UV Dijital",
+        "Dtf Dijital",
+        "Fırın Baskı"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
         {
-          "productCode": "0506",
+          "productCode": "İMÖ3766",
           "qty": 1,
-          "role": "Not"
-        },
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": true
+    },
+    {
+      "slug": "kaslo-kutulu-ozel-set-imo3760",
+      "name": "Kaslo Seti",
+      "tagline": "Mero Powerbank · Proli Metal USB Bellek",
+      "description": "* İMÖ3695 POVE ÖZEL SET KUTUSU KUTU EBAT : 10,5 X 17,5 X 3,3 CM SET İÇERİĞİ * İUÖ7010 - MERO POWER BANK 5000 MAH * İUB6715 - PROLİ USB BELLEK USB KAPASİTE: USB 2.0 = 8 GB - 16 GB - 32 GB - 64 GB - 128 GB USB 3.0 = 16 GB - 32 GB - 64 GB",
+      "story": "2 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya UV Dijital uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
         {
-          "productCode": "0507",
+          "productCode": "İMÖ3760",
           "qty": 1,
-          "role": ""
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": true
+    },
+    {
+      "slug": "leroy-kutulu-ozel-set-imo3768",
+      "name": "Leroy Seti",
+      "tagline": "Sobil Set Kutusu · Soma 500 ML Cam Matara · Faro Rubber Roller Kalem",
+      "description": "* İMÖ3700 - SOBİL ÖZEL SET KUTUSU KUTU EBAT: 22 X 27 X 10 CM SET İÇERİĞİ * İCM6544 - SOMA 500 ML CAM MATARA * İKR2365 - FARO RUBBER ROLLER KALEM * İUB6704 - GİGA METAL USB BELLEK USB KAPASİTE: USB 2.0 = 8 GB - 16 GB - 32 GB - 64 GB - 128 GB USB 3.0 = 16 GB - 32 GB - 64 GB",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya UV Dijital uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3768",
+          "qty": 1,
+          "role": "Kutulu set"
         }
       ],
       "isFeatured": false
     },
     {
-      "slug": "vip-kurumsal-hediye-kiti",
-      "name": "VIP Kurumsal Hediye Kiti",
-      "tagline": "En özel ilişkiler için",
-      "description": "Deri hediye seti, kahve deneyim seti ve premium termosla en değerli paydaşlarınıza özel bir seçki.",
-      "story": "Bazı hediyeler teşekkürden fazlasını söyler. VIP Kit, ilişkinin değerini malzeme ve işçilikle anlatır.",
-      "audience": "VIP müşteriler ve paydaşlar",
-      "purpose": "VIP hediye",
-      "recommendedQuantity": "10–50 kişi",
+      "slug": "miss-kutulu-ozel-set-imo3765",
+      "name": "Mıss Seti",
+      "tagline": "Sobil Set Kutusu · Poka Termo Deri Defter · Türk Kahvesi Fincanı",
+      "description": "* İMÖ3700 - SOBİL ÖZEL SET KUTUSU KUTU EBAD: 22 X 27 X 10 CM SET İÇERİĞİ * İDT1988 - 13 X21 CM POKA TERMO DERİ DEFTER * İFB6634 - TÜRK KAHVESİ FİNCANI * İAY3805 - POLİ DERİ AYNA",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Gofre veya Süblimasyon uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
       "personalization": [
-        "Lazer kazıma",
-        "Kabartma",
-        "Kadife kutu",
-        "Kişiye özel kart"
+        "Gofre",
+        "Süblimasyon",
+        "UV Dijital"
       ],
       "tone": "dark",
       "rule": {
-        "purpose": "vip",
-        "audience": "executives",
-        "style": "luxury",
-        "budgetKey": "5000+",
+        "purpose": "client",
         "categories": [
-          "hediye-set",
-          "termos-matara",
-          "masaustu",
-          "kutu-ambalaj"
+          "hediye-set"
         ]
       },
       "items": [
         {
-          "productCode": "ALTINDAĞ",
+          "productCode": "İMÖ3765",
           "qty": 1,
-          "role": "Kişisel aksesuar"
-        },
-        {
-          "productCode": "3534",
-          "qty": 1,
-          "role": "Deneyim"
-        },
-        {
-          "productCode": "0036",
-          "qty": 1,
-          "role": "Günlük lüks"
-        },
-        {
-          "productCode": "0061",
-          "qty": 1,
-          "role": "Sunum"
-        },
-        {
-          "productCode": "0063",
-          "qty": 1,
-          "role": ""
-        },
-        {
-          "productCode": "4600",
-          "qty": 1,
-          "role": ""
+          "role": "Kutulu set"
         }
       ],
-      "isFeatured": true
+      "isFeatured": false
+    },
+    {
+      "slug": "koples-kutulu-ozel-set-imo3723",
+      "name": "Koples Seti",
+      "tagline": "Sobil Set Kutusu · Rapro 500 ML Termos Bardak · Rubi Rubber Tükenmez Kalem",
+      "description": "* İMÖ3700 - SOBİL ÖZEL SET KUTUSU KUTU EBAT: 22 X 27 X 10 CM SET İÇERİĞİ * İTB6531 - RAPRO 500 ML TERMOS BARDAK * İKM2203 - İKM2203 - RUBİ RUBBER TÜKENMEZ KALEM * İUB6701 - RULEN METAL USB BELLEK",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya UV Dijital uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3723",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "sapir-kutulu-ozel-set-imo3735",
+      "name": "Sapir Seti",
+      "tagline": "Starbuk 500 ML Termos Bardak · Pika Termo Deri Defter · Risk Tablet & Dokunmatik Kalem",
+      "description": "ÖZEL SİYAH 22X27X10 CM SIVAMA KUTU SET İÇERİĞİ * İTB6507 - STARBUK 450 ML TERMOS BARDAK * İDT1989 - PİKA 9X14 CM TERMO DERİ DEFTER * İKT2502 - RİSK TABLET & DOKUNMATİK KALEM",
+      "story": "3 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3735",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "lady-kutulu-ozel-set-imo3763",
+      "name": "Lady Seti",
+      "tagline": "Sobil Set Kutusu",
+      "description": "* İMÖ3700 - SOBİL ÖZEL SET KUTUSU KUTU EBAD: 22 X 27 X 10 CM SET İÇERİĞİ • İTB6517 - PRİZMA 300 ML TERMOS BARDAK • İUB6652 - SWIWEL DÖNER METAL USB BELLEK • İAY3807 - KONT DERİ AYNA USB KAPASİTE : 16 GB - 32 GB - 64 GB - 128 GB",
+      "story": "1 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya UV Dijital uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "UV Dijital"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3763",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "gorko-kutulu-ozel-set-imo3749",
+      "name": "Görko Seti",
+      "tagline": "Sobil Set Kutusu · Sendi 420 ML Termos Bardak · Poka Termo Deri Defter",
+      "description": "* İMÖ3700 - SOBİL ÖZEL SET KUTUSU KUTU EBAT: 22 X 27 X 10 CM SET İÇERİĞİ * İTB6518 - SENDİ 400 ML TERMOS BARDAK * İDT1988 - 13 X21 CM POKA TERMO DERİ DEFTER * İKR2357 - GİSSE ROLLER KALEM",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3749",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "kalen-kutulu-ozel-set-imo3759",
+      "name": "Kalen Seti",
+      "tagline": "Sege Özel Set Kutusu · Roy Bambu Kablosuz Şarj Cihazı · Tirims Tablet & Dokunmatik Kalem",
+      "description": "* İMÖ3703- BEGE ÖZEL DERİ SET KUTUSU KUTU EBAT: 21 X 18 X 3 cm SET İÇERİĞİ * İKC7209 - ROY BAMBU KABLOSUZ ŞARJ CİHAZI * İKT2509 - TİRİMS TABLET & DOKUNMATİK KALEM * İUB6796 - BABU AHŞAP USB BELLEK",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya UV Dijital uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3759",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "rose-kutulu-ozel-set-imo3764",
+      "name": "Rose Seti",
+      "tagline": "Sege Özel Set Kutusu · Poka Termo Deri Defter",
+      "description": "* İMÖ3703 - SEGE ÖZEL DERİ SET KUTUSU KUTU EBAD: 22 X 27 X 3 cm SET İÇERİĞİ * İDT1988 - 13 X21 CM POKA TERMO DERİ DEFTER • İUB6652 - SWIWEL DÖNER METAL USB BELLEK • İAY3807 - KONT DERİ AYNA USB KAPASİTE : 16 GB - 32 GB - 64 GB - 128 GB",
+      "story": "2 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre",
+        "UV Dijital"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3764",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "tesla-kutulu-ozel-set-imo3769",
+      "name": "Tesla Seti",
+      "tagline": "Glori 350 ML Termos Bardak · Rubi Rubber Tükenmez Kalem · Ravel Powerbank",
+      "description": "ÖZEL SİYAH 22X27X10 CM SIVAMA KUTU SET İÇERİĞİ * İTB6501 - GLORY 350 ML TERMOS BARDAK * İKM2203 - RUBİ RUBBER METAL TÜKENMEZ KALEM POWERBANK KIRMIZI VE LACİVERT RENK = * İUÖ6993 - RAVEL POWERBANK / 10.000 mAh BEYAZ VE SİYAH RENK = İUÖ7021 - RENGA POWERBANK / 10.000 mAh",
+      "story": "3 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya UV Dijital uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3769",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "gelos-kutulu-ozel-set-imo3721",
+      "name": "Gelos Seti",
+      "tagline": "Sobil Set Kutusu · Pirizo 500 ML Termos Matara · Prizma 300 ML Termos Bardak",
+      "description": "* İMÖ3700 - SOBİL ÖZEL SET KUTUSU KUTU EBAT: 22 X 27 X 10 CM SET İÇERİĞİ * İTM6566 - PİRİZO 500 ML TERMOS MATARA * İTB6517 - PRİZMA 300 ML TERMOS BARDAK",
+      "story": "3 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3721",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "savso-kutulu-ozel-set-imo3756",
+      "name": "Savso Seti",
+      "tagline": "Bege Özel Set Kutusu · Mero Powerbank · Risk Tablet & Dokunmatik Kalem",
+      "description": "* İMÖ3701- BEGE ÖZEL DERİ SET KUTUSU VEYA AHŞAP MDF ÖZEL KUTU KUTU EBAT: 21 X 18 X 3 cm SET İÇERİĞİ * İUÖ7010 - MERO POWER BANK 5000 MAH * İKT2502 - RİSK DOKUNMATİK TÜKENMEZ KALEM * İUB6721 - ELITE METAL USB BELLEK USB KAPASİTE: USB 2.0 = 8 GB - 16 GB - 32 GB - 64 GB - 128 GB USB",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre",
+        "UV Dijital"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3756",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "ziyo-kutulu-ozel-set-imo3739",
+      "name": "Ziyo Seti",
+      "tagline": "Bege Özel Set Kutusu · İpad Kalem USB Bellek · Mero Powerbank",
+      "description": "* İMÖ3701- BEGE ÖZEL DERİ SET KUTUSU VEYA AHŞAP MDF ÖZEL KUTU KUTU EBAT: 21 X 18 X 3 cm SET İÇERİĞİ * İUB6918 - İPAD KALEM USB BELLEK * İUÖ7010 - MERO POWER BANK 5000 MAH USB KAPASİTE: 16 GB - 32 GB -64 GB -128 GB",
+      "story": "3 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3739",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "rulov-kutulu-ozel-set-imo3736",
+      "name": "Rulov Seti",
+      "tagline": "Glori 350 ML Termos Bardak · Rubi Rubber Tükenmez Kalem · Swıwel Döner Metal USB Bellek",
+      "description": "ÖZEL SİYAH 22X27X10 CM SIVAMA KUTU SET İÇERİĞİ * İTB6501 - GLORİ 350 ML TERMOS BARDAK * İKM2203 - RUBİ RUBBER TÜKENMEZ KALEM * İUB6652 - SWIWEL DÖNER METAL USB BELLEK USB KAPASİTE : 16 GB - 32 GB - 64 GB",
+      "story": "3 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3736",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "sate-kutulu-ozel-set-imo3752",
+      "name": "Sate Seti",
+      "tagline": "Bege Özel Set Kutusu · Mero Powerbank · Klark Roller Kalem",
+      "description": "* İMÖ3701- BEGE ÖZEL DERİ SET KUTUSU VEYA AHŞAP MDF ÖZEL KUTU KUTU EBAT: 21 X 18 X 3 cm SET İÇERİĞİ * İUÖ7010 - MERO POWERBANK/ 5.000 mAh * İKR2352 - KLARK ROLLER KALEM * İUB6715 - PROLİ METAL USB BELLEK USB KAPASİTE: USB 2.0 = 8 GB - 16 GB - 32 GB - 64 GB USB 3.0 = 32 GB - 64 GB",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3752",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "madame-kutulu-ozel-set-imo3767",
+      "name": "Madame Seti",
+      "tagline": "Sobil Set Kutusu · Glori 350 ML Termos Bardak · Kont Deri Ayna",
+      "description": "* İMÖ3700 - SOBİL ÖZEL SET KUTUSU KUTU EBAD: 22 X 27 X 10 CM SET İÇERİĞİ * İTB6501 - GLORİ 350 ML TERMOS BARDAK * İAY3807 - KONT DERİ AYNA * İUB6652 - SWIWEL DÖNER METAL USB BELLEK USB KAPASİTE; 16 GB - 32 GB - 64 GB - 128 GB",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya UV Dijital uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3767",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "sutal-kutulu-ozel-set-imo3718",
+      "name": "Sutal Seti",
+      "tagline": "Pikni 500 ML Termos Matara · Kırın 260 ML Termos Bardak",
+      "description": "ÖZEL SİYAH 22X27X10 CM SIVAMA KUTU SET İÇERİĞİ * İTM6556 - PİKNİ 500 ML TERMOS MATARA * İTB6508 - KIRIN 280 ML TERMOS BARDAK",
+      "story": "2 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3718",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "mezga-kutulu-ozel-set-imo3741",
+      "name": "Mezga Seti",
+      "tagline": "Sobil Set Kutusu · Prizma 300 ML Termos Bardak · Beka Power Bank",
+      "description": "* İMÖ3700 - SOBİL ÖZEL SET KUTUSU KUTU EBAT: 22 X 27 X 10 CM SET İÇERİĞİ * İTB6517 - PRİZMA 300 ML TERMOS BARDAK * İUÖ6997 - BEKA POWER BANK / 10.000 mAh * İKR2365 - FARO RUBBER ROLLER KALEM",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3741",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "ibis-kutulu-ozel-set-imo3720",
+      "name": "İbis Seti",
+      "tagline": "Firape 550 ML Termos Bardak · Fone Powerbank",
+      "description": "İMÖ3700 - SOBİL ÖZEL SET KUTUSU * KUTU EBAT: 22 X 27 X 10 CM SET İÇERİĞİ * İTB6505 - FİRAPE 550 ML TERMOS BARDAK * İUÖ7009 - FONE POWERBANK / 10.000 MAH",
+      "story": "2 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3720",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "mekka-kutulu-ozel-set-imo3713",
+      "name": "Mekka Seti",
+      "tagline": "Rubi Rubber Tükenmez Kalem · Ravel Powerbank",
+      "description": "TERMO DERİ VEYA AHŞAP MDF ÖZEL 22X27 CM KUTU SET İÇERİĞİ * 13x21 cm POKA TERMO DERİ DEFTER * İKM2203 - RUBİ RUBBER TÜKENMEZ KALEM KIRMIZI VE LACİVERT RENK POWERBANK = * İUÖ6993 - RAVEL POWERBANK / 10.000 MAH SİYAH VE BEYAZ RENK POWERBANK : İUÖ7021 - RENGA POWERBANK / 10.000 MAH",
+      "story": "2 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3713",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "delmon-kutulu-ozel-set-imo3712",
+      "name": "Delmon Seti",
+      "tagline": "Sobil Set Kutusu · Emo Bambu 450 ML Termos Matara · Tirims Tablet & Dokunmatik Kalem",
+      "description": "* İMÖ3700 - SOBİL ÖZEL SET KUTUSU KUTU EBAT: 22 X 27 X 10 CM SET İÇERİĞİ * İTM6563 - EMO BAMBU 450 ML TERMOS MATARA * İKT2509 - TİRİMS TABLET & DOKUNMATİK KALEM * İUB6796 - BABU AHŞAP USB BELLEK USB KAPASİTE: 16GB, 32GB, 64GB, 128GB",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre",
+        "UV Dijital"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3712",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "orga-kutulu-ozel-set-imo3742",
+      "name": "Orga Seti",
+      "tagline": "Sobil Set Kutusu · Karya 450 ML Bambu Termos Bardak · Marda Metal Tükenmez Kalem",
+      "description": "* İMÖ3700 - SOBİL ÖZEL SET KUTUSU KUTU EBAT: 22 X 27 X 10 CM SET İÇERİĞİ * İTM6561 - ORGA BAMBUU 450 ML TERMOS BARDAK * İKM2235- MARDA METAL TÜKENMEZ KALEM * İUB6795 - SWİES AHŞAP USB BELLEK USB KAPASİTE: USB 2.0 = 8 GB - 16 GB - 32 GB - 64 GB USB 3.0 = 32 GB - 64 GB",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya UV Dijital uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3742",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "makri-kutulu-ozel-set-imo3732",
+      "name": "Makri Seti",
+      "tagline": "Bege Özel Set Kutusu · Ziyon Magsafe Wıreless Powerbank · Klark Roller Kalem",
+      "description": "* İMÖ3701- BEGE ÖZEL DERİ SET KUTUSU VEYA AHŞAP MDF ÖZEL KUTU KUTU EBAT: 21 X 18 X 3 cm SET İÇERİĞİ * İUÖ6998 - ZİYON MAGSAFE WIRELESS POWERBANK / 5000 mAh * İKR2352 - KLARK ROLLER KALEM * İUB6721 - ELITE METAL USB BELLEK USB KAPASİTE: USB 2.0 = 8 GB - 16 GB - 32 GB - 64 GB USB 3",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3732",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "tiras-kutulu-ozel-set-imo3716",
+      "name": "Tiras Seti",
+      "tagline": "Lorse 750 ML Matara · Kırın 260 ML Termos Bardak",
+      "description": "TERMO DERİ VEYA AHŞAP MDF ÖZEL 28 X 35 X 7 CM KUTU SET İÇERİĞİ * İTM6553 - LORSE 750 ML TERMOS MATARA * İTB6508 - KIRIN 280 ML TERMOS BARDAK",
+      "story": "2 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3716",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "basyen-kutulu-ozel-set-imo3740",
+      "name": "Basyen Seti",
+      "tagline": "Roller Kalem USB Bellek · Beka Power Bank",
+      "description": "TERMO DERİDE FÜME, SİYAH, LACİVERT VE KIRMIZI RENK STOKLUDUR, DİĞER ÖZEL RENK EN AZ 1000 ADET OLARAK ÜRETİLMEKTEDİR. TERMO DERİ VEYA AHŞAP MDF ÖZEL 21X18 CM KUTU SET İÇERİĞİ * İUB6920 - ROLLER KALEM USB BELLEK * İUÖ6997 - BEKA POWER BANK 10000 MAH USB KAPASİTE; 16 GB - 32 GB - 64",
+      "story": "2 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3740",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "deron-kutulu-ozel-set-imo3738",
+      "name": "Deron Seti",
+      "tagline": "Pikni 500 ML Termos Matara · Stanli 350 ML Termos Bardak",
+      "description": "ÖZEL SİYAH 22X27X10 CM SIVAMA KUTU SET İÇERİĞİ * İTM6556 - PİKNİ 500 ML TERMOS MATARA * İTB6511 - STAN 320 ML TERMOS BARDAK",
+      "story": "2 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3738",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "banda-kutulu-ozel-set-imo3750",
+      "name": "Banda Seti",
+      "tagline": "Sege Özel Set Kutusu · Poka Termo Deri Defter · Fone Powerbank",
+      "description": "* İMÖ3703 - SEGE ÖZEL DERİ SET KUTUSU VEYA AHŞAP MDF ÖZEL KUTU KUTU EBAT: 22 X 27 X 3 cm SET İÇERİĞİ * İDT1988 - 13 X21 CM POKA TERMO DERİ DEFTER * İUÖ7009 - FONE POWERBANK / 10.000 mAh * İUB6721 - ELITE METAL USB BELLEK USB KAPASİTE: USB 2.0 = 8 GB - 16 GB - 32 GB - 64 GB USB 3.",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3750",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "harso-kutulu-ozel-set-imo3734",
+      "name": "Harso Seti",
+      "tagline": "Sege Özel Set Kutusu · Poka Termo Deri Defter · Fone Powerbank",
+      "description": "* İMÖ3703 - SEGE ÖZEL DERİ SET KUTUSU VEYA AHŞAP MDF ÖZEL KUTU KUTU EBAT: 22 X 27 X 3 cm SET İÇERİĞİ * İDT1988 - 13 X21 CM POKA TERMO DERİ DEFTER * İUÖ7009 - FONE POWERBANK / 10.000 mAh * İUB6919 - DUKA KALEM USB BELLEK USB KAPASİTE; 16 GB - 32 GB - 64 GB",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3734",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "fiso-kutulu-ozel-set-imo3746",
+      "name": "Fiso Seti",
+      "tagline": "Sobil Set Kutusu · French Press 500 ML Termos Bardak · Pika Termo Deri Defter",
+      "description": "* İMÖ3700 - SOBİL ÖZEL SET KUTUSU KUTU EBAT: 22 X 27 X 10 CM SET İÇERİĞİ * İTB6515 - FRENCH PRESS 500 ML TERMOS BARDAK * İDT1989 - 9x14 cm PİKA TERMO DERİ DEFTER * İUB6776 - ANAHTAR USB BELLEK USB KAPASİTE: USB 2.0 = 8 GB - 16 GB - 32 GB - 64 GB",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3746",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "perva-kutulu-ozel-set-imo3704",
+      "name": "Perva Seti",
+      "tagline": "Sege Özel Set Kutusu · Poka Termo Deri Defter · Demo Magsafe Wıreless Powerbank",
+      "description": "* İMÖ3703 - SEGE ÖZEL DERİ SET KUTUSU VEYA AHŞAP MDF ÖZEL KUTU KUTU EBAT: 22 X 27 X 3 cm SET İÇERİĞİ * İDT1988 - 13 X21 CM POKA TERMO DERİ DEFTER * İUÖ6995 - DEMO MAGSAFE WIRELESS POWERBANK / 10.000 mAh * İKR2352 - KLARK ROLLER KALEM",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre",
+        "UV Dijital"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3704",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "canke-kutulu-ozel-set-imo3770",
+      "name": "Canke Seti",
+      "tagline": "Bege Özel Set Kutusu · Daren Powerbank · Hulu Airpods Pro 3 Kablosuz Kulaklık",
+      "description": "* İMÖ3701- BEGE ÖZEL DERİ SET KUTUSU VEYA AHŞAP MDF ÖZEL KUTU KUTU EBAT: 21 X 18 X 3 cm SET İÇERİĞİ * İUÖ7012 - DAREN POWERBANK / 20.000 MAH * İKU7221 - HULU AİRPODS PRO KABLOSUZ KULAKLIK * İUB6715 - PROLİ USB BELLEK USB KAPASİTE: USB 2.0 = 8 GB - 16 GB - 32 GB - 64 GB - 128 GB U",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3770",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "bekso-kutulu-ozel-set-imo3758",
+      "name": "Bekso Seti",
+      "tagline": "Bavil Özel Set Kutusu · Tabe Wıreless Organizer PD/3A Powerbank · Suzi Bluetooth Hoparlör",
+      "description": "* İMÖ3694 - BAVİL ÖZEL DERİ SET KUTUSU * KUTU EBAT: 28 X 35 X 7 CM SET İÇERİĞİ * İUÖ7111 - TABE WIRELESS ORGANİZER PD/3A POWERBANK / 8000 mAh * İEP8141 - SUZİ BLUETOOTH HOPARLÖR * İKR2352 - KLARK ROLLER KALEM * İUB6776 - ANAHTAR USB BELLEK USB KAPASİTE: 16 GB - 32 GB - 64 GB - 12",
+      "story": "5 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3758",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "sevgo-kutulu-ozel-set-imo3710",
+      "name": "Sevgo Seti",
+      "tagline": "Bege Özel Set Kutusu · Cenova Magsafe Kartlık · Rubi Rubber Tükenmez Kalem",
+      "description": "* İMÖ3701- BEGE ÖZEL DERİ SET KUTUSU KUTU EBAT: 21 X 18 X 3 cm SET İÇERİĞİ * İMC9122 - CENOVA MAGSAFE KARTLIK * İKM2203 - RUBİ RUBBER TÜKENMEZ KALEM * İUB6704 - GİGA METAL USB BELLEK USB KAPASİTE: USB 2.0 = 16 GB - 32 GB - 64 GB - 128 GB USB 3.0 = 16 GB - 32 GB - 64 GB",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya UV Dijital uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "UV Dijital"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3710",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "relon-kutulu-ozel-set-imo3706",
+      "name": "Relon Seti",
+      "tagline": "Bavil Özel Set Kutusu · Elektro 500 ML Pili Değişen Dereceli Termos Matara · Poka Termo Deri Defter",
+      "description": "* İMÖ3694 - BAVİL ÖZEL DERİ SET KUTUSU * KUTU EBAT: 28 X 35 X 7 CM SET İÇERİĞİ * İTM6564 - ELEKTRO 500 ML PİLİ DEĞİŞEN DERECELİ TERMOS MATARA MATARA * İDT1988 - 13 X21 CM POKA TERMO DERİ DEFTER * İKR2365 - FARO RUBBER ROLLER KALEM",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3706",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "lanser-kutulu-ozel-set-imo3751",
+      "name": "Lanser Seti",
+      "tagline": "Gora Özel Set Kutusu · Dallas Wireless Şarj Ünitesi · Poka Termo Deri Defter",
+      "description": "* İMÖ3698 - GORA ÖZEL SET KUTUSU - KUTU EBAT: 28 X 35 X 4 CM SET İÇERİĞİ * İKC7203 - DALLAS 3in1 WİRELESS ŞARJ CİHAZI * İDT1988 - 13 X21 CM POKA TERMO DERİ DEFTER * İKR2352 - KLARK ROLLER KALEM * İKM2216 - JANE METAL TÜKENMEZ KALEM",
+      "story": "5 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3751",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "akdor-kutulu-ozel-set-imo3705",
+      "name": "Akdor Seti",
+      "tagline": "Sege Özel Set Kutusu · Nova Işıklı Powerbank · Pika Termo Deri Defter",
+      "description": "* İMÖ3703 - SEGE ÖZEL DERİ SET KUTUSU KUTU EBAT: 22 X 27 X 3 cm SET İÇERİĞİ * İUÖ7016 - NOVA IŞIKLI POWERBANK / 10.000 MAH * İDT1989 - PİKA TERMO DERİ DEFTER * İKR2365 - FARO RUBBER ROLLER KALEM FARKLI RENKLERDE IŞIKLI LOGO VE YAZI ÖZELLİĞİ",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya UV Dijital uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "UV Dijital"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3705",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "tesla-kutulu-ozel-set-imo3737",
+      "name": "Tesla Seti",
+      "tagline": "Sobil Set Kutusu · Glori 350 ML Termos Bardak · Nova Işıklı Powerbank",
+      "description": "* İMÖ3700 - SOBİL ÖZEL SET KUTUSU KUTU EBAT: 22 X 27 X 10 CM SET İÇERİĞİ * İTB6501 - GLORY 350 ML TERMOS BARDAK * İUÖ7016 - NOVA IŞIKLI POWERBANK / 10.000 mAh * İKM2203 - RUBİ RUBBER METAL TÜKENMEZ KALEM FARKLI RENKLERDE IŞIKLI LOGO VE YAZI ÖZELLİĞİ",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya UV Dijital uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3737",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "lebal-kutulu-ozel-set-imo3755",
+      "name": "Lebal Seti",
+      "tagline": "Sege Özel Set Kutusu · Klark Roller Kalem · Makan Işıklı PD/3A Powerbank",
+      "description": "* İMÖ3703 - SEGE ÖZEL DERİ SET KUTUSU KUTU EBAT: 22 X 27 X 3 cm SET İÇERİĞİ * İKR2352 - KLARK ROLLER KALEM * İUÖ7001 - MAKAN IŞIKLI PD/3A POWERBANK / 10.000 MAH * İUB6660 - SORİ IŞIKLI RUBBER PLASTİK USB BELLEK USB KAPASİTE; 16 GB - 32 GB - 64 GB",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya Gofre uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "Gofre"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3755",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "kesol-kutulu-ozel-set-imo3757",
+      "name": "Kesol Seti",
+      "tagline": "Sege Özel Set Kutusu · Nova Işıklı Powerbank · Faro Rubber Roller Kalem",
+      "description": "* İMÖ3703 - SEGE ÖZEL DERİ SET KUTUSU KUTU EBAT: 22 X 27 X 3 cm SET İÇERİĞİ * İUÖ7016 - NOVA IŞIKLI POWERBANK / 10.000 mAh * İKR2365 - FARO RUBBER ROLLER KALEM * İPC7140 - IŞIKLI POWERBANK KABLO * İUB6660 - SORİ IŞIKLI RUBBER PLASTİK USB BELLEK USB KAPASİTE; 16 GB - 32 GB - 64 GB",
+      "story": "5 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya UV Dijital uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "UV Dijital"
+      ],
+      "tone": "dark",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3757",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "odesa-kutulu-ozel-set-imo3748",
+      "name": "Odesa Seti",
+      "tagline": "Sobil Set Kutusu · Gale 3İN1 Magsafe Işıklı Pd · Pofa Işıklı Magsafe Bluetooth Speaker",
+      "description": "* İMÖ3700 - SOBİL ÖZEL SET KUTUSU KUTU EBAD: 22 X 27 X 10 CM SET İÇERİĞİ * İUO6991 - GALE 3in1 MAGSAFE IŞIKLI PD/3A POWERBANK / 10.000 mAh * İEP8147 - POFA IŞIKLI MAGSAFE BLUETOOTH SPEAKER * İPC7141 - SELO IŞIKLI POWERBANK KABLOSU TYPE-C GİRİŞLİ FARKLI RENKLERDE IŞIKLI LOGO VE YA",
+      "story": "4 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya UV Dijital uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3748",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
+    },
+    {
+      "slug": "avuka-kutulu-ozel-set-imo3722",
+      "name": "Avuka Seti",
+      "tagline": "Suzi Bluetooth Hoparlör · Balor 3İN1 Magsafe Wıreless Organizer PD/3A Powerbank",
+      "description": "SET IÇERIGI * IMÖ3694 - BAVIL ÖZEL DERI SET KUTUSU * İEP8141 - SUZİ BLUETOOTH HOPARLÖR * İUÖ7110 - BALOR 3in1 MAGSAFE WIRELESS ORGANİZER PD/3A POWERBANK * IKR2352 - KLARK ROLLER KALEM * IUB6660 - SORI ISIKLI RUBBER PLASTIK USB BELLEK",
+      "story": "2 parçadan oluşan, özel kutusunda teslim edilen kurumsal hediye seti. Kutu ve ürün renkleri seçilebilir; logonuz Lazer veya UV Dijital uygulanır.",
+      "audience": "Kurumsal hediye",
+      "purpose": "Müşteri, çalışan ve iş ortağı hediyesi",
+      "recommendedQuantity": "Adet seçimi serbest",
+      "personalization": [
+        "Lazer",
+        "UV Dijital"
+      ],
+      "tone": "light",
+      "rule": {
+        "purpose": "client",
+        "categories": [
+          "hediye-set"
+        ]
+      },
+      "items": [
+        {
+          "productCode": "İMÖ3722",
+          "qty": 1,
+          "role": "Kutulu set"
+        }
+      ],
+      "isFeatured": false
     }
   ]
 }

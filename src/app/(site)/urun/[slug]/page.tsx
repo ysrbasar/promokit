@@ -41,7 +41,12 @@ export default async function ProductPage({ params }: { params: Params }) {
     .filter((x, i, arr) => arr.findIndex((y) => y.category === x.category) === i)
     .slice(0, 4);
 
+  const bySetCode = new Map(products.map((x) => [x.productCode.toLocaleUpperCase("tr-TR"), x]));
+  const setItems = p.setContents.map((c) => ({ ...c, product: bySetCode.get(c.code) ?? null }));
+  const outOfStock = p.stockStatus === "out";
+
   const specs: [string, string][] = [
+    ...(p.minOrderQty ? [["Minimum sipariş", `${p.minOrderQty.toLocaleString("tr-TR")} adet`] as [string, string]] : []),
     ...Object.entries(p.technicalSpecifications),
     ...(p.capacity && !Object.values(p.technicalSpecifications).includes(p.capacity) ? [["Kapasite", p.capacity] as [string, string]] : []),
     ...(p.dimensions && !Object.values(p.technicalSpecifications).includes(p.dimensions) ? [["Ölçüler", p.dimensions] as [string, string]] : []),
@@ -102,11 +107,50 @@ export default async function ProductPage({ params }: { params: Params }) {
               {p.stockUpdatedAt && <span className="text-xs text-subtle">Stok güncelleme: {new Date(p.stockUpdatedAt).toLocaleDateString("tr-TR")}</span>}
             </div>
             <PriceTag price={p.price} currency={p.priceCurrency} type={p.priceType} className="mt-6 text-lg" />
+            {p.price !== null && !p.isDemo && (
+              <p className="mt-1 text-xs text-subtle">
+                Liste fiyatıdır, KDV dahil değildir{p.vatRate ? ` (KDV %${p.vatRate})` : ""}. Baskı ve ambalaj teklifte ayrıca belirtilir.
+              </p>
+            )}
+            {outOfStock && (
+              <p className="mt-4 rounded-soft border border-line bg-stone px-4 py-3 text-sm">
+                Bu ürün şu an stokta yok. {p.stockKept ? "Yeni stok geldiğinde gönderim yapılabilir; tarih teklifte bildirilir." : "Siparişe özel üretilir; termin teklifte bildirilir."}
+              </p>
+            )}
             {p.description && <p className="mt-6 max-w-xl leading-relaxed text-muted">{p.description}</p>}
 
             <div className="mt-10">
               <ProductActions product={lite} />
             </div>
+
+            {setItems.length > 0 && (
+              <section className="mt-12" aria-labelledby="set-icerigi">
+                <h2 id="set-icerigi" className="eyebrow mb-4">
+                  Set içeriği
+                </h2>
+                <ul className="divide-y divide-line border-y border-line">
+                  {setItems.map((c) => (
+                    <li key={c.code} className="flex items-center gap-4 py-3 text-sm">
+                      {c.product ? (
+                        <ProductImage src={toLite(c.product).image} alt={c.name} category={c.product.category} className="size-12 shrink-0 rounded-soft border border-line" sizes="48px" />
+                      ) : (
+                        <span className="size-12 shrink-0 rounded-soft border border-line bg-stone" />
+                      )}
+                      <span className="min-w-0 flex-1">
+                        {c.product ? (
+                          <Link href={`/urun/${c.product.slug}`} className="hover:underline">
+                            {c.name}
+                          </Link>
+                        ) : (
+                          c.name
+                        )}
+                        <span className="block font-mono text-xs text-subtle">{c.code}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
 
             {specs.length > 0 && (
               <section className="mt-12" aria-labelledby="ozellikler">

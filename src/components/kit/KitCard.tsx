@@ -2,6 +2,7 @@ import Link from "next/link";
 import { formatMoney } from "@/lib/catalog/pricing";
 import type { KitView } from "@/lib/server/views";
 import { ProductImage } from "../product/ProductImage";
+import { kitImages } from "@/lib/catalog/lite";
 import { Badge, Icon, cn } from "../ui/primitives";
 
 export function KitPriceLine({ pricing, className }: { pricing: KitView["pricing"]; className?: string }) {
@@ -18,7 +19,7 @@ export function KitPriceLine({ pricing, className }: { pricing: KitView["pricing
 
 export function KitCard({ view, size = "md" }: { view: KitView; size?: "md" | "lg" }) {
   const dark = view.kit.tone === "dark";
-  const imgs = view.lines.slice(0, 4);
+  const imgs = kitImages(view.lines.map((l) => l.product));
   return (
     <Link
       href={`/hazir-kitler/${view.kit.slug}`}
@@ -28,8 +29,8 @@ export function KitCard({ view, size = "md" }: { view: KitView; size?: "md" | "l
       )}
     >
       <div className={cn("relative grid grid-cols-2 gap-px", dark ? "bg-ivory/10" : "bg-line", size === "lg" ? "aspect-[5/4]" : "aspect-[4/3]")}>
-        {imgs.map((l) => (
-          <ProductImage key={l.productCode} src={l.product.image} alt={l.product.name} category={l.product.category} tone={dark ? "dark" : "light"} className="h-full" sizes="(min-width: 1024px) 15vw, 45vw" />
+        {imgs.map((m) => (
+          <ProductImage key={m.key} src={m.src} alt={m.alt} category={m.category} tone={dark ? "dark" : "light"} className="h-full" sizes="(min-width: 1024px) 15vw, 45vw" />
         ))}
         {Array.from({ length: Math.max(0, 4 - imgs.length) }).map((_, i) => (
           <div key={i} className={dark ? "bg-ink-2" : "bg-stone"} />

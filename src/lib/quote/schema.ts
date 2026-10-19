@@ -54,7 +54,19 @@ export type StoredQuote = QuoteRequest & {
   createdAt: string;
   status: QuoteStatus;
   /** Talep anında ürünlerin kod, ad, varyant ve stok durumunun anlık görüntüsü */
-  snapshot: { productCode: string; name: string; variantCode: string | null; color: string | null; qty: number; stockStatus: string }[];
+  snapshot: {
+    productCode: string;
+    name: string;
+    variantCode: string | null;
+    color: string | null;
+    qty: number;
+    stockStatus: string;
+    /** Talep anındaki liste fiyatı (KDV hariç) */
+    listPrice?: number | null;
+    /** Talep anındaki alış fiyatı — yalnız yönetim paneli */
+    cost?: number | null;
+    currency?: string | null;
+  }[];
   attachment: { fileName: string; storedAs: string; size: number; type: string } | null;
   catalogKind: "import" | "demo";
 };

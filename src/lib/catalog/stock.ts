@@ -74,7 +74,7 @@ export const STOCK_LABEL: Record<StockStatus, string> = {
   available: "Stokta",
   low: "Sınırlı stok",
   out: "Stokta yok",
-  unknown: "Stok doğrulanacak",
+  unknown: "Stok sorunuz",
 };
 
 /** Kesin stok rakamı yerine kullanıcıya gösterilecek aralık ifadesi */
