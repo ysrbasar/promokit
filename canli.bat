@@ -41,6 +41,8 @@ rem Onbellek silinmezse guncellemeden sonra "ENOENT ... vendor-chunks" hatasi go
 :restart
 taskkill /FI "WINDOWTITLE eq Nadide Kit - site*" /T /F >nul 2>nul
 taskkill /FI "WINDOWTITLE eq Maison Kit - site*" /T /F >nul 2>nul
+rem 3000-3005 portlarinda kalmis eski site sunuculari da kapatilir (yoksa yeni site baska porta kayar)
+for %%P in (3000 3001 3002 3003 3004 3005) do for /f "tokens=5" %%I in ('netstat -ano ^| findstr /r /c:":%%P .*LISTENING"') do taskkill /PID %%I /T /F >nul 2>nul
 timeout /t 2 /nobreak >nul
 if exist .next rmdir /s /q .next
 start "Nadide Kit - site" cmd /k "npm run dev"
