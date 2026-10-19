@@ -18,8 +18,8 @@ echo ipromosyon XML anahtarini girin (bos birakirsaniz otomatik katalog guncelle
 set /p IPROKEY=Anahtar: 
 if not "%IPROKEY%"=="" (>>.env echo IPRO_XML_KEY=%IPROKEY%)
 :run2
-start "Nadide Kit - site" cmd /k "npm run dev"
-timeout /t 8 /nobreak >nul
+call :restart
+timeout /t 10 /nobreak >nul
 start "" http://localhost:3000
 echo.
 echo Site: http://localhost:3000  ^|  Yonetim: http://localhost:3000/admin
@@ -29,8 +29,19 @@ timeout /t 60 /nobreak >nul
 for /f %%h in ('git rev-parse HEAD') do set OLD=%%h
 git pull --ff-only -q
 for /f %%h in ('git rev-parse HEAD') do set NEW=%%h
-if not "%OLD%"=="%NEW%" (
-  echo [%time%] Guncelleme alindi. Sayfayi yenileyin.
-  git diff --quiet %OLD% %NEW% -- package-lock.json || call npm install
-)
+if "%OLD%"=="%NEW%" goto loop
+echo [%time%] Guncelleme alindi, site yeniden baslatiliyor...
+git diff --quiet %OLD% %NEW% -- package-lock.json || call npm install
+call :restart
+echo [%time%] Hazir. Sayfayi yenileyin.
 goto loop
+
+rem Site penceresini kapatir, eski derleme onbellegini (.next) siler ve siteyi yeniden acar.
+rem Onbellek silinmezse guncellemeden sonra "ENOENT ... vendor-chunks" hatasi gorulebilir.
+:restart
+taskkill /FI "WINDOWTITLE eq Nadide Kit - site*" /T /F >nul 2>nul
+taskkill /FI "WINDOWTITLE eq Maison Kit - site*" /T /F >nul 2>nul
+timeout /t 2 /nobreak >nul
+if exist .next rmdir /s /q .next
+start "Nadide Kit - site" cmd /k "npm run dev"
+exit /b 0
