@@ -1,5 +1,4 @@
 # PromoKit - Netlify yapılandırması
-# Netlify'da sitenin "Base directory" ayarı "promokit" olmalıdır; bu dosya oradan okunur.
 # Kayıtlar (teklif, sipariş, katalog güncellemeleri) Netlify Blobs'ta tutulur (STORAGE_DRIVER=blobs).
 
 [build]
