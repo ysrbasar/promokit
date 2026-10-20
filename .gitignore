@@ -17,3 +17,5 @@ data/import/*
 !data/import/prmstk.config.json
 # Alış fiyatları (yalnızca yönetim paneli)
 data/private/
+# Netlify CLI yerel durum klasörü
+.netlify/
