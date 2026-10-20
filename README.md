@@ -105,8 +105,8 @@ IPRO_SYNC_MINUTES=30      # isteğe bağlı, en az 5
 
 ## Netlify'da yayın
 
-1. Netlify → **Add new site → Import an existing project → GitHub** → `ysrbasar/form360` deposu.
-2. **Branch to deploy:** `promokit-site` · **Base directory:** boş (gerisi `netlify.toml`'dan gelir).
+1. Netlify → **Add new site → Import an existing project → GitHub** → `ysrbasar/promokit` deposu.
+2. **Branch to deploy:** `main` · **Base directory:** boş (gerisi `netlify.toml`'dan gelir).
 3. **Site configuration → Environment variables** (hepsi "Functions" kapsamını içermeli):
    `STORAGE_DRIVER=blobs`, `ADMIN_PASSWORD_HASH`, `ADMIN_SESSION_SECRET`, `IPRO_XML_KEY`, `NEXT_PUBLIC_SITE_URL`
    ve ödeme için `ODEMEIX_SECRET_KEY`, `ODEMEIX_WEBHOOK_SECRET`.
