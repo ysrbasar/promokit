@@ -27,6 +27,7 @@ const COLS = [
       { href: "/kvkk", label: "KVKK Aydınlatma Metni" },
       { href: "/gizlilik", label: "Gizlilik ve Çerezler" },
       { href: "/kullanim-kosullari", label: "Kullanım Koşulları" },
+      { href: "/mesafeli-satis", label: "Mesafeli Satış Sözleşmesi" },
     ],
   },
 ];
@@ -61,7 +62,7 @@ export function Footer() {
         </div>
       </Container>
       <Container className="flex flex-col gap-3 border-t border-ivory/10 py-6 text-xs text-ivory/40 sm:flex-row sm:justify-between">
-        <span>© {new Date().getFullYear()} PromoKit. Tüm hakları saklıdır. · Bu bir revizyon projesidir.</span>
+        <span>© {new Date().getFullYear()} PromoKit. Tüm hakları saklıdır. · Bu bir Revizyo projesidir.</span>
         <span>Stok bilgileri tedarikçi verisinden alınır ve teklif aşamasında yeniden doğrulanır.</span>
       </Container>
     </footer>

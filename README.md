@@ -70,6 +70,20 @@ IPRO_SYNC_MINUTES=30      # isteğe bağlı, en az 5
 - Her ürünün **Kitime ekle** ve **Sepete ekle** düğmesi var. Sepet `/sepet` sayfasındadır.
 - Online ödeme yok: sepet, teklif formuyla sipariş talebi olarak gönderilir ve yönetim panelinde "Sepet siparişi" adıyla görünür.
 
+### Kartla ödeme (Ödemeix)
+
+- Sepette **Kartla öde** düğmesi var. Müşteri Ödemeix'in güvenli ödeme sayfasına yönlendirilir (3D Secure, taksit); kart bilgisi bu sunucudan hiç geçmez.
+- Ödenecek tutar sunucuda, katalogdaki güncel fiyattan **KDV dahil** hesaplanır; istemcinin gönderdiği fiyata güvenilmez. Fiyatı olmayan, stoğu veya minimum adedi yetmeyen ürünle ödeme açılmaz.
+- Sipariş yalnız imzalı webhook (HMAC-SHA256, 5 dakika zaman kontrolü, tekrar ayıklama) ya da Ödemeix durum sorgusu "başarılı" dediğinde **Ödendi** olur. Dönüş sayfasına gelinmesi tek başına yeterli değildir.
+- **Yönetim → Siparişler** sayfası tahsilat toplamını, her siparişin geçmişini, **Durumu yenile** ve **Tam iade** düğmelerini içerir.
+- Ödeme için `/mesafeli-satis` ön bilgilendirme ve sözleşme onayı gerekir. Bu metin bir taslaktır ve yayından önce hukuki kontrolden geçmelidir.
+- Ayarlar (`.env`):
+  - `ODEMEIX_SECRET_KEY` = `sk_test_…` veya `sk_live_…`
+  - `ODEMEIX_WEBHOOK_SECRET` = `whsec_…`
+  - `NEXT_PUBLIC_SITE_URL` = sitenin gerçek adresi (dönüş adresleri için)
+  - Ödemeix panelinde webhook adresi: `https://<alan-adı>/api/odemeix/webhook`
+- Webhook yalnız herkese açık HTTPS adrese gelir. Yerel kurulumda dönüş sayfası ödeme durumunu Ödemeix'ten sorgulayarak siparişi günceller.
+
 ### Kâr takibi
 
 - Teklif kaydedilirken her satırın o anki liste fiyatı ve alış fiyatı teklife yazılır.

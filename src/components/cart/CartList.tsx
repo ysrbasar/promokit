@@ -30,6 +30,7 @@ export function CartList() {
     );
 
   let total = 0;
+  let gross = 0;
   let currency: string | null = null;
   let unknown = 0;
 
@@ -44,6 +45,7 @@ export function CartList() {
             if (unit !== null && p?.priceCurrency && (!currency || currency === p.priceCurrency)) {
               currency = p.priceCurrency;
               total += unit * it.qty;
+              gross += unit * it.qty * (1 + (p.vatRate ?? 20) / 100);
             } else unknown++;
             const belowMoq = p?.minOrderQty != null && it.qty < p.minOrderQty;
             return (
@@ -105,6 +107,7 @@ export function CartList() {
         <div className="text-right">
           <p className="text-xs text-ivory/50">Ara toplam (KDV hariç)</p>
           <p className="font-display text-3xl text-champagne">{formatMoney(total, currency ?? "TRY")}</p>
+          {unknown === 0 && <p className="mt-1 text-xs text-ivory/70">KDV dahil ödenecek: <b className="text-ivory">{formatMoney(Math.round(gross * 100) / 100, currency ?? "TRY")}</b></p>}
         </div>
       </div>
     </div>

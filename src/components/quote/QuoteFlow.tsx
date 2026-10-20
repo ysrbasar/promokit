@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
-import { QuoteRequestSchema } from "@/lib/quote/schema";
+import { QuoteContactSchema, QuoteRequestSchema } from "@/lib/quote/schema";
 import { LOGO_ACCEPT, getLogo, setLogo, validateLogo } from "@/lib/kit/logoStore";
 import { useKit, useHydrated } from "@/lib/kit/store";
 import { useCart } from "@/lib/cart/store";
@@ -16,7 +16,7 @@ import { Button, ButtonLink, Icon, Skeleton, cn } from "../ui/primitives";
 type Errors = Record<string, string>;
 
 /** mode="cart": sepetteki tekli ürünler sipariş talebi olarak gönderilir (kit yerine) */
-export function QuoteFlow({ mode = "kit" }: { mode?: "kit" | "cart" }) {
+export function QuoteFlow({ mode = "kit", paymentsEnabled = false }: { mode?: "kit" | "cart"; paymentsEnabled?: boolean }) {
   const router = useRouter();
   const hydrated = useHydrated();
   const kitDraft = useKit((s) => s.draft);
@@ -35,6 +35,7 @@ export function QuoteFlow({ mode = "kit" }: { mode?: "kit" | "cart" }) {
       }
     : kitDraft;
   const [step, setStep] = useState<1 | 2>(1);
+  const [salesConsent, setSalesConsent] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
@@ -77,6 +78,42 @@ export function QuoteFlow({ mode = "kit" }: { mode?: "kit" | "cart" }) {
     "aria-describedby": errors[`contact.${k}`] ? `e-${k}` : undefined,
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setForm((f) => ({ ...f, [k]: e.target.value })),
   });
+
+  /** Sepet: Ödemeix ödeme sayfasına yönlendirir (tutar sunucuda katalog fiyatından hesaplanır) */
+  const pay = async () => {
+    setFormError(null);
+    if (!salesConsent) {
+      setFormError("Kartla ödeme için ön bilgilendirme ve mesafeli satış sözleşmesini onaylamanız gerekiyor.");
+      return;
+    }
+    const parsed = QuoteContactSchema.safeParse(form);
+    if (!parsed.success) {
+      const errs: Errors = {};
+      for (const i of parsed.error.issues) errs[`contact.${i.path.join(".")}`] ??= i.message;
+      setErrors(errs);
+      setFormError("Lütfen işaretli alanları kontrol edin.");
+      return;
+    }
+    setErrors({});
+    setSending(true);
+    try {
+      const r = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ contact: form, items: cartItems }),
+      });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok || !d.paymentUrl) {
+        setFormError(d.error ?? "Ödeme başlatılamadı. Lütfen tekrar deneyin.");
+        return;
+      }
+      window.location.href = d.paymentUrl;
+    } catch {
+      setFormError("Bağlantı hatası. İnternet bağlantınızı kontrol edip tekrar deneyin.");
+    } finally {
+      setSending(false);
+    }
+  };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -247,7 +284,7 @@ export function QuoteFlow({ mode = "kit" }: { mode?: "kit" | "cart" }) {
                   <Link href="/kvkk" target="_blank" className="font-semibold underline decoration-champagne underline-offset-4">
                     KVKK Aydınlatma Metni
                   </Link>
-                  &apos;ni okudum; teklif talebimin değerlendirilmesi amacıyla kişisel verilerimin işlenmesini anladım. <span className="text-danger">*</span>
+                  &apos;ni okudum; {isCart ? "siparişimin işlenmesi ve ödemenin alınması" : "teklif talebimin değerlendirilmesi"} amacıyla kişisel verilerimin işlenmesini anladım. <span className="text-danger">*</span>
                 </span>
               </label>
               {errors["contact.kvkkConsent"] && <p className="text-xs text-danger">{errors["contact.kvkkConsent"]}</p>}
@@ -257,6 +294,19 @@ export function QuoteFlow({ mode = "kit" }: { mode?: "kit" | "cart" }) {
               </label>
             </div>
 
+            {isCart && paymentsEnabled && (
+              <label className="flex items-start gap-3 rounded-soft border border-line bg-paper p-4 text-sm">
+                <input type="checkbox" id="f-salesConsent" checked={salesConsent} onChange={(e) => setSalesConsent(e.target.checked)} className="mt-0.5 size-4 accent-[var(--color-ink)]" />
+                <span>
+                  Kartla ödeme için:{" "}
+                  <Link href="/mesafeli-satis" target="_blank" className="font-semibold underline decoration-champagne underline-offset-4">
+                    Ön bilgilendirme formu ve mesafeli satış sözleşmesi
+                  </Link>
+                  &apos;ni okudum ve onaylıyorum.
+                </span>
+              </label>
+            )}
+
             {formError && (
               <p role="alert" className="rounded-soft bg-danger/10 px-4 py-3 text-sm text-danger">
                 {formError}
@@ -265,11 +315,18 @@ export function QuoteFlow({ mode = "kit" }: { mode?: "kit" | "cart" }) {
 
             <div className="flex flex-col-reverse justify-between gap-3 sm:flex-row">
               <Button type="button" variant="ghost" onClick={() => setStep(1)}>
-                <Icon name="arrowLeft" className="size-4" /> Kite dön
+                <Icon name="arrowLeft" className="size-4" /> {isCart ? "Sepete dön" : "Kite dön"}
               </Button>
-              <Button type="submit" size="lg" variant="gold" disabled={sending}>
-                {sending ? "Gönderiliyor…" : "Teklif talebini gönder"}
-              </Button>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                {isCart && paymentsEnabled && (
+                  <button type="button" onClick={pay} disabled={sending} className="btn-glow">
+                    <Icon name="check" className="size-5" /> {sending ? "Yönlendiriliyor…" : "Kartla öde"}
+                  </button>
+                )}
+                <Button type="submit" size="lg" variant={isCart && paymentsEnabled ? "outline" : "gold"} disabled={sending}>
+                  {sending ? "Gönderiliyor…" : isCart ? "Sipariş talebi gönder" : "Teklif talebini gönder"}
+                </Button>
+              </div>
             </div>
           </motion.form>
         )}

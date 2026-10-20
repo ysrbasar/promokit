@@ -15,6 +15,7 @@ export type LiteProduct = {
   variants: { code: string; color: string | null; colorHex: string | null; stockQuantity: number | null; label: string | null; price: number | null; incoming: { qty: number; date: string }[]; options: { name: string; value: string }[]; image: string | null }[];
   gallery: string[];
   minOrderQty: number | null;
+  vatRate: number | null;
   stockKept: boolean;
   setContents: { code: string; name: string }[];
   stockStatus: StockStatus;
@@ -44,6 +45,7 @@ export function toLite(p: Product): LiteProduct {
     variants: p.variants.map((v) => ({ code: v.code, color: v.color, colorHex: v.colorHex, stockQuantity: v.stockQuantity, label: v.label, price: v.price, incoming: v.incoming, options: v.options, image: v.imageUrl })),
     gallery: p.gallery.slice(0, 8),
     minOrderQty: p.minOrderQty,
+    vatRate: p.vatRate,
     stockKept: p.stockKept,
     setContents: p.setContents,
     stockStatus: p.stockStatus,
