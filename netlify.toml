@@ -1,0 +1,19 @@
+# PromoKit - Netlify yapılandırması
+# Netlify'da sitenin "Base directory" ayarı "promokit" olmalıdır; bu dosya oradan okunur.
+# Kayıtlar (teklif, sipariş, katalog güncellemeleri) Netlify Blobs'ta tutulur (STORAGE_DRIVER=blobs).
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+[functions]
+  node_bundler = "esbuild"
+  # cheerio'nun CommonJS bağımlılıkları ESM pakete gömülemiyor; node_modules'tan olduğu gibi alınır
+  external_node_modules = ["cheerio"]

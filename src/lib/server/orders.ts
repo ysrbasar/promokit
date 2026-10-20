@@ -1,9 +1,9 @@
 import "server-only";
 import { randomBytes } from "node:crypto";
-import { readdir } from "node:fs/promises";
 import path from "node:path";
 import type { Order } from "../payment/orderState";
 import { RUNTIME_DIR, readJson, writeJson } from "./jsonStore";
+import { listNames } from "./storage";
 
 /** Kartla ödenen siparişler: data/runtime/orders/<id>.json (git'e girmez) */
 const ORDERS_DIR = path.join(RUNTIME_DIR, "orders");
@@ -30,12 +30,7 @@ export async function saveOrder(o: Order) {
 }
 
 export async function listOrders(): Promise<Order[]> {
-  let names: string[] = [];
-  try {
-    names = (await readdir(ORDERS_DIR)).filter((f) => f.endsWith(".json"));
-  } catch {
-    return [];
-  }
+  const names = (await listNames(ORDERS_DIR)).filter((f) => f.endsWith(".json"));
   const all = await Promise.all(names.map((n) => readJson<Order>(path.join(ORDERS_DIR, n))));
   return all.filter((o): o is Order => !!o).sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 }

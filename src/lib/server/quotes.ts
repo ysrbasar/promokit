@@ -1,5 +1,4 @@
 import "server-only";
-import { mkdir, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { randomUUID } from "node:crypto";
 import {
@@ -12,6 +11,7 @@ import {
   type StoredQuote,
 } from "../quote/schema";
 import { RUNTIME_DIR, readJson, writeJson } from "./jsonStore";
+import { listNames, writeData } from "./storage";
 import { quotePrint } from "../config/printPricing";
 import { computeProfit, type ProfitLine } from "../quote/profit";
 import { getCosts, unitCost } from "./costs";
@@ -83,9 +83,8 @@ export async function createQuote(req: QuoteRequest, file: File | null): Promise
   const id = `T-${new Date().toISOString().slice(0, 10).replace(/-/g, "")}-${randomUUID().slice(0, 6).toUpperCase()}`;
   let stored: StoredQuote["attachment"] = null;
   if (attachment) {
-    await mkdir(UPLOADS_DIR, { recursive: true });
     const storedAs = `${id}.${attachment.ext}`;
-    await writeFile(path.join(UPLOADS_DIR, storedAs), attachment.bytes);
+    await writeData(path.join(UPLOADS_DIR, storedAs), attachment.bytes);
     stored = { fileName: attachment.name, storedAs, size: attachment.bytes.byteLength, type: attachment.type };
   }
 
@@ -103,12 +102,7 @@ export async function createQuote(req: QuoteRequest, file: File | null): Promise
 }
 
 export async function listQuotes(): Promise<StoredQuote[]> {
-  let files: string[] = [];
-  try {
-    files = (await readdir(QUOTES_DIR)).filter((f) => f.endsWith(".json"));
-  } catch {
-    return [];
-  }
+  const files = (await listNames(QUOTES_DIR)).filter((f) => f.endsWith(".json"));
   const all = await Promise.all(files.map((f) => readJson<StoredQuote>(path.join(QUOTES_DIR, f))));
   return all.filter((q): q is StoredQuote => !!q).sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 }

@@ -103,6 +103,20 @@ IPRO_SYNC_MINUTES=30      # isteğe bağlı, en az 5
 | Birden fazla ürüne atanmış görsel kullanılmaz → inceleme kuyruğu | `merge.ts` |
 | Kaynaklar arası çelişki sessizce birleştirilmez → `sources` + `review-queue.json` | `merge.ts` |
 
+## Netlify'da yayın
+
+1. Netlify → **Add new site → Import an existing project → GitHub** → `ysrbasar/form360` deposu.
+2. **Branch to deploy:** `claude/friendly-brown-ai3c25` · **Base directory:** `promokit` (gerisi `netlify.toml`'dan gelir).
+3. **Site configuration → Environment variables** (hepsi "Functions" kapsamını içermeli):
+   `STORAGE_DRIVER=blobs`, `ADMIN_PASSWORD_HASH`, `ADMIN_SESSION_SECRET`, `IPRO_XML_KEY`, `NEXT_PUBLIC_SITE_URL`
+   ve ödeme için `ODEMEIX_SECRET_KEY`, `ODEMEIX_WEBHOOK_SECRET`.
+4. Deploy. Ödemeix panelinde webhook adresi: `https://<alan-adı>/api/odemeix/webhook`.
+
+Sunucusuz ortamda dosya sistemi kalıcı olmadığından `data/runtime` ve `data/private` altındaki her şey
+(teklifler, yüklenen logolar, siparişler, ayarlar, güncel katalog, alış fiyatları) **Netlify Blobs**'a yazılır
+(`src/lib/server/storage.ts`). Depodaki `data/catalog.json` ilk açılışta başlangıç kataloğu olarak kullanılır.
+30 dakikalık XML güncellemesini `netlify/functions/catalog-sync.mts` zamanlanmış fonksiyonu yapar.
+
 ## Özellikler
 
 - **Ana sayfa:** Parallax hero, 3 adımda kit, öne çıkan hazır kitler, kategoriler, bütçeye ve sektöre göre giriş, premium seçki, süreç, SSS.

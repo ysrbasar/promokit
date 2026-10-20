@@ -1,7 +1,7 @@
-import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 import type { Product } from "../catalog/schema";
 import type { ReadyKit } from "../kit/readyKits";
+import { DATA_DIR, readText, writeData } from "../server/storage";
 import { parseIpromosyon, type FeedInfo } from "./ipromosyon";
 
 /**
@@ -15,7 +15,7 @@ import { parseIpromosyon, type FeedInfo } from "./ipromosyon";
  *  --seed ile ayrıca data/catalog.json ve data/kits.json (depodaki başlangıç verisi) yazılır.
  */
 
-export const DATA_DIR = process.env.PROMOKIT_DATA_DIR ? path.resolve(process.env.PROMOKIT_DATA_DIR) : path.resolve(process.cwd(), "data");
+export { DATA_DIR };
 export const STATUS_FILE = path.join(DATA_DIR, "runtime", "sync-status.json");
 export const COSTS_FILE = path.join(DATA_DIR, "private", "costs.json");
 /** Otomatik güncellemenin çıktısı runtime/ altına yazılır (git'e girmez, "git pull" ile çakışmaz) */
@@ -42,16 +42,18 @@ export const syncConfigured = () => /^[0-9a-f]{16,64}$/i.test(process.env.IPRO_X
 const feedUrl = (kind: "all" | "stock") =>
   `https://www.ipromosyon.com/xml_things/${kind === "all" ? "iproapi" : "iproapi_cl"}/${process.env.IPRO_XML_KEY}`;
 
-async function writeJsonAtomic(file: string, data: unknown) {
-  await mkdir(path.dirname(file), { recursive: true });
-  const tmp = `${file}.${process.pid}.tmp`;
-  await writeFile(tmp, JSON.stringify(data, null, 2) + "\n");
-  await rename(tmp, file);
-}
+const writeJsonAtomic = (file: string, data: unknown) => writeData(file, JSON.stringify(data, null, 2) + "\n");
 
 export async function readSyncStatus(): Promise<SyncStatus> {
   try {
-    return JSON.parse(await readFile(STATUS_FILE, "utf8")) as SyncStatus;
+    const text = await readText(STATUS_FILE);
+    if (text) {
+      const s = JSON.parse(text) as SyncStatus;
+      // Sunucusuz ortamda yarıda kesilen çalışma "sürüyor" olarak takılı kalmasın
+      if (s.running && Date.now() - Date.parse(s.lastStartedAt ?? "") > 5 * 60_000) s.running = false;
+      return s;
+    }
+    throw new Error("yok");
   } catch {
     return {
       running: false, lastStartedAt: null, lastFinishedAt: null, lastSuccessAt: null, ok: null, error: null,

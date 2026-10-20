@@ -1,40 +1,20 @@
 import "server-only";
-import { mkdir, readFile, rename, stat, writeFile } from "node:fs/promises";
-import path from "node:path";
+import { readText, stamp, writeData } from "./storage";
 
 /**
- * Basit dosya tabanlı JSON deposu. Demo ve tek sunuculu kurulum içindir;
+ * JSON kayıtları. Asıl okuma/yazma storage.ts'te: yerelde dosya sistemi, Netlify'da Netlify Blobs.
  * Repository arayüzleri sayesinde ileride veritabanına geçiş yalnızca bu katmanı değiştirir.
- * NOT: Sunucusuz (serverless) dağıtımlarda dosya sistemi kalıcı değildir.
  */
 
-export const DATA_DIR = process.env.PROMOKIT_DATA_DIR
-  ? path.resolve(process.env.PROMOKIT_DATA_DIR)
-  : path.resolve(process.cwd(), "data");
-
-export const RUNTIME_DIR = path.join(DATA_DIR, "runtime");
+export { DATA_DIR, RUNTIME_DIR } from "./storage";
 
 export async function readJson<T>(file: string): Promise<T | null> {
-  try {
-    return JSON.parse(await readFile(file, "utf8")) as T;
-  } catch (e) {
-    if ((e as NodeJS.ErrnoException).code === "ENOENT") return null;
-    throw e;
-  }
+  const text = await readText(file);
+  return text === null ? null : (JSON.parse(text) as T);
 }
 
-/** Yarım yazılmış dosya bırakmamak için geçici dosyaya yazıp yeniden adlandırır */
 export async function writeJson(file: string, data: unknown): Promise<void> {
-  await mkdir(path.dirname(file), { recursive: true });
-  const tmp = `${file}.${process.pid}.${Date.now()}.tmp`;
-  await writeFile(tmp, JSON.stringify(data, null, 2) + "\n", "utf8");
-  await rename(tmp, file);
+  await writeData(file, JSON.stringify(data, null, 2) + "\n");
 }
 
-export async function mtime(file: string): Promise<number> {
-  try {
-    return (await stat(file)).mtimeMs;
-  } catch {
-    return 0;
-  }
-}
+export const mtime = stamp;
