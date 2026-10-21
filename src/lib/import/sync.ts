@@ -116,9 +116,12 @@ export function runSync(opts: { seed?: boolean } = {}): Promise<SyncStatus> {
       const r = parseIpromosyon(all, stock);
       if (r.stats.products < 50) throw new Error(`Şüpheli küçük besleme (${r.stats.products} ürün); katalog değiştirilmedi`);
       const kits = { kits: kitsFromSets(r.catalog.products) };
-      await writeJsonAtomic(COSTS_FILE, { generatedAt: r.catalog.meta.generatedAt, products: r.costs });
-      await writeJsonAtomic(SYNCED_KITS_FILE, kits);
-      await writeJsonAtomic(SYNCED_CATALOG_FILE, r.catalog);
+      // Paralel yazım: sunucusuz ortamda (Netlify) istek süresi sınırına takılmamak için
+      await Promise.all([
+        writeJsonAtomic(COSTS_FILE, { generatedAt: r.catalog.meta.generatedAt, products: r.costs }),
+        writeJsonAtomic(SYNCED_KITS_FILE, kits),
+        writeJsonAtomic(SYNCED_CATALOG_FILE, r.catalog),
+      ]);
       if (opts.seed) {
         await writeJsonAtomic(path.join(DATA_DIR, "catalog.json"), r.catalog);
         await writeJsonAtomic(path.join(DATA_DIR, "kits.json"), kits);

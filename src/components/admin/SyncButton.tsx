@@ -4,6 +4,17 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "../ui/primitives";
 
+/** startedAfter'dan sonra biten bir çalışma görünene kadar (en çok ~90 sn) durumu yoklar */
+async function waitForSync(startedAfter: number): Promise<string> {
+  for (let i = 0; i < 30; i++) {
+    await new Promise((res) => setTimeout(res, 3_000));
+    const s = (await fetch("/api/admin/sync").then((r) => r.json()).catch(() => null))?.status;
+    if (s && !s.running && s.lastFinishedAt && Date.parse(s.lastFinishedAt) > startedAfter)
+      return s.ok ? `Güncellendi · ${s.stats?.products ?? "?"} ürün` : `Hata: ${s.error}`;
+  }
+  return "Sonuç alınamadı; otomatik güncelleme 30 dakikada bir zaten çalışıyor.";
+}
+
 export function SyncButton({ disabled }: { disabled?: boolean }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
@@ -16,9 +27,15 @@ export function SyncButton({ disabled }: { disabled?: boolean }) {
           setBusy(true);
           setMsg(null);
           try {
-            const r = await fetch("/api/admin/sync", { method: "POST" });
-            const d = await r.json().catch(() => ({}));
-            setMsg(r.ok ? `Güncellendi · ${d.status?.stats?.products ?? "?"} ürün` : `Hata: ${d.status?.error ?? d.error ?? r.status}`);
+            const r = await fetch("/api/admin/sync", { method: "POST" }).catch(() => null);
+            const d = r ? await r.json().catch(() => null) : null;
+            if (r && d?.status) {
+              setMsg(r.ok ? `Güncellendi · ${d.status.stats?.products ?? "?"} ürün` : `Hata: ${d.status.error ?? r.status}`);
+            } else {
+              // Yanıt gelmediyse (sunucu süre sınırı vb.) güncelleme sürüyor olabilir: durumu bir süre izle
+              setMsg("Güncelleme sürüyor, sonuç bekleniyor…");
+              setMsg(await waitForSync(Date.now() - 5_000));
+            }
             router.refresh();
           } finally {
             setBusy(false);
