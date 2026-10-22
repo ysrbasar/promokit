@@ -25,9 +25,11 @@ export const usesBlobs = () => {
   return process.env.NETLIFY === "true" || !!process.env.NETLIFY_BLOBS_CONTEXT || "netlifyBlobsContext" in globalThis;
 };
 
-let store: Promise<Store> | null = null;
-const blobs = () =>
-  (store ??= import("@netlify/blobs").then(({ getStore }) => getStore({ name: "promokit", consistency: "strong" })));
+// Depo nesnesi her çağrıda yeniden alınır: Netlify erişim anahtarını istek başına verir ve süresi dolar.
+// Sıcak kalan bir sunucuda saklanan eski nesne "Token expired" ile tüm sayfaları düşürüyordu.
+let mod: Promise<typeof import("@netlify/blobs")> | null = null;
+const blobs = async (): Promise<Store> =>
+  (await (mod ??= import("@netlify/blobs"))).getStore({ name: "promokit", consistency: "strong" });
 
 /** Blobs'a gidecek dosyanın anahtarı; depodaki başlangıç verisi için null */
 function blobKey(file: string): string | null {
