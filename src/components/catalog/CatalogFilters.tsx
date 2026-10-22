@@ -92,7 +92,7 @@ function FilterGroups({ facets, fixedCategory, counts }: Props) {
       <fieldset>
         <legend className="eyebrow mb-3">Stok</legend>
         <label className="flex cursor-pointer items-start gap-3 text-sm">
-          <input type="checkbox" className="mt-0.5 size-4 accent-[var(--color-ink)]" checked={sp.get("stok") === "var"} onChange={(e) => update({ stok: e.target.checked ? "var" : null })} />
+          <input type="checkbox" className="mt-0.5 size-4 accent-[var(--color-ink)]" checked={sp.get("stok") !== "hepsi"} onChange={(e) => update({ stok: e.target.checked ? null : "hepsi" })} />
           <span>
             Yalnızca stokta olanlar
             <span className="block text-xs text-muted">Kapalıyken stokta olmayan ürünler de &quot;Stokta yok&quot; etiketiyle listelenir.</span>
