@@ -136,6 +136,7 @@ const products: Product[] = SEEDS.map(([cat, name, material, size, colors, price
     minOrderQty: null,
     stockKept: true,
     setContents: [],
+    supplier: null,
   };
   const tags = deriveTags({ name, material, category: cat, description: null });
   const p: Product = { ...base, ...tags, dataCompleteness: 0 };

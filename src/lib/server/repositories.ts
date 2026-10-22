@@ -37,8 +37,26 @@ export type ProductOverride = z.infer<typeof ProductOverride>;
 const OVERRIDES_FILE = path.join(RUNTIME_DIR, "product-overrides.json");
 const IMPORTED_FILE = path.join(DATA_DIR, "catalog.json");
 const DEMO_FILE = path.join(DATA_DIR, "demo-catalog.json");
+/** İkinci tedarikçi: prmstk.com taraması (npm run catalog:prmstk ile güncellenir, depoya girer) */
+const PRMSTK_FILE = path.join(DATA_DIR, "prmstk-catalog.json");
 
-export type CatalogInfo = { kind: "import" | "demo"; generatedAt: string; note?: string; count: number };
+export type CatalogInfo = {
+  kind: "import" | "demo";
+  generatedAt: string;
+  note?: string;
+  count: number;
+  /** Kaynak bazında ürün sayısı ve verinin tarihi */
+  suppliers: { ipromosyon: number; prmstk: number; prmstkGeneratedAt: string | null };
+};
+
+/** prmstk ürünleri; ana katalogda aynı kodla bulunanlar atlanır (ipromosyon önceliklidir) */
+async function loadPrmstk(): Promise<CatalogFile | null> {
+  const raw = await readJson<unknown>(PRMSTK_FILE);
+  if (!raw) return null;
+  const parsed = CatalogFile.safeParse(raw);
+  if (!parsed.success) console.error("[katalog] prmstk-catalog.json geçersiz, atlandı:", parsed.error.issues.slice(0, 3));
+  return parsed.success ? parsed.data : null;
+}
 
 let cache: { key: string; products: Product[]; info: CatalogInfo } | null = null;
 
@@ -56,16 +74,21 @@ async function loadBase(): Promise<{ file: CatalogFile; path: string }> {
 }
 
 export async function getCatalog(): Promise<{ products: Product[]; info: CatalogInfo }> {
-  const stamps = await Promise.all([SYNCED_CATALOG_FILE, IMPORTED_FILE, DEMO_FILE, OVERRIDES_FILE, SETTINGS_FILE].map(mtime));
+  const stamps = await Promise.all([SYNCED_CATALOG_FILE, IMPORTED_FILE, DEMO_FILE, PRMSTK_FILE, OVERRIDES_FILE, SETTINGS_FILE].map(mtime));
   const key = stamps.join(":");
   if (cache?.key === key) return cache;
 
-  const [{ file }, overrides, settings] = await Promise.all([
+  const [{ file }, prm, overrides, settings] = await Promise.all([
     loadBase(),
+    loadPrmstk(),
     readJson<Record<string, ProductOverride>>(OVERRIDES_FILE),
     getSettings(),
   ]);
-  const products = file.products.map((p) => {
+  const base = file.products.map((p) => (p.supplier || file.meta.kind !== "import" ? p : { ...p, supplier: "ipromosyon" as const }));
+  const taken = new Set(base.map((p) => p.productCode));
+  const slugs = new Set(base.map((p) => p.slug));
+  const extra = file.meta.kind === "import" ? (prm?.products ?? []).filter((p) => !taken.has(p.productCode) && !slugs.has(p.slug)) : [];
+  const products = [...base, ...extra].map((p) => {
     const o = overrides?.[p.productCode];
     const merged = o ? { ...p, ...o } : p;
     return { ...merged, stockStatus: productStatus(merged, settings.minStock) };
@@ -73,7 +96,13 @@ export async function getCatalog(): Promise<{ products: Product[]; info: Catalog
   cache = {
     key,
     products,
-    info: { kind: file.meta.kind, generatedAt: file.meta.generatedAt, note: file.meta.note, count: products.length },
+    info: {
+      kind: file.meta.kind,
+      generatedAt: file.meta.generatedAt,
+      note: file.meta.note,
+      count: products.length,
+      suppliers: { ipromosyon: base.length, prmstk: extra.length, prmstkGeneratedAt: prm?.meta.generatedAt ?? null },
+    },
   };
   return cache;
 }

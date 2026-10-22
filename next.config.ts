@@ -6,6 +6,8 @@ const config: NextConfig = {
     // Görseller yerel olarak indirilmediyse kaynak alan adlarından sunulur.
     remotePatterns: [
       { protocol: "https", hostname: "www.ipromosyon.com" },
+      { protocol: "https", hostname: "www.prmstk.com" },
+      { protocol: "https", hostname: "www.promosyonfirma.com" },
     ],
   },
   // Turbopack/monorepo kökü: üst klasördeki form360 projesinden ayrık tut.

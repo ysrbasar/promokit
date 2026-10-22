@@ -52,6 +52,7 @@ export function product(code: string, over: Partial<Product> = {}): Product {
     minOrderQty: null,
     stockKept: true,
     setContents: [],
+    supplier: null,
     ...over,
   };
 }

@@ -10,10 +10,10 @@ import { getCatalog } from "@/lib/server/repositories";
 import { cn } from "@/components/ui/primitives";
 
 const PAGE = 100;
-type SP = { q?: string; durum?: string; kategori?: string; sayfa?: string };
+type SP = { q?: string; durum?: string; kategori?: string; kaynak?: string; sayfa?: string };
 
 export default async function AdminProducts({ searchParams }: { searchParams: Promise<SP> }) {
-  const { q = "", durum = "", kategori = "", sayfa = "1" } = await searchParams;
+  const { q = "", durum = "", kategori = "", kaynak = "", sayfa = "1" } = await searchParams;
   const [{ products }, costs] = await Promise.all([getCatalog(), getCosts()]);
 
   const counts = new Map<string, number>();
@@ -22,6 +22,7 @@ export default async function AdminProducts({ searchParams }: { searchParams: Pr
   const nq = normalize(q);
   let list = products.filter((p) => !q || normalize(p.name).includes(nq) || normalizeCode(p.productCode).includes(normalizeCode(q)));
   if (kategori) list = list.filter((p) => p.category === kategori);
+  if (kaynak) list = list.filter((p) => p.supplier === kaynak);
   if (durum === "aktif") list = list.filter((p) => p.isActive);
   if (durum === "pasif") list = list.filter((p) => !p.isActive);
   if (durum === "stokta") list = list.filter((p) => (p.stockQuantity ?? 0) > 0);
@@ -31,7 +32,7 @@ export default async function AdminProducts({ searchParams }: { searchParams: Pr
 
   const page = Math.max(1, Number(sayfa) || 1);
   const pages = Math.max(1, Math.ceil(list.length / PAGE));
-  const href = (patch: Partial<SP>) => `/admin/urunler?${new URLSearchParams({ q, durum, kategori, sayfa: "1", ...patch })}`;
+  const href = (patch: Partial<SP>) => `/admin/urunler?${new URLSearchParams({ q, durum, kategori, kaynak, sayfa: "1", ...patch })}`;
   const rows: AdminRow[] = list.slice((page - 1) * PAGE, page * PAGE).map((p) => {
     const cost = unitCost(costs, p.productCode);
     const cur = p.priceCurrency ?? "TRY";
@@ -49,6 +50,7 @@ export default async function AdminProducts({ searchParams }: { searchParams: Pr
     cost: cost !== null ? formatMoney(cost, cur) : "—",
     margin: p.price && cost !== null ? (p.price - cost) / p.price : null,
     review: p.needsReview,
+    supplier: p.supplier,
     };
   });
 
@@ -73,6 +75,11 @@ export default async function AdminProducts({ searchParams }: { searchParams: Pr
 
       <form className="mt-4 flex flex-wrap gap-2" action="/admin/urunler">
         <input type="hidden" name="kategori" value={kategori} />
+        <select name="kaynak" defaultValue={kaynak} className="h-11 rounded-full border border-line-strong bg-paper px-4 text-sm" aria-label="Kaynak filtresi">
+          <option value="">Tüm kaynaklar</option>
+          <option value="ipromosyon">ipromosyon ({products.filter((p) => p.supplier === "ipromosyon").length})</option>
+          <option value="prmstk">prmstk ({products.filter((p) => p.supplier === "prmstk").length})</option>
+        </select>
         <input name="q" defaultValue={q} placeholder="Ad veya ürün kodu" className="h-11 min-w-64 flex-1 rounded-full border border-line-strong bg-paper px-5 text-sm" />
         <select name="durum" defaultValue={durum} className="h-11 rounded-full border border-line-strong bg-paper px-4 text-sm" aria-label="Durum filtresi">
           <option value="">Tüm durumlar</option>

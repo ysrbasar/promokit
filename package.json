@@ -12,7 +12,10 @@
     "test": "vitest run",
     "admin:hash": "tsx scripts/admin-hash.ts",
     "catalog:demo": "tsx scripts/catalog/make-demo.ts",
-    "catalog:update": "tsx --env-file-if-exists=.env scripts/catalog/import-ipromosyon.ts"
+    "catalog:update": "tsx --env-file-if-exists=.env scripts/catalog/import-ipromosyon.ts",
+    "scrape:prmstk": "tsx scripts/catalog/scrape-prmstk.ts",
+    "catalog:prmstk": "tsx scripts/catalog/scrape-prmstk.ts --force && tsx scripts/catalog/crawl-promosyonfirma.ts && tsx scripts/catalog/build-prmstk.ts",
+    "site:crawl": "tsx scripts/catalog/crawl-promosyonfirma.ts"
   },
   "engines": {
     "node": ">=20"

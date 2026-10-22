@@ -85,6 +85,8 @@ export const Product = z.object({
   stockKept: z.boolean().default(true),
   /** Kutulu setlerde içerik listesi */
   setContents: z.array(z.object({ code: z.string(), name: z.string() })).default([]),
+  /** Ürünün geldiği tedarikçi verisi (yönetim panelinde "Kaynak" sütunu) */
+  supplier: z.enum(["ipromosyon", "prmstk"]).nullable().default(null),
 });
 export type Product = z.infer<typeof Product>;
 

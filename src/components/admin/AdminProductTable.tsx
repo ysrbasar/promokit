@@ -20,6 +20,13 @@ export type AdminRow = {
   cost: string;
   margin: number | null;
   review: string[];
+  /** Tedarikçi verisi: ipromosyon (XML) veya prmstk (site taraması) */
+  supplier: "ipromosyon" | "prmstk" | null;
+};
+
+const SUPPLIER: Record<string, { label: string; cls: string }> = {
+  ipromosyon: { label: "ipromosyon", cls: "bg-sky-100 text-sky-800" },
+  prmstk: { label: "prmstk", cls: "bg-amber-100 text-amber-900" },
 };
 
 async function patch(body: object) {
@@ -81,7 +88,7 @@ export function AdminProductTable({ rows, totalInFilter, allCodesInFilter }: { r
       </div>
 
       <div className="mt-3 overflow-x-auto rounded-card border border-line bg-paper">
-        <table className="w-full min-w-[860px] text-sm">
+        <table className="w-full min-w-[960px] text-sm">
           <thead className="bg-stone/60 text-left text-xs text-muted">
             <tr>
               <th className="w-10 p-3">
@@ -93,6 +100,7 @@ export function AdminProductTable({ rows, totalInFilter, allCodesInFilter }: { r
                 />
               </th>
               <th className="p-3">Ürün</th>
+              <th className="p-3">Kaynak</th>
               <th className="p-3">Stok</th>
               <th className="p-3">Liste / alış</th>
               <th className="p-3">Kategori</th>
@@ -122,6 +130,13 @@ export function AdminProductTable({ rows, totalInFilter, allCodesInFilter }: { r
                       {r.review.length > 0 && <div className="text-xs text-warning">{r.review.join(", ")}</div>}
                     </div>
                   </div>
+                </td>
+                <td className="p-3">
+                  {r.supplier ? (
+                    <span className={cn("inline-block rounded-full px-2.5 py-1 text-xs font-semibold", SUPPLIER[r.supplier].cls)}>{SUPPLIER[r.supplier].label}</span>
+                  ) : (
+                    <span className="text-xs text-subtle">—</span>
+                  )}
                 </td>
                 <td className="p-3 text-xs">
                   {r.stockLabel}

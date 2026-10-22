@@ -194,6 +194,7 @@ export function parseIpromosyon(allXml: string, stockXml: string, now = new Date
       minOrderQty: Number.isFinite(moq) && moq > 0 ? moq : null,
       stockKept: txt($a, el, "stoklu_urun") === "true",
       setContents: [] as { code: string; name: string }[],
+      supplier: "ipromosyon" as const,
     };
     const p: Product = { ...base, ...deriveTags(base), dataCompleteness: 0 };
     p.dataCompleteness = completeness(p);
